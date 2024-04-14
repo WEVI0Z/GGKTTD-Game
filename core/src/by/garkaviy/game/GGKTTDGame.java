@@ -1,12 +1,9 @@
 package by.garkaviy.game;
 
 import by.garkaviy.game.screen.MainMenuScreen;
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.utils.ScreenUtils;
 
 public class GGKTTDGame extends Game {
 	public SpriteBatch batch;
