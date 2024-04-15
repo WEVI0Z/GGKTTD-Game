@@ -20,7 +20,7 @@ public class GameScreen implements Screen {
     private final GGKTTDGame game;
     private final OrthographicCamera camera;
     private final Texture playerTexture;
-    private final LocationBuilder locationBuilder = new LocationBuilder();
+    private final LocationBuilder locationBuilder;
     private final Rectangle player;
 
     GameScreen(GGKTTDGame game) {
@@ -29,14 +29,15 @@ public class GameScreen implements Screen {
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 800, 480);
 
-        locationBuilder
-                .setSize(10, 10)
-                .fillWithTile(new TileEntity(TileType.BACKGROUND, TextureLib.COBBLESTONE.getTexture()));
+        locationBuilder = LocationBuilder.getInstance()
+                .setSize(10, 15)
+                .fillWithBackground(TextureLib.COBBLESTONE.getTexture())
+                .generateWalls(TextureLib.STONE_WALL.getTexture());
 
         playerTexture = TextureLib.PLAYER.getTexture();
         player = new Rectangle();
-        player.x = 50;
-        player.y = 50;
+        player.x = 100;
+        player.y = 100;
         player.width = 50;
         player.height = 50;
     }
