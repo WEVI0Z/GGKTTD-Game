@@ -4,6 +4,8 @@ import by.garkaviy.game.GGKTTDGame;
 import by.garkaviy.game.location.LocationBuilder;
 import by.garkaviy.game.location.TileEntity;
 import by.garkaviy.game.location.TileType;
+import by.garkaviy.game.player.Player;
+import by.garkaviy.game.player.PlayerBuilder;
 import by.garkaviy.game.texture.TextureLib;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -21,7 +23,7 @@ public class GameScreen implements Screen {
     private final OrthographicCamera camera;
     private final Texture playerTexture;
     private final LocationBuilder locationBuilder;
-    private final Rectangle player;
+    private final Player player;
 
     GameScreen(GGKTTDGame game) {
         this.game = game;
@@ -35,11 +37,10 @@ public class GameScreen implements Screen {
                 .generateWalls(TextureLib.STONE_WALL.getTexture());
 
         playerTexture = TextureLib.PLAYER.getTexture();
-        player = new Rectangle();
-        player.x = 100;
-        player.y = 100;
-        player.width = 50;
-        player.height = 50;
+        player = PlayerBuilder.getInstance()
+                .setXPos(100)
+                .setYPos(100)
+                .build();
     }
 
     @Override
