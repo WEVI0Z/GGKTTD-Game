@@ -34,7 +34,8 @@ public class GameScreen implements Screen {
         locationBuilder = LocationBuilder.getInstance()
                 .setSize(10, 15)
                 .fillWithBackground(TextureLib.COBBLESTONE.getTexture())
-                .generateWalls(TextureLib.STONE_WALL.getTexture());
+                .generateWalls(TextureLib.STONE_WALL.getTexture())
+                .placeTile(4, 4, new TileEntity(TileType.WALL, TextureLib.STONE_WALL.getTexture()));
 
         playerTexture = TextureLib.PLAYER.getTexture();
         player = PlayerBuilder.getInstance()

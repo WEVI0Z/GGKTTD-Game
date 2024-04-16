@@ -48,7 +48,7 @@ public class LocationBuilder {
     public LocationBuilder fillWithTile(TileEntity tileEntity) {
         for (int i = 0; i < xTileSize; i++) {
             for (int j = 0; j < yTileSize; j++) {
-                locationMap.get(i).get(j).setTitle(tileEntity);
+                locationMap.get(i).get(j).setTile(tileEntity);
             }
         }
 
@@ -58,7 +58,8 @@ public class LocationBuilder {
     public LocationBuilder fillWithBackground(Texture texture) {
         for (int i = 0; i < xTileSize; i++) {
             for (int j = 0; j < yTileSize; j++) {
-                locationMap.get(i).get(j).setTitle(new TileEntity(TileType.BACKGROUND, texture));
+                locationMap.get(i).get(j).setTile(new TileEntity(TileType.BACKGROUND, texture,
+                        TEXTURE_SIZE * i + xStartPos, TEXTURE_SIZE * j + yStartPos));
             }
         }
 
@@ -67,13 +68,19 @@ public class LocationBuilder {
 
     public LocationBuilder generateWalls(Texture texture) {
         for (int i = 0; i < xTileSize; i++) {
-            locationMap.get(i).get(0).setTitle(new TileEntity(TileType.WALL, texture));
-            locationMap.get(i).get(yTileSize - 1).setTitle(new TileEntity(TileType.WALL, texture));
+            locationMap.get(i).get(0).setTile(new TileEntity(TileType.WALL, texture,
+                    TEXTURE_SIZE * i + xStartPos, 0));
+
+            locationMap.get(i).get(yTileSize - 1).setTile(new TileEntity(TileType.WALL, texture,
+                    TEXTURE_SIZE * i + xStartPos, (yTileSize - 1) * TEXTURE_SIZE));
         }
 
         for (int i = 0; i < yTileSize; i++) {
-            locationMap.get(0).get(i).setTitle(new TileEntity(TileType.WALL, texture));
-            locationMap.get(xTileSize - 1).get(i).setTitle(new TileEntity(TileType.WALL, texture));
+            locationMap.get(0).get(i).setTile(new TileEntity(TileType.WALL, texture,
+                    0, i * TEXTURE_SIZE + xStartPos));
+
+            locationMap.get(xTileSize - 1).get(i).setTile(new TileEntity(TileType.WALL, texture,
+                    (xTileSize - 1) * TEXTURE_SIZE, i * TEXTURE_SIZE + xStartPos));
         }
 
         return this;
@@ -81,20 +88,15 @@ public class LocationBuilder {
 
     public void render(Batch batch) {
         batch.begin();
-        for (int i = 0; i < xTileSize; i++) {
-            for (int j = 0; j < yTileSize; j++) {
-                TileEntity tileEntity = locationMap.get(i).get(j);
-                if (!tileEntity.getTileType().equals(TileType.EMPTY)) {
-                    batch.draw(tileEntity.getTexture(), TEXTURE_SIZE * i + xStartPos,
-                            TEXTURE_SIZE * j + yStartPos, TEXTURE_SIZE, TEXTURE_SIZE);
-                }
-            }
-        }
+        locationMap.forEach(row -> row.forEach(tile -> tile.render(batch)));
         batch.end();
     }
 
     public LocationBuilder placeTile(int xTile, int yTile, TileEntity tileEntity) {
-        locationMap.get(xTile).get(yTile).setTitle(tileEntity);
+        TileEntity tile = new TileEntity(tileEntity.getTileType(), tileEntity.getTexture(),
+                TEXTURE_SIZE * xTile + xStartPos, TEXTURE_SIZE * yTile + yStartPos);
+
+        locationMap.get(xTile).get(yTile).setTile(tile);
 
         return this;
     }
