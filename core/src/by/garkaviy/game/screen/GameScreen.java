@@ -53,8 +53,8 @@ public class GameScreen implements Screen {
 
     @Override
     public void render(float delta) {
+        Gdx.app.setLogLevel(Application.LOG_DEBUG);
         ScreenUtils.clear(1, 1, 1, 1);
-        Gdx.app.setLogLevel(Application.LOG_INFO);
 
         contextContainer.updateContext(player, locationBuilder.getWalls());
 
