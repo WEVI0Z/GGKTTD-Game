@@ -4,6 +4,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class LocationBuilder {
     public final static int TEXTURE_SIZE = 50;
@@ -99,6 +101,13 @@ public class LocationBuilder {
         locationMap.get(xTile).get(yTile).setTile(tile);
 
         return this;
+    }
+
+    public List<TileEntity> getWalls() {
+        return locationMap.stream()
+                .flatMap(List::stream)
+                .filter(tile -> tile.getTileType().equals(TileType.WALL))
+                .collect(Collectors.toList());
     }
 
     public int getXTileSize() {

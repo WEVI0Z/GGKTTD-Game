@@ -63,4 +63,20 @@ public class TileEntity {
             batch.draw(texture, xCord, yCord, width, height);
         }
     }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public int getXCord() {
+        return xCord;
+    }
+
+    public int getYCord() {
+        return yCord;
+    }
 }

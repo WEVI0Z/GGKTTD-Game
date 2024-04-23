@@ -1,12 +1,14 @@
 package by.garkaviy.game.screen;
 
 import by.garkaviy.game.GGKTTDGame;
+import by.garkaviy.game.context.ContextContainer;
 import by.garkaviy.game.location.LocationBuilder;
 import by.garkaviy.game.location.TileEntity;
 import by.garkaviy.game.location.TileType;
 import by.garkaviy.game.player.Player;
 import by.garkaviy.game.player.PlayerBuilder;
 import by.garkaviy.game.texture.TextureLib;
+import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
@@ -24,6 +26,7 @@ public class GameScreen implements Screen {
     private final Texture playerTexture;
     private final LocationBuilder locationBuilder;
     private final Player player;
+    private final ContextContainer contextContainer = new ContextContainer();
 
     GameScreen(GGKTTDGame game) {
         this.game = game;
@@ -51,6 +54,9 @@ public class GameScreen implements Screen {
     @Override
     public void render(float delta) {
         ScreenUtils.clear(1, 1, 1, 1);
+        Gdx.app.setLogLevel(Application.LOG_INFO);
+
+        contextContainer.updateContext(player, locationBuilder.getWalls());
 
         camera.update();
         game.batch.setProjectionMatrix(camera.combined);
@@ -79,6 +85,8 @@ public class GameScreen implements Screen {
         // Обновляем позицию камеры
         camera.position.set(player.x + player.width / 2, player.y + player.height / 2, 0);
         camera.update();
+
+        contextContainer.checkCollision();
 
         game.batch.end();
     }
