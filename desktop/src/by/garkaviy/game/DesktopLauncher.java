@@ -11,6 +11,7 @@ public class DesktopLauncher {
 		config.setForegroundFPS(60);
 		config.useVsync(true);
 		config.setTitle("GGKTTD-Game");
+		config.setWindowIcon("drop.png");
 		// Установка полноэкранного режима
 		config.setWindowedMode(1500, 1000);
 		new Lwjgl3Application(new GGKTTDGame(), config);
