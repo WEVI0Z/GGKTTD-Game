@@ -1,46 +1,50 @@
 package by.garkaviy.game.screen;
 
 import by.garkaviy.game.GGKTTDGame;
+import by.garkaviy.game.ui.elements.UIButton;
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.ScreenUtils;
-import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.sun.tools.javac.util.List;
 
 public class MainMenuScreen implements Screen {
     private final GGKTTDGame game;
     private final OrthographicCamera camera;
-    private final SpriteBatch batch;
-    private final BitmapFont font;
-    private final ShapeRenderer shapeRenderer;
-
-    private final Rectangle playButtonRectangle;
-    private final Rectangle settingsButtonRectangle;
-    private final Rectangle exitButtonRectangle;
+    private final UIButton playButton;
+    private final UIButton settingsButton;
+    private final UIButton exitButton;
 
     public MainMenuScreen(final GGKTTDGame game) {
         this.game = game;
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 800, 480);
-        batch = new SpriteBatch();
-        shapeRenderer = new ShapeRenderer();
 
-        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/minecraft.ttf"));
-        FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        parameter.size = 32;
+        exitButton = (UIButton) new UIButton()
+                .borderColor(Color.BLACK)
+                .title("Выход")
+                .x(100)
+                .y(100)
+                .width(300)
+                .height(50);
 
-        font = generator.generateFont(parameter);
-        font.setColor(Color.BLACK);
+        settingsButton = (UIButton) new UIButton()
+                .borderColor(Color.BLACK)
+                .title("Настройки")
+                .x(100)
+                .y(200)
+                .width(300)
+                .height(50);
 
-        playButtonRectangle = new Rectangle(100, 100, 200, 50);
-        settingsButtonRectangle = new Rectangle(100, 200, 200, 50);
-        exitButtonRectangle = new Rectangle(100, 300, 200, 50);
+        playButton = (UIButton) new UIButton()
+                .borderColor(Color.BLACK)
+                .title("Играть")
+                .x(100)
+                .y(300)
+                .width(300)
+                .height(50);
     }
 
     @Override
@@ -54,30 +58,14 @@ public class MainMenuScreen implements Screen {
         ScreenUtils.clear(1, 1, 1, 1);
 
         camera.update();
+        playButton.render(game.batch);
+        settingsButton.render(game.batch);
+        exitButton.render(game.batch);
 
-        batch.begin();
-        font.draw(batch, "Play", playButtonRectangle.x + 50, playButtonRectangle.y + 40);
-        font.draw(batch, "Settings", settingsButtonRectangle.x + 40, settingsButtonRectangle.y + 40);
-        font.draw(batch, "Exit", exitButtonRectangle.x + 50, exitButtonRectangle.y + 40);
-        batch.end();
-
-        shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
-        shapeRenderer.setColor(Color.BLACK);
-        shapeRenderer.rect(playButtonRectangle.x, playButtonRectangle.y, playButtonRectangle.width, playButtonRectangle.height);
-        shapeRenderer.rect(settingsButtonRectangle.x, settingsButtonRectangle.y, settingsButtonRectangle.width, settingsButtonRectangle.height);
-        shapeRenderer.rect(exitButtonRectangle.x, exitButtonRectangle.y, exitButtonRectangle.width, exitButtonRectangle.height);
-        shapeRenderer.end();
-
-        if (Gdx.input.isTouched()) {
-            Gdx.app.debug("Touch",
-                    "Touched x: " + Gdx.input.getX() + " y: " + (Gdx.graphics.getHeight() - Gdx.input.getY()));
-            Gdx.app.debug("Touch", playButtonRectangle.x + " " + playButtonRectangle.y);
-            if (playButtonRectangle.contains(Gdx.input.getX(), (Gdx.graphics.getHeight() - Gdx.input.getY()))) {
-                // Обработка нажатия на кнопку "Play"
-                game.setScreen(new GameScreen(game));
-                dispose();
-            }
-        }
+        playButton.clickAction(() -> {
+            game.setScreen(new GameScreen(game));
+            dispose();
+        });
     }
 
     @Override
@@ -102,6 +90,5 @@ public class MainMenuScreen implements Screen {
 
     @Override
     public void dispose() {
-        font.dispose();
     }
 }

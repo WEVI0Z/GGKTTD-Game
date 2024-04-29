@@ -2,7 +2,9 @@ package by.garkaviy.game.location;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import lombok.Getter;
 
+@Getter
 public class TileEntity {
     public static final int STANDARD_WIDTH = 50;
     public static final int STANDARD_HEIGHT = 50;
@@ -41,14 +43,6 @@ public class TileEntity {
         this.tileType = tileType;
     }
 
-    public Texture getTexture() {
-        return texture;
-    }
-
-    public TileType getTileType() {
-        return tileType;
-    }
-
     public void setTile(TileEntity tileEntity) {
         this.texture = tileEntity.texture;
         this.tileType = tileEntity.tileType;
@@ -62,14 +56,6 @@ public class TileEntity {
         if (!tileType.equals(TileType.EMPTY)) {
             batch.draw(texture, xCord, yCord, width, height);
         }
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public int getHeight() {
-        return height;
     }
 
     public int getXCord() {
