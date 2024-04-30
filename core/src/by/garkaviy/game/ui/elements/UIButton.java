@@ -18,6 +18,7 @@ public class UIButton extends UIElement {
     private Color borderColor;
     private String title = "Button";
     private Rectangle buttonRectangle;
+    private Runnable runnable;
 
     @Override
     public void render(Batch batch) {
@@ -42,7 +43,7 @@ public class UIButton extends UIElement {
         shapeRenderer.end();
     }
 
-    public void clickAction(Runnable runnable) {
+    public void clickAction() {
         if (Gdx.input.isTouched()) {
             if (buttonRectangle.contains(Gdx.input.getX(), (Gdx.graphics.getHeight() - Gdx.input.getY()))) {
                 Gdx.app.debug("Button", "Button " + title + " has been clicked");
