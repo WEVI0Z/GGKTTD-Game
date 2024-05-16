@@ -7,6 +7,7 @@ import by.garkaviy.game.location.TileEntity;
 import by.garkaviy.game.location.TileType;
 import by.garkaviy.game.player.Player;
 import by.garkaviy.game.player.PlayerBuilder;
+import by.garkaviy.game.script.SetScreenScript;
 import by.garkaviy.game.texture.TextureLib;
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
@@ -24,7 +25,6 @@ public class GameScreen implements Screen {
     private final Texture playerTexture;
     private final LocationBuilder locationBuilder;
     private final Player player;
-    private final CollisionChecker contextContainer = new CollisionChecker();
 
     GameScreen(GGKTTDGame game) {
         this.game = game;
@@ -37,7 +37,12 @@ public class GameScreen implements Screen {
                 .fillWithBackground(TextureLib.COBBLESTONE.getTexture())
                 .generateWalls(TextureLib.STONE_WALL.getTexture())
                 .placeTile(4, 4, new TileEntity(TileType.WALL, TextureLib.STONE_WALL.getTexture()))
-                .placeTile(9, 9, new TileEntity(TileType.ACTION, TextureLib.ACTION_EXAMPLE.getTexture()));
+                .placeAction(9, 9, new TileEntity(TileType.ACTION,
+                        TextureLib.ACTION_EXAMPLE.getTexture()),
+                        new SetScreenScript(() -> {
+                            dispose();
+                            game.setScreen(new MainMenuScreen(game));
+                        }));
 
         playerTexture = TextureLib.PLAYER.getTexture();
         player = PlayerBuilder.getInstance()
@@ -84,11 +89,7 @@ public class GameScreen implements Screen {
         camera.update();
 
         CollisionChecker.checkCollision(player, locationBuilder.getWalls());
-        CollisionChecker.checkActionCollision(player, locationBuilder.getActions(), () -> {
-            Gdx.app.log("Action", "Action was triggered");
-            dispose();
-            game.setScreen(new MainMenuScreen(game));
-        });
+        CollisionChecker.checkActionCollision(player, locationBuilder.getActions());
 
         batch.end();
     }

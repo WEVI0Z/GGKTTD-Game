@@ -1,5 +1,6 @@
 package by.garkaviy.game.location;
 
+import by.garkaviy.game.script.GGKTTDScript;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 
@@ -97,6 +98,15 @@ public class LocationBuilder {
     public LocationBuilder placeTile(int xTile, int yTile, TileEntity tileEntity) {
         TileEntity tile = new TileEntity(tileEntity.getTileType(), tileEntity.getTexture(),
                 TEXTURE_SIZE * xTile + xStartPos, TEXTURE_SIZE * yTile + yStartPos);
+
+        locationMap.get(xTile).get(yTile).setTile(tile);
+
+        return this;
+    }
+
+    public LocationBuilder placeAction(int xTile, int yTile, TileEntity tileEntity, GGKTTDScript script) {
+        TileEntity tile = new TileEntity(tileEntity.getTileType(), tileEntity.getTexture(),
+                TEXTURE_SIZE * xTile + xStartPos, TEXTURE_SIZE * yTile + yStartPos, script);
 
         locationMap.get(xTile).get(yTile).setTile(tile);
 

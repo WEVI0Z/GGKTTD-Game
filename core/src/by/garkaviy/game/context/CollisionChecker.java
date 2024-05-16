@@ -7,6 +7,7 @@ import com.badlogic.gdx.Gdx;
 
 import java.awt.*;
 import java.util.List;
+import java.util.Objects;
 
 public class CollisionChecker {
 
@@ -18,21 +19,25 @@ public class CollisionChecker {
         });
     }
 
-    public static void checkActionCollision(Player player, List<TileEntity> walls, Runnable action) {
+    public static void checkActionCollision(Player player, List<TileEntity> walls) {
         walls.forEach(wall -> {
             if (wall.getTileType().equals(TileType.ACTION)) {
-                checkActionCollision(player, wall, action);
+                checkActionCollision(player, wall);
             }
         });
     }
 
-    public static void checkActionCollision(Player player, TileEntity actionTile, Runnable action) {
+    public static void checkActionCollision(Player player, TileEntity actionTile) {
         Rectangle wallRect = new Rectangle(actionTile.getXCord(), actionTile.getYCord(),
                 actionTile.getWidth(), actionTile.getHeight());
 
         if (player.intersects(wallRect)) {
             Gdx.app.debug("Collision", "Collision detected with action at (" + actionTile.getXCord() + ", " + actionTile.getYCord() + ")");
-            action.run();
+            if (Objects.nonNull(actionTile.getScript())) {
+                actionTile.getScript().execute();
+            } else {
+                Gdx.app.error("Collision", "No script found for action at (" + actionTile.getXCord() + ", " + actionTile.getYCord() + ")");
+            }
         }
     }
 

@@ -1,5 +1,6 @@
 package by.garkaviy.game.location;
 
+import by.garkaviy.game.script.GGKTTDScript;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import lombok.Getter;
@@ -13,6 +14,7 @@ public class TileEntity {
 
     private Texture texture = null;
     private TileType tileType;
+    private GGKTTDScript script;
     private int width = STANDARD_WIDTH;
     private int height = STANDARD_HEIGHT;
     private int xCord = STANDARD_X_CORD;
@@ -32,11 +34,31 @@ public class TileEntity {
         this.yCord = yCord;
     }
 
+    public TileEntity(TileType tileType, Texture texture,
+                      int width, int height, int xCord, int yCord,
+                      GGKTTDScript script) {
+        this.tileType = tileType;
+        this.texture = texture;
+        this.width = width;
+        this.height = height;
+        this.xCord = xCord;
+        this.yCord = yCord;
+        this.script = script;
+    }
+
     public TileEntity(TileType tileType, Texture texture, int xCord, int yCord) {
         this.tileType = tileType;
         this.texture = texture;
         this.xCord = xCord;
         this.yCord = yCord;
+    }
+
+    public TileEntity(TileType tileType, Texture texture, int xCord, int yCord, GGKTTDScript script) {
+        this.tileType = tileType;
+        this.texture = texture;
+        this.xCord = xCord;
+        this.yCord = yCord;
+        this.script = script;
     }
 
     public TileEntity(TileType tileType) {
@@ -50,6 +72,7 @@ public class TileEntity {
         this.height = tileEntity.height;
         this.xCord = tileEntity.xCord;
         this.yCord = tileEntity.yCord;
+        this.script = tileEntity.script;
     }
 
     public void render(Batch batch) {
