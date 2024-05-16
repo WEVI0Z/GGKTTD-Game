@@ -104,9 +104,17 @@ public class LocationBuilder {
     }
 
     public List<TileEntity> getWalls() {
+        return getTilesByType(TileType.WALL);
+    }
+
+    public List<TileEntity> getActions() {
+        return getTilesByType(TileType.ACTION);
+    }
+
+    public List<TileEntity> getTilesByType(TileType tileType) {
         return locationMap.stream()
                 .flatMap(List::stream)
-                .filter(tile -> tile.getTileType().equals(TileType.WALL))
+                .filter(tile -> tile.getTileType().equals(tileType))
                 .collect(Collectors.toList());
     }
 

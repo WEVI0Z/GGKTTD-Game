@@ -8,15 +8,18 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 public class MainMenuScreen implements Screen {
-    private final GGKTTDGame game;
+    private final SpriteBatch batch;
     private final OrthographicCamera camera;
     private final UILayout layout;
+    private final GGKTTDGame game;
 
-    public MainMenuScreen(final GGKTTDGame game) {
+    public MainMenuScreen(GGKTTDGame game) {
         this.game = game;
+        this.batch = new SpriteBatch();
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 800, 480);
 
@@ -34,7 +37,7 @@ public class MainMenuScreen implements Screen {
         ScreenUtils.clear(1, 1, 1, 1);
 
         camera.update();
-        layout.render(game.batch);
+        layout.render(batch);
         layout.clickAction();
     }
 
@@ -60,6 +63,7 @@ public class MainMenuScreen implements Screen {
 
     @Override
     public void dispose() {
+        batch.dispose();
     }
 
     private UILayout createLayout() {
@@ -83,7 +87,10 @@ public class MainMenuScreen implements Screen {
         UIButton playButton = (UIButton) new UIButton()
                 .borderColor(Color.BLACK)
                 .title("Играть")
-                .runnable(() -> game.setScreen(new GameScreen(game)))
+                .runnable(() -> {
+                    dispose();
+                    game.setScreen(new GameScreen(game));
+                })
                 .x(100)
                 .y(300)
                 .width(300)

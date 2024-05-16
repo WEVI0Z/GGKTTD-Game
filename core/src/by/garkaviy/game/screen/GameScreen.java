@@ -1,7 +1,7 @@
 package by.garkaviy.game.screen;
 
 import by.garkaviy.game.GGKTTDGame;
-import by.garkaviy.game.context.ContextContainer;
+import by.garkaviy.game.context.CollisionChecker;
 import by.garkaviy.game.location.LocationBuilder;
 import by.garkaviy.game.location.TileEntity;
 import by.garkaviy.game.location.TileType;
@@ -15,22 +15,20 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.ScreenUtils;
-
-import java.awt.*;
 
 public class GameScreen implements Screen {
     private final GGKTTDGame game;
+    private final SpriteBatch batch;
     private final OrthographicCamera camera;
     private final Texture playerTexture;
     private final LocationBuilder locationBuilder;
     private final Player player;
-    private final ContextContainer contextContainer = new ContextContainer();
+    private final CollisionChecker contextContainer = new CollisionChecker();
 
     GameScreen(GGKTTDGame game) {
         this.game = game;
-        game.batch = new SpriteBatch();
+        batch = new SpriteBatch();
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 800, 480);
 
@@ -38,7 +36,8 @@ public class GameScreen implements Screen {
                 .setSize(10, 15)
                 .fillWithBackground(TextureLib.COBBLESTONE.getTexture())
                 .generateWalls(TextureLib.STONE_WALL.getTexture())
-                .placeTile(4, 4, new TileEntity(TileType.WALL, TextureLib.STONE_WALL.getTexture()));
+                .placeTile(4, 4, new TileEntity(TileType.WALL, TextureLib.STONE_WALL.getTexture()))
+                .placeTile(9, 9, new TileEntity(TileType.ACTION, TextureLib.ACTION_EXAMPLE.getTexture()));
 
         playerTexture = TextureLib.PLAYER.getTexture();
         player = PlayerBuilder.getInstance()
@@ -56,29 +55,27 @@ public class GameScreen implements Screen {
         Gdx.app.setLogLevel(Application.LOG_DEBUG);
         ScreenUtils.clear(1, 1, 1, 1);
 
-        contextContainer.updateContext(player, locationBuilder.getWalls());
-
         camera.update();
-        game.batch.setProjectionMatrix(camera.combined);
+        batch.setProjectionMatrix(camera.combined);
 
-        locationBuilder.render(game.batch);
+        locationBuilder.render(batch);
 
-        game.batch.begin();
+        batch.begin();
         // Отрисовываем игрока
-        game.batch.draw(playerTexture, player.x, player.y, player.width, player.height);
+        batch.draw(playerTexture, player.x, player.y, player.width, player.height);
 
         float offset = 200 * Gdx.graphics.getDeltaTime();
 
-        if (Gdx.input.isKeyPressed(Input.Keys.LEFT) && player.x > 0) {
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
             player.x -= (int) offset;
         }
-        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) && player.x + player.width < locationBuilder.getXTileSize() * LocationBuilder.TEXTURE_SIZE) {
+        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
             player.x += (int) offset;
         }
-        if (Gdx.input.isKeyPressed(Input.Keys.UP) && player.y + player.height < locationBuilder.getYTileSize() * LocationBuilder.TEXTURE_SIZE) {
+        if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
             player.y += (int) offset;
         }
-        if (Gdx.input.isKeyPressed(Input.Keys.DOWN) && player.y > 0) {
+        if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
             player.y -= (int) offset;
         }
 
@@ -86,9 +83,14 @@ public class GameScreen implements Screen {
         camera.position.set(player.x + player.width / 2, player.y + player.height / 2, 0);
         camera.update();
 
-        contextContainer.checkCollision();
+        CollisionChecker.checkCollision(player, locationBuilder.getWalls());
+        CollisionChecker.checkActionCollision(player, locationBuilder.getActions(), () -> {
+            Gdx.app.log("Action", "Action was triggered");
+            dispose();
+            game.setScreen(new MainMenuScreen(game));
+        });
 
-        game.batch.end();
+        batch.end();
     }
 
     @Override
@@ -113,6 +115,6 @@ public class GameScreen implements Screen {
 
     @Override
     public void dispose() {
-
+        batch.dispose();
     }
 }
