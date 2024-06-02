@@ -1,7 +1,6 @@
 package by.garkaviy.game.screen;
 
 import by.garkaviy.game.GGKTTDGame;
-import by.garkaviy.game.context.CollisionChecker;
 import by.garkaviy.game.context.GameContext;
 import by.garkaviy.game.location.LocationLibrary;
 import by.garkaviy.game.location.Router;
@@ -45,15 +44,7 @@ public class GameScreen implements Screen {
 
         Router.route();
 
-        batch.begin();
-        Player player = GameContext.getInstance().getPlayer();
-        batch.draw(player.texture, player.x, player.y, player.width, player.height);
-        player.watchControls(camera);
-        CollisionChecker.checkCollision(player, GameContext.getInstance()
-                .getRunnableLocation().getLocation().getWalls());
-        CollisionChecker.checkActionCollision(player, GameContext.getInstance()
-                .getRunnableLocation().getLocation().getActions());
-        batch.end();
+        GameContext.getInstance().getPlayer().render(batch, camera);
 
         if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
             setMainMenu();

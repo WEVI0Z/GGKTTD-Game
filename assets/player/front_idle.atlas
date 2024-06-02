@@ -1,0 +1,5 @@
+front_idle.png
+size:1024,128
+repeat:none
+spr_player_front_idle
+bounds:2,2,768,64
