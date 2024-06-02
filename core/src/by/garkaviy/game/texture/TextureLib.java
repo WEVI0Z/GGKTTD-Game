@@ -4,10 +4,12 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 
 public enum TextureLib {
-    COBBLESTONE(new Texture(Gdx.files.internal("texture-pack/Tile/Tile_01-256x256.png"))),
     STONE_WALL(new Texture(Gdx.files.internal("texture-pack/Stone/Stone_08-256x256.png"))),
-    ACTION_EXAMPLE(new Texture(Gdx.files.internal("texture-pack/Plaster/Plaster_05-256x256.png"))),
-    PLAYER(new Texture(Gdx.files.internal("drop.png")));
+    WOOD_FLOOR(new Texture(Gdx.files.internal("texture-pack/Wood/Wood_04-256x256.png"))),
+    STAIRS_DOWN(new Texture(Gdx.files.internal("texture-pack/Stairs/Stairs_01-256x256.png"))),
+    STAIRS_UP(new Texture(Gdx.files.internal("texture-pack/Stairs/Stairs_02-256x256.png"))),
+    GRASS(new Texture(Gdx.files.internal("texture-pack/Dirt/Dirt_19-256x256.png"))),
+    HALL_FLOOR(new Texture(Gdx.files.internal("texture-pack/Plaster/Plaster_08-256x256.png")));
 
     private final Texture texture;
 

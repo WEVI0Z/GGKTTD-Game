@@ -26,7 +26,7 @@ public class GameScreen implements Screen {
 
         GameContext.getInstance().setPlayer(new Player());
         GameContext.getInstance().getPlayer().setLocation(100, 100);
-        GameContext.getInstance().setRunnableLocation(LocationLibrary.FIRST_TEST_LOCATION);
+        GameContext.getInstance().setRunnableLocation(LocationLibrary.DORM_ROOM);
     }
 
     @Override

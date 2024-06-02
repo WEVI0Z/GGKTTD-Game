@@ -2,7 +2,6 @@ package by.garkaviy.game.player;
 
 import by.garkaviy.game.context.CollisionChecker;
 import by.garkaviy.game.context.GameContext;
-import by.garkaviy.game.texture.TextureLib;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Camera;
@@ -19,7 +18,6 @@ public class Player extends Rectangle {
     private final static int DEFAULT_HEIGHT = 50;
     private final static int DEFAULT_X_POS = 0;
     private final static int DEFAULT_Y_POS = 0;
-    private final static Texture DEFAULT_TEXTURE = TextureLib.PLAYER.getTexture();
 
     private PlayerState state = PlayerState.FRONT_IDLE;
     private float stateTime = 0f;
@@ -27,7 +25,6 @@ public class Player extends Rectangle {
     public Texture texture;
 
     public Player() {
-        texture = DEFAULT_TEXTURE;
         x = DEFAULT_X_POS;
         y = DEFAULT_Y_POS;
         width = DEFAULT_WIDTH;
