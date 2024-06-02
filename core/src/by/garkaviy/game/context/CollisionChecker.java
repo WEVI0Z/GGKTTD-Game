@@ -45,7 +45,8 @@ public class CollisionChecker {
         Rectangle wallRect = new Rectangle(wall.getXCord(), wall.getYCord(), wall.getWidth(), wall.getHeight());
 
         if (player.intersects(wallRect)) {
-            Gdx.app.debug("Collision", "Collision detected with wall at (" + wall.getXCord() + ", " + wall.getYCord() + ")");
+            Gdx.app.debug("Collision", "Collision detected with wall at ("
+                    + wall.getXCord() + ", " + wall.getYCord() + ")");
 
             // Определяем, с какой стороны стены произошло столкновение
             float playerCenterX = player.x + player.width / 2;

@@ -1,9 +1,7 @@
 package by.garkaviy.game.context;
 
-import by.garkaviy.game.location.Location;
 import by.garkaviy.game.location.LocationLibrary;
 import by.garkaviy.game.player.Player;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
