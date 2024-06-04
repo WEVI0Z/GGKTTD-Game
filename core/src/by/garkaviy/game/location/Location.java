@@ -85,6 +85,17 @@ public class Location {
         return this;
     }
 
+    public Location fillSquare(TileEntity tileEntity, int x1, int y1, int x2, int y2) {
+        for (int i = x1; i <= x2; i++) {
+            for (int j = y1; j <= y2; j++) {
+                locationMap.get(i).get(j).setTile(new TileEntity(tileEntity.getTileType(), tileEntity.getTexture(),
+                        TEXTURE_SIZE * i + xStartPos, TEXTURE_SIZE * j + yStartPos));
+            }
+        }
+
+        return this;
+    }
+
     public void render(Batch batch) {
         batch.begin();
         locationMap.forEach(row -> row.forEach(tile -> tile.render(batch)));
