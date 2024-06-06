@@ -1,7 +1,10 @@
 package by.garkaviy.game.test;
 
-import lombok.Getter;
+import lombok.Data;
 
-@Getter
+import java.util.List;
+
+@Data
 public class TestEntity {
+    private final List<QuestionEntity> questions;
 }

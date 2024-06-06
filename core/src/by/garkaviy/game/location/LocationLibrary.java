@@ -1,5 +1,8 @@
 package by.garkaviy.game.location;
 
+import by.garkaviy.game.context.GameContext;
+import by.garkaviy.game.script.AnyScript;
+import by.garkaviy.game.script.GGKTTDScript;
 import by.garkaviy.game.texture.TextureLib;
 import lombok.Getter;
 
@@ -20,9 +23,9 @@ public enum LocationLibrary {
             .fillWithBackground(TextureLib.WOOD_FLOOR.getTexture())
             .generateWalls(TextureLib.STONE_WALL.getTexture()))),
     DORM_UPSTAIRS((new Location()
-                    .setSize(10, 5)
-                    .fillWithBackground(TextureLib.WOOD_FLOOR.getTexture())
-                    .generateWalls(TextureLib.STONE_WALL.getTexture()))),
+            .setSize(10, 5)
+            .fillWithBackground(TextureLib.WOOD_FLOOR.getTexture())
+            .generateWalls(TextureLib.STONE_WALL.getTexture()))),
     DORM_HALL((new Location()
             .setSize(10, 5)
             .fillWithBackground(TextureLib.HALL_FLOOR.getTexture())
@@ -50,10 +53,22 @@ public enum LocationLibrary {
             .setSize(14, 6)
             .fillWithBackground(TextureLib.HALL_FLOOR.getTexture())
             .generateWalls(TextureLib.STONE_WALL.getTexture()))
-            .placeTile(2, 0, new TileEntity(TileType.WALL, TextureLib.HALL_FLOOR_SHADOWED.getTexture()))
-            .placeTile(5, 0, new TileEntity(TileType.WALL, TextureLib.HALL_FLOOR_SHADOWED.getTexture()))
-            .placeTile(8, 0, new TileEntity(TileType.WALL, TextureLib.HALL_FLOOR_SHADOWED.getTexture()))
-            .placeTile(11, 0, new TileEntity(TileType.WALL, TextureLib.HALL_FLOOR_SHADOWED.getTexture()))),
+            .placeAction(2, 0, new TileEntity(TileType.ACTION, TextureLib.HALL_FLOOR_SHADOWED.getTexture()),
+                    () -> {
+                        GameContext.getInstance().setChangeToTest(true);
+                    })
+            .placeAction(5, 0, new TileEntity(TileType.ACTION, TextureLib.HALL_FLOOR_SHADOWED.getTexture()),
+                    () -> {
+                        GameContext.getInstance().setChangeToTest(true);
+                    })
+            .placeAction(8, 0, new TileEntity(TileType.ACTION, TextureLib.HALL_FLOOR_SHADOWED.getTexture()),
+                    () -> {
+                        GameContext.getInstance().setChangeToTest(true);
+                    })
+            .placeAction(11, 0, new TileEntity(TileType.ACTION, TextureLib.HALL_FLOOR_SHADOWED.getTexture()),
+                    () -> {
+                        GameContext.getInstance().setChangeToTest(true);
+                    })),
     OUTSIDE((new Location()
             .setSize(20, 10)
             .fillWithBackground(TextureLib.GRASS.getTexture())
@@ -157,4 +172,4 @@ public enum LocationLibrary {
     LocationLibrary(Location location) {
         this.location = location;
     }
-    }
+}

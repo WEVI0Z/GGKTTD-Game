@@ -14,6 +14,7 @@ public class GameContext {
 
     private Player player;
     private LocationLibrary runnableLocation;
+    private boolean changeToTest = false;
 
     public static GameContext getInstance() {
         if (instance == null) {

@@ -15,13 +15,22 @@ import java.awt.*;
 @Getter
 @Setter
 @Accessors(fluent = true)
-public class UIButton extends UIElement {
+public class UIAnswer extends UIElement {
     private Color borderColor;
     private String title = "Button";
     private Rectangle buttonRectangle;
-    private Runnable runnable;
     private BitmapFont font = getFont();
     private boolean isFirst = true;
+    private boolean isCorrect = false;
+
+    public boolean intersects() {
+        if (buttonRectangle.contains(Gdx.input.getX(), (Gdx.graphics.getHeight() - Gdx.input.getY()))) {
+            Gdx.app.debug("Button", "Button " + title + " has been clicked");
+            return true;
+        }
+
+        return false;
+    }
 
     @Override
     public void render(Batch batch) {
@@ -38,17 +47,8 @@ public class UIButton extends UIElement {
         batch.end();
 
         shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
-        shapeRenderer.setColor(borderColor);
+        shapeRenderer.setColor(Color.BLACK);
         shapeRenderer.rect(x, y, width, height);
         shapeRenderer.end();
-    }
-
-    public void clickAction() {
-        if (Gdx.input.isTouched()) {
-            if (buttonRectangle.contains(Gdx.input.getX(), (Gdx.graphics.getHeight() - Gdx.input.getY()))) {
-                Gdx.app.debug("Button", "Button " + title + " has been clicked");
-                runnable.run();
-            }
-        }
     }
 }

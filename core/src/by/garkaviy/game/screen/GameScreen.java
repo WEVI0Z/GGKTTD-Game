@@ -26,7 +26,7 @@ public class GameScreen implements Screen {
 
         GameContext.getInstance().setPlayer(new Player());
         GameContext.getInstance().getPlayer().setLocation(100, 100);
-        GameContext.getInstance().setRunnableLocation(LocationLibrary.DORM_ROOM);
+        GameContext.getInstance().setRunnableLocation(LocationLibrary.CLASSES);
     }
 
     @Override
@@ -45,6 +45,12 @@ public class GameScreen implements Screen {
         Router.route();
 
         GameContext.getInstance().getPlayer().render(batch, camera);
+
+        if (GameContext.getInstance().isChangeToTest()) {
+            GameContext.getInstance().setChangeToTest(false);
+            dispose();
+            game.setScreen(new TestScreen(game));
+        }
 
         if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
             setMainMenu();
