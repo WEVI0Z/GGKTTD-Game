@@ -18,12 +18,17 @@ import java.awt.*;
 public class UIButton extends UIElement {
     private Color borderColor;
     private String title = "Button";
-    private Rectangle buttonRectangle = new Rectangle(x, y, width, height);
+    private Rectangle buttonRectangle;
     private Runnable runnable;
     private BitmapFont font = getFont();
+    private boolean isFirst = true;
 
     @Override
     public void render(Batch batch) {
+        if (isFirst) {
+            isFirst = false;
+            buttonRectangle = new Rectangle(x, y, width, height);
+        }
         // Вертикальное центрирование текста
         float textHeight = font.getLineHeight();
         float centerY = y + height / 2 + textHeight / 2;
