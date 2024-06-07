@@ -92,13 +92,12 @@ public class MainMenuScreen implements Screen {
                     game.setScreen(new GameScreen(game));
                 })
                 .x(100)
-                .y(300)
+                .y(200)
                 .width(300)
                 .height(50);
 
         UILayout layout = new UILayout();
         return layout.addElement(playButton)
-                .addElement(settingsButton)
                 .addElement(exitButton);
     }
 }

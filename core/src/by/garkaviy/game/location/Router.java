@@ -112,7 +112,7 @@ public class Router {
             case CLASSES:
                 GameContext.getInstance().getRunnableLocation().getLocation()
                         .placeAction(2, 5, new TileEntity(TileType.ACTION, TextureLib.HALL_FLOOR_SHADOWED.getTexture()), () -> {
-                            GameContext.getInstance().getPlayer().setLocation(200, 50);
+                            GameContext.getInstance().getPlayer().setLocation(100, 50);
                             GameContext.getInstance().setRunnableLocation(LocationLibrary.COLLEGE_HALL);
                         });
                 break;

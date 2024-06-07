@@ -97,7 +97,7 @@ public class TestScreen implements Screen {
 
         if (isButtonPressed) {
             fpsCounter++;
-            if (fpsCounter == 60) {
+            if (fpsCounter == 15) {
                 fpsCounter = 0;
                 isButtonPressed = false;
             }
