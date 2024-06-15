@@ -1,7 +1,13 @@
 package by.garkaviy.game.ui.elements;
 
+import by.garkaviy.game.location.TileEntity;
+import by.garkaviy.game.location.TileType;
+import by.garkaviy.game.texture.TextureLib;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -11,6 +17,7 @@ import lombok.Setter;
 import lombok.experimental.Accessors;
 
 import java.awt.*;
+import java.util.Objects;
 
 @Getter
 @Setter
@@ -22,9 +29,17 @@ public class UIButton extends UIElement {
     private Runnable runnable;
     private BitmapFont font = getFont();
     private boolean isFirst = true;
+    private TextureLib texture;
 
     @Override
     public void render(Batch batch) {
+        if (Objects.nonNull(texture)) {
+            TileEntity tileEntity = new TileEntity(TileType.WALL, texture.getTexture(), 100, 100, x, y);
+            title = "";
+            batch.begin();
+            tileEntity.render(batch);
+            batch.end();
+        }
         if (isFirst) {
             isFirst = false;
             buttonRectangle = new Rectangle(x, y, width, height);
@@ -41,6 +56,11 @@ public class UIButton extends UIElement {
         shapeRenderer.setColor(borderColor);
         shapeRenderer.rect(x, y, width, height);
         shapeRenderer.end();
+    }
+
+    @Override
+    public void render(Batch batch, OrthographicCamera camera) {
+
     }
 
     public void clickAction() {

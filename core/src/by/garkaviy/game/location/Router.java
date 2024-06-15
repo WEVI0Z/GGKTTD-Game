@@ -22,7 +22,7 @@ public class Router {
                 break;
             case DORM_ROOM:
                 GameContext.getInstance().getRunnableLocation().getLocation().placeAction(3, 0,
-                        new TileEntity(TileType.ACTION, TextureLib.WOOD_FLOOR.getTexture()), () -> {
+                        new TileEntity(TileType.ACTION, GameContext.getInstance().getRoomTexture()), () -> {
                             GameContext.getInstance().getPlayer().setLocation(350, 150);
                             GameContext.getInstance().setRunnableLocation(LocationLibrary.DORM_UPSTAIRS);
                         });

@@ -1,7 +1,9 @@
 package by.garkaviy.game.ui.elements;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
@@ -23,6 +25,7 @@ public abstract class UIElement {
     protected final ShapeRenderer shapeRenderer = new ShapeRenderer();
 
     public abstract void render(Batch batch);
+    public abstract void render(Batch batch, OrthographicCamera camera);
 
     protected BitmapFont getFont() {
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/minecraft.ttf"));

@@ -5,10 +5,16 @@ import by.garkaviy.game.context.GameContext;
 import by.garkaviy.game.location.LocationLibrary;
 import by.garkaviy.game.location.Router;
 import by.garkaviy.game.player.Player;
+import by.garkaviy.game.ui.UILayout;
+import by.garkaviy.game.ui.elements.UIBalance;
+import by.garkaviy.game.ui.elements.UIButton;
+import by.garkaviy.game.ui.elements.UICameraButton;
+import by.garkaviy.game.ui.elements.UIElement;
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
@@ -17,6 +23,7 @@ public class GameScreen implements Screen {
     private final SpriteBatch batch;
     private final OrthographicCamera camera;
     private final GGKTTDGame game;
+    private final UILayout layout;
 
     GameScreen(GGKTTDGame game) {
         this.game = game;
@@ -25,8 +32,9 @@ public class GameScreen implements Screen {
         camera.setToOrtho(false, 800, 480);
 
         GameContext.getInstance().setPlayer(new Player());
-        GameContext.getInstance().getPlayer().setLocation(100, 100);
-        GameContext.getInstance().setRunnableLocation(LocationLibrary.CLASSES);
+        GameContext.getInstance().getPlayer().setLocation(GameContext.getInstance().getLastX(), GameContext.getInstance().getLastY());
+
+        layout = createLayout();
     }
 
     @Override
@@ -40,7 +48,11 @@ public class GameScreen implements Screen {
         camera.update();
         batch.setProjectionMatrix(camera.combined);
 
-        GameContext.getInstance().getRunnableLocation().getLocation().render(batch);
+        if (GameContext.getInstance().getRunnableLocation().equals(LocationLibrary.DORM_ROOM)) {
+            GameContext.getInstance().getRunnableLocation().getLocation().renderDormRoom(batch);
+        } else {
+            GameContext.getInstance().getRunnableLocation().getLocation().render(batch);
+        }
 
         Router.route();
 
@@ -55,11 +67,46 @@ public class GameScreen implements Screen {
         if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
             setMainMenu();
         }
+
+        layout.render(batch, camera);
+        layout.clickAction();
+    }
+
+    private UILayout createLayout() {
+        UIElement exitButton = new UICameraButton(16)
+                .borderColor(Color.BLACK)
+                .title("Выход")
+                .runnable(() -> Gdx.app.exit())
+                .x(100)
+                .y(100)
+                .width(300)
+                .height(50);
+
+        UIElement balance = new UIBalance(16)
+                .borderColor(Color.BLACK)
+                .title("Баланс: 0")
+                .runnable(() -> {
+                    dispose();
+                    game.setScreen(new UpgradeScreen(game));
+                    GameContext.getInstance().setLastX(GameContext.getInstance().getPlayer().x);
+                    GameContext.getInstance().setLastY(GameContext.getInstance().getPlayer().y);
+                })
+                .x(100)
+                .y(200)
+                .width(300)
+                .height(50);
+
+        UILayout layout = new UILayout();
+        layout.addElement(exitButton);
+        layout.addElement(balance);
+        return layout;
     }
 
     private void setMainMenu() {
         dispose();
         game.setScreen(new MainMenuScreen(game));
+        GameContext.getInstance().setLastX(GameContext.getInstance().getPlayer().x);
+        GameContext.getInstance().setLastY(GameContext.getInstance().getPlayer().y);
     }
 
     @Override

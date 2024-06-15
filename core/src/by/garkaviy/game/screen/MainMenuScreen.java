@@ -71,8 +71,8 @@ public class MainMenuScreen implements Screen {
                 .borderColor(Color.BLACK)
                 .title("Выход")
                 .runnable(() -> Gdx.app.exit())
-                .x(100)
-                .y(100)
+                .x(600)
+                .y(700)
                 .width(300)
                 .height(50);
 
@@ -91,8 +91,8 @@ public class MainMenuScreen implements Screen {
                     dispose();
                     game.setScreen(new GameScreen(game));
                 })
-                .x(100)
-                .y(200)
+                .x(600)
+                .y(800)
                 .width(300)
                 .height(50);
 

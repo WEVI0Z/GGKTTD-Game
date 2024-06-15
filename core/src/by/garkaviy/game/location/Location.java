@@ -1,6 +1,8 @@
 package by.garkaviy.game.location;
 
+import by.garkaviy.game.context.GameContext;
 import by.garkaviy.game.script.GGKTTDScript;
+import by.garkaviy.game.texture.TextureLib;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 
@@ -15,6 +17,7 @@ public class Location {
     private int xStartPos = 0;
     private int yStartPos = 0;
     private final ArrayList<ArrayList<TileEntity>> locationMap = new ArrayList<>();
+    private boolean isFirst = true;
 
     public Location setStartPoint(int xStartPos, int yStartPos) {
         this.xStartPos = xStartPos;
@@ -98,6 +101,21 @@ public class Location {
 
     public void render(Batch batch) {
         batch.begin();
+        locationMap.forEach(row -> row.forEach(tile -> tile.render(batch)));
+        batch.end();
+    }
+
+    public void renderHouse() {
+        fillWithBackground(GameContext.getInstance().getRoomTexture());
+        generateWalls(TextureLib.STONE_WALL.getTexture());
+    }
+
+    public void renderDormRoom(Batch batch) {
+        batch.begin();
+        if (isFirst) {
+            renderHouse();
+            isFirst = false;
+        }
         locationMap.forEach(row -> row.forEach(tile -> tile.render(batch)));
         batch.end();
     }

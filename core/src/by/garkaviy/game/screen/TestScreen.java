@@ -1,6 +1,7 @@
 package by.garkaviy.game.screen;
 
 import by.garkaviy.game.GGKTTDGame;
+import by.garkaviy.game.context.GameContext;
 import by.garkaviy.game.test.QuestionEntity;
 import by.garkaviy.game.test.TestEntity;
 import by.garkaviy.game.test.TestLibrary;
@@ -71,6 +72,7 @@ public class TestScreen implements Screen {
                         if (((UIAnswer) element).isCorrect()) {
                             counter++;
                             if (counter == test.getQuestions().size()) {
+                                GameContext.getInstance().setBalance(GameContext.getInstance().getBalance() + 100);
                                 setMainMenu();
                             } else {
                                 isButtonPressed = true;
@@ -152,7 +154,7 @@ public class TestScreen implements Screen {
 
     private void setMainMenu() {
         dispose();
-        game.setScreen(new MainMenuScreen(game));
+        game.setScreen(new GameScreen(game));
     }
 
     @Override

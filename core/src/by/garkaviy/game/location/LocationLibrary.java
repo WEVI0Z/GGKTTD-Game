@@ -20,7 +20,7 @@ public enum LocationLibrary {
             .placeTile(5, 6, new TileEntity(TileType.WALL, TextureLib.STONE_WALL.getTexture()))),
     DORM_ROOM((new Location()
             .setSize(6, 5)
-            .fillWithBackground(TextureLib.WOOD_FLOOR.getTexture())
+            .fillWithBackground(GameContext.getInstance().getRoomTexture())
             .generateWalls(TextureLib.STONE_WALL.getTexture()))),
     DORM_UPSTAIRS((new Location()
             .setSize(10, 5)
