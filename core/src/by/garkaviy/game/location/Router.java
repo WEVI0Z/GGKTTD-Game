@@ -22,14 +22,14 @@ public class Router {
                 break;
             case DORM_ROOM:
                 GameContext.getInstance().getRunnableLocation().getLocation().placeAction(3, 0,
-                        new TileEntity(TileType.ACTION, GameContext.getInstance().getRoomTexture()), () -> {
+                        new TileEntity(TileType.ACTION, TextureLib.COLLEGE_DOOR_BACK.getTexture()), () -> {
                             GameContext.getInstance().getPlayer().setLocation(350, 150);
                             GameContext.getInstance().setRunnableLocation(LocationLibrary.DORM_UPSTAIRS);
                         });
                 break;
             case DORM_UPSTAIRS:
                 GameContext.getInstance().getRunnableLocation().getLocation()
-                        .placeAction(7, 4, new TileEntity(TileType.ACTION, TextureLib.HALL_FLOOR.getTexture()), () -> {
+                        .placeAction(7, 4, new TileEntity(TileType.ACTION, TextureLib.COLLEGE_DOOR_FRONT.getTexture()), () -> {
                             GameContext.getInstance().getPlayer().setLocation(150, 50);
                             GameContext.getInstance().setRunnableLocation(LocationLibrary.DORM_ROOM);
                         })
@@ -43,75 +43,75 @@ public class Router {
                         .placeAction(3, 0, new TileEntity(TileType.ACTION, TextureLib.STAIRS_DOWN.getTexture()), () -> {
                             GameContext.getInstance().getPlayer().setLocation(150, 150);
                             GameContext.getInstance().setRunnableLocation(LocationLibrary.DORM_UPSTAIRS);
-                        }).placeAction(7, 0, new TileEntity(TileType.ACTION, TextureLib.HALL_FLOOR.getTexture()), () -> {
+                        }).placeAction(7, 0, new TileEntity(TileType.ACTION, TextureLib.COLLEGE_DOOR_BACK.getTexture()), () -> {
                             GameContext.getInstance().getPlayer().setLocation(150, 250);
                             GameContext.getInstance().setRunnableLocation(LocationLibrary.DORM_EXIT);
                         });
                 break;
             case DORM_EXIT:
                 GameContext.getInstance().getRunnableLocation().getLocation()
-                        .placeAction(3, 6, new TileEntity(TileType.ACTION, TextureLib.HALL_FLOOR.getTexture()), () -> {
+                        .placeAction(3, 6, new TileEntity(TileType.ACTION, TextureLib.COLLEGE_DOOR_FRONT.getTexture()), () -> {
                             GameContext.getInstance().getPlayer().setLocation(350, 50);
                             GameContext.getInstance().setRunnableLocation(LocationLibrary.DORM_HALL);
                         });
                 GameContext.getInstance().getRunnableLocation().getLocation()
-                        .placeAction(3, 0, new TileEntity(TileType.ACTION, TextureLib.HALL_FLOOR.getTexture()), () -> {
+                        .placeAction(3, 0, new TileEntity(TileType.ACTION, TextureLib.COLLEGE_DOOR_BACK.getTexture()), () -> {
                             GameContext.getInstance().getPlayer().setLocation(850, 400);
                             GameContext.getInstance().setRunnableLocation(LocationLibrary.OUTSIDE);
                         });
                 break;
             case OUTSIDE:
                 GameContext.getInstance().getRunnableLocation().getLocation()
-                        .placeAction(17, 9, new TileEntity(TileType.ACTION, TextureLib.STONE_SHADOWED.getTexture()), () -> {
+                        .placeAction(18, 9, new TileEntity(TileType.ACTION, TextureLib.COLLEGE_DOOR_FRONT.getTexture()), () -> {
                             GameContext.getInstance().getPlayer().setLocation(150, 50);
                             GameContext.getInstance().setRunnableLocation(LocationLibrary.DORM_EXIT);
                         })
-                        .placeAction(4, 6, new TileEntity(TileType.ACTION, TextureLib.STONE_SHADOWED.getTexture()), () -> {
+                        .placeAction(5, 7, new TileEntity(TileType.ACTION, TextureLib.COLLEGE_EXIT.getTexture()), () -> {
                             GameContext.getInstance().getPlayer().setLocation(50, 100);
                             GameContext.getInstance().setRunnableLocation(LocationLibrary.COLLEGE_ENTRY);
                         })
-                        .placeAction(4, 7, new TileEntity(TileType.ACTION, TextureLib.STONE_SHADOWED.getTexture()), () -> {
+                        .placeAction(5, 8, new TileEntity(TileType.ACTION, TextureLib.COLLEGE_EXIT.getTexture()), () -> {
                             GameContext.getInstance().getPlayer().setLocation(50, 150);
                             GameContext.getInstance().setRunnableLocation(LocationLibrary.COLLEGE_ENTRY);
                         })
-                        .placeAction(4, 8, new TileEntity(TileType.ACTION, TextureLib.STONE_SHADOWED.getTexture()), () -> {
+                        .placeAction(5, 9, new TileEntity(TileType.ACTION, TextureLib.COLLEGE_EXIT.getTexture()), () -> {
                             GameContext.getInstance().getPlayer().setLocation(50, 200);
                             GameContext.getInstance().setRunnableLocation(LocationLibrary.COLLEGE_ENTRY);
                         });
                 break;
             case COLLEGE_ENTRY:
                 GameContext.getInstance().getRunnableLocation().getLocation()
-                        .placeAction(0, 4, new TileEntity(TileType.ACTION, TextureLib.STONE_SHADOWED.getTexture()), () -> {
+                        .placeAction(0, 4, new TileEntity(TileType.ACTION, TextureLib.COLLEGE_EXIT.getTexture()), () -> {
                             GameContext.getInstance().getPlayer().setLocation(150, 400);
                             GameContext.getInstance().setRunnableLocation(LocationLibrary.OUTSIDE);
                         })
-                        .placeAction(0, 3, new TileEntity(TileType.ACTION, TextureLib.STONE_SHADOWED.getTexture()), () -> {
+                        .placeAction(0, 3, new TileEntity(TileType.ACTION, TextureLib.COLLEGE_EXIT.getTexture()), () -> {
                             GameContext.getInstance().getPlayer().setLocation(150, 350);
                             GameContext.getInstance().setRunnableLocation(LocationLibrary.OUTSIDE);
                         })
-                        .placeAction(0, 2, new TileEntity(TileType.ACTION, TextureLib.STONE_SHADOWED.getTexture()), () -> {
+                        .placeAction(0, 2, new TileEntity(TileType.ACTION, TextureLib.COLLEGE_EXIT.getTexture()), () -> {
                             GameContext.getInstance().getPlayer().setLocation(150, 300);
                             GameContext.getInstance().setRunnableLocation(LocationLibrary.OUTSIDE);
                         })
-                        .placeAction(11, 3, new TileEntity(TileType.ACTION, TextureLib.HALL_FLOOR_SHADOWED.getTexture()), () -> {
+                        .placeAction(11, 3, new TileEntity(TileType.ACTION, TextureLib.COLLEGE_DOOR_RIGHT.getTexture()), () -> {
                             GameContext.getInstance().getPlayer().setLocation(50, 500);
                             GameContext.getInstance().setRunnableLocation(LocationLibrary.COLLEGE_HALL);
                         });
                 break;
             case COLLEGE_HALL:
                 GameContext.getInstance().getRunnableLocation().getLocation()
-                        .placeAction(0, 10, new TileEntity(TileType.ACTION, TextureLib.HALL_FLOOR_SHADOWED.getTexture()), () -> {
+                        .placeAction(0, 10, new TileEntity(TileType.ACTION, TextureLib.COLLEGE_DOOR_RIGHT.getTexture()), () -> {
                             GameContext.getInstance().getPlayer().setLocation(500, 150);
                             GameContext.getInstance().setRunnableLocation(LocationLibrary.COLLEGE_ENTRY);
                         })
-                        .placeAction(2, 0, new TileEntity(TileType.ACTION, TextureLib.HALL_FLOOR_SHADOWED.getTexture()), () -> {
+                        .placeAction(2, 0, new TileEntity(TileType.ACTION, TextureLib.COLLEGE_DOOR_BACK.getTexture()), () -> {
                             GameContext.getInstance().getPlayer().setLocation(100, 200);
                             GameContext.getInstance().setRunnableLocation(LocationLibrary.CLASSES);
                         });
                 break;
             case CLASSES:
                 GameContext.getInstance().getRunnableLocation().getLocation()
-                        .placeAction(2, 5, new TileEntity(TileType.ACTION, TextureLib.HALL_FLOOR_SHADOWED.getTexture()), () -> {
+                        .placeAction(2, 5, new TileEntity(TileType.ACTION, TextureLib.COLLEGE_DOOR_FRONT.getTexture()), () -> {
                             GameContext.getInstance().getPlayer().setLocation(100, 50);
                             GameContext.getInstance().setRunnableLocation(LocationLibrary.COLLEGE_HALL);
                         });

@@ -87,10 +87,10 @@ public class UpgradeScreen implements Screen {
                 .title("Доступные улучшения своей комнаты:")
                 .texture(TextureLib.WOOD_FLOOR)
                 .runnable(() -> {
-                    if (GameContext.getInstance().getBalance() < 100) {
-                        isEnough = true;
-                    } else if (GameContext.getInstance().getRoomTexture().equals(TextureLib.WOOD_FLOOR.getTexture())) {
+                    if (GameContext.getInstance().getRoomTexture().equals(TextureLib.WOOD_FLOOR.getTexture())) {
                         isUsed = true;
+                    } else if (GameContext.getInstance().getBalance() < 100 ) {
+                        isEnough = true;
                     } else {
                         GameContext.getInstance().setRoomTexture(TextureLib.WOOD_FLOOR.getTexture());
                         GameContext.getInstance().setBalance(GameContext.getInstance().getBalance() - 100);
@@ -107,10 +107,10 @@ public class UpgradeScreen implements Screen {
                 .title("Доступные улучшения своей комнаты:")
                 .texture(TextureLib.WOOD_FLOOR2)
                 .runnable(() -> {
-                    if (GameContext.getInstance().getBalance() < 100) {
-                        isEnough = true;
-                    } else if (GameContext.getInstance().getRoomTexture().equals(TextureLib.WOOD_FLOOR2.getTexture())) {
+                    if (GameContext.getInstance().getRoomTexture().equals(TextureLib.WOOD_FLOOR2.getTexture())) {
                         isUsed = true;
+                    } else if (GameContext.getInstance().getBalance() < 100 ) {
+                        isEnough = true;
                     } else {
                         GameContext.getInstance().setRoomTexture(TextureLib.WOOD_FLOOR2.getTexture());
                         GameContext.getInstance().setBalance(GameContext.getInstance().getBalance() - 100);
@@ -127,10 +127,10 @@ public class UpgradeScreen implements Screen {
                 .title("Доступные улучшения своей комнаты:")
                 .texture(TextureLib.WOOD_FLOOR3)
                 .runnable(() -> {
-                    if (GameContext.getInstance().getBalance() < 100) {
-                        isEnough = true;
-                    } else if (GameContext.getInstance().getRoomTexture().equals(TextureLib.WOOD_FLOOR3.getTexture())) {
+                    if (GameContext.getInstance().getRoomTexture().equals(TextureLib.WOOD_FLOOR3.getTexture())) {
                         isUsed = true;
+                    } else if (GameContext.getInstance().getBalance() < 100 ) {
+                        isEnough = true;
                     } else {
                         GameContext.getInstance().setRoomTexture(TextureLib.WOOD_FLOOR3.getTexture());
                         GameContext.getInstance().setBalance(GameContext.getInstance().getBalance() - 100);
@@ -147,10 +147,10 @@ public class UpgradeScreen implements Screen {
                 .title("Доступные улучшения дизайна своей комнаты:")
                 .texture(TextureLib.WOOD_FLOOR4)
                 .runnable(() -> {
-                    if (GameContext.getInstance().getBalance() < 100) {
-                        isEnough = true;
-                    } else if (GameContext.getInstance().getRoomTexture().equals(TextureLib.WOOD_FLOOR4.getTexture())) {
+                    if (GameContext.getInstance().getRoomTexture().equals(TextureLib.WOOD_FLOOR4.getTexture())) {
                         isUsed = true;
+                    } else if (GameContext.getInstance().getBalance() < 100 ) {
+                        isEnough = true;
                     } else {
                         GameContext.getInstance().setRoomTexture(TextureLib.WOOD_FLOOR4.getTexture());
                         GameContext.getInstance().setBalance(GameContext.getInstance().getBalance() - 100);
@@ -172,8 +172,7 @@ public class UpgradeScreen implements Screen {
                     .y(100)
                     .width(800)
                     .height(100));
-        }
-        if (isEnough) {
+        } else if (isEnough) {
             layout.addElement(new UIButton()
                     .borderColor(Color.RED)
                     .title("Недостаточно баллов")
