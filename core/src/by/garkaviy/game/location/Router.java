@@ -56,7 +56,7 @@ public class Router {
                         });
                 GameContext.getInstance().getRunnableLocation().getLocation()
                         .placeAction(3, 0, new TileEntity(TileType.ACTION, TextureLib.COLLEGE_DOOR_BACK.getTexture()), () -> {
-                            GameContext.getInstance().getPlayer().setLocation(850, 400);
+                            GameContext.getInstance().getPlayer().setLocation(900, 400);
                             GameContext.getInstance().setRunnableLocation(LocationLibrary.OUTSIDE);
                         });
                 break;
@@ -82,15 +82,15 @@ public class Router {
             case COLLEGE_ENTRY:
                 GameContext.getInstance().getRunnableLocation().getLocation()
                         .placeAction(0, 4, new TileEntity(TileType.ACTION, TextureLib.COLLEGE_EXIT.getTexture()), () -> {
-                            GameContext.getInstance().getPlayer().setLocation(150, 400);
+                            GameContext.getInstance().getPlayer().setLocation(200, 450);
                             GameContext.getInstance().setRunnableLocation(LocationLibrary.OUTSIDE);
                         })
                         .placeAction(0, 3, new TileEntity(TileType.ACTION, TextureLib.COLLEGE_EXIT.getTexture()), () -> {
-                            GameContext.getInstance().getPlayer().setLocation(150, 350);
+                            GameContext.getInstance().getPlayer().setLocation(200, 400);
                             GameContext.getInstance().setRunnableLocation(LocationLibrary.OUTSIDE);
                         })
                         .placeAction(0, 2, new TileEntity(TileType.ACTION, TextureLib.COLLEGE_EXIT.getTexture()), () -> {
-                            GameContext.getInstance().getPlayer().setLocation(150, 300);
+                            GameContext.getInstance().getPlayer().setLocation(200, 350);
                             GameContext.getInstance().setRunnableLocation(LocationLibrary.OUTSIDE);
                         })
                         .placeAction(11, 3, new TileEntity(TileType.ACTION, TextureLib.COLLEGE_DOOR_RIGHT.getTexture()), () -> {

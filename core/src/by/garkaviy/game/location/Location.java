@@ -5,11 +5,13 @@ import by.garkaviy.game.script.GGKTTDScript;
 import by.garkaviy.game.texture.TextureLib;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Getter
 public class Location {
     public final static int TEXTURE_SIZE = 50;
     private int xTileSize = 0;

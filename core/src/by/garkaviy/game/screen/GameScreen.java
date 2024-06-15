@@ -2,8 +2,7 @@ package by.garkaviy.game.screen;
 
 import by.garkaviy.game.GGKTTDGame;
 import by.garkaviy.game.context.GameContext;
-import by.garkaviy.game.location.LocationLibrary;
-import by.garkaviy.game.location.Router;
+import by.garkaviy.game.location.*;
 import by.garkaviy.game.player.Player;
 import by.garkaviy.game.ui.UILayout;
 import by.garkaviy.game.ui.elements.UIBalance;
@@ -24,6 +23,8 @@ public class GameScreen implements Screen {
     private final OrthographicCamera camera;
     private final GGKTTDGame game;
     private final UILayout layout;
+    private final CarController carController;
+    private final CarController reversedCarController;
 
     GameScreen(GGKTTDGame game) {
         this.game = game;
@@ -35,6 +36,12 @@ public class GameScreen implements Screen {
         GameContext.getInstance().getPlayer().setLocation(GameContext.getInstance().getLastX(), GameContext.getInstance().getLastY());
 
         layout = createLayout();
+        carController = new CarController(1100, 80, 120, 80,
+                LocationLibrary.OUTSIDE.getLocation().getXTileSize() * Location.TEXTURE_SIZE,
+                LocationLibrary.OUTSIDE.getLocation().getYTileSize() * Location.TEXTURE_SIZE, false);
+        reversedCarController = new CarController(1100, 10, 120, 80,
+                LocationLibrary.OUTSIDE.getLocation().getXTileSize() * Location.TEXTURE_SIZE,
+                LocationLibrary.OUTSIDE.getLocation().getYTileSize() * Location.TEXTURE_SIZE, true);
     }
 
     @Override
@@ -56,6 +63,7 @@ public class GameScreen implements Screen {
 
         Router.route();
 
+        PropsController.render(batch);
         GameContext.getInstance().getPlayer().render(batch, camera);
 
         if (GameContext.getInstance().isChangeToTest()) {
@@ -66,6 +74,13 @@ public class GameScreen implements Screen {
 
         if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
             setMainMenu();
+        }
+
+        if (GameContext.getInstance().getRunnableLocation().equals(LocationLibrary.OUTSIDE)) {
+            batch.begin();
+            carController.render(batch);
+            reversedCarController.render(batch);
+            batch.end();
         }
 
         layout.render(batch, camera);

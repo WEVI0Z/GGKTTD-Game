@@ -2,7 +2,9 @@ package by.garkaviy.game.texture;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import lombok.Getter;
 
+@Getter
 public enum TextureLib {
     STONE_WALL(new Texture(Gdx.files.internal("college-walls.png"))),
     STONE_SHADOWED(new Texture(Gdx.files.internal("wall-shadowed.png"))),
@@ -37,7 +39,24 @@ public enum TextureLib {
     COLLEGE_DOOR_FRONT(new Texture(Gdx.files.internal("college-door-front.png"))),
     COLLEGE_DOOR_RIGHT(new Texture(Gdx.files.internal("college-door-right.png"))),
     COLLEGE_EXIT(new Texture(Gdx.files.internal("college-exit.png"))),
-    COLLEGE_DOOR_BACK(new Texture(Gdx.files.internal("college-door-back.png")));
+    COLLEGE_DOOR_BACK(new Texture(Gdx.files.internal("college-door-back.png"))),
+    WHITESPACE(new Texture(Gdx.files.internal("whitespace.png"))),
+    GARBAGE(new Texture(Gdx.files.internal("garbage.png"))),
+    TREE(new Texture(Gdx.files.internal("tree.png"))),
+    SMALL_TREE(new Texture(Gdx.files.internal("small-tree.png"))),
+    BARRICADE(new Texture(Gdx.files.internal("barricade.png"))),
+    LIGHT(new Texture(Gdx.files.internal("light.png"))),
+    SEAT_LEFT(new Texture(Gdx.files.internal("seat.png"))),
+    SEAT_RIGHT(new Texture(Gdx.files.internal("seat-right.png"))),
+    SEAT_DOWN(new Texture(Gdx.files.internal("seat-down.png"))),
+    WINDOW_1(new Texture(Gdx.files.internal("window-1.png"))),
+    WINDOW_2(new Texture(Gdx.files.internal("window-2.png"))),
+    CAR_1(new Texture(Gdx.files.internal("car-1.png"))),
+    CAR_2(new Texture(Gdx.files.internal("car-2.png"))),
+    CAR_3(new Texture(Gdx.files.internal("car-3.png"))),
+    CAR_1_REVERSED(new Texture(Gdx.files.internal("car-1-reversed.png"))),
+    CAR_2_REVERSED(new Texture(Gdx.files.internal("car-2-reversed.png"))),
+    CAR_3_REVERSED(new Texture(Gdx.files.internal("car-3-reversed.png")));
 
     private final Texture texture;
 
@@ -45,7 +64,4 @@ public enum TextureLib {
         this.texture = texture;
     }
 
-    public Texture getTexture() {
-        return texture;
-    }
 }

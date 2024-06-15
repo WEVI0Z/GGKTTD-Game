@@ -67,10 +67,10 @@ public enum LocationLibrary {
                     () -> {
                         GameContext.getInstance().setChangeToTest(true);
                     })),
-    OUTSIDE((new Location()
+    OUTSIDE(new Location()
             .setSize(22, 12)
             .fillWithBackground(TextureLib.GRASS.getTexture())
-            .generateWalls(TextureLib.GRASS.getTexture()))
+            .generateWalls(TextureLib.GRASS.getTexture())
             .fillSquare(new TileEntity(TileType.WALL, TextureLib.STONE_SHADOWED.getTexture()), 16, 9, 20, 9)
             .fillSquare(new TileEntity(TileType.WALL, TextureLib.ROOF_BOTTOM.getTexture()), 17, 10, 19, 10)
             .fillSquare(new TileEntity(TileType.WALL, TextureLib.STONE_WALL.getTexture()), 17, 11, 19, 11)
@@ -97,7 +97,13 @@ public enum LocationLibrary {
             .fillSquare(new TileEntity(TileType.BACKGROUND, TextureLib.BRICK.getTexture()), 0, 3, 21, 3)
             .fillSquare(new TileEntity(TileType.WALL, TextureLib.ROAD_TOP.getTexture()), 0, 2, 21, 2)
             .fillSquare(new TileEntity(TileType.BACKGROUND, TextureLib.ROAD_MIDDLE.getTexture()), 0, 1, 21, 1)
-            .fillSquare(new TileEntity(TileType.BACKGROUND, TextureLib.ROAD_BOTTOM.getTexture()), 0,  0, 21, 0));
+            .fillSquare(new TileEntity(TileType.BACKGROUND, TextureLib.ROAD_BOTTOM.getTexture()), 0,  0, 21, 0)
+            .placeTile(1, 2, new TileEntity(TileType.WALL, TextureLib.CROSSWALK_TOP.getTexture()))
+            .placeTile(1, 1, new TileEntity(TileType.WALL, TextureLib.CROSSWALK_MIDDLE.getTexture()))
+            .placeTile(1, 0, new TileEntity(TileType.WALL, TextureLib.CROSSWALK_BOTTOM.getTexture()))
+            .placeTile(18, 2, new TileEntity(TileType.WALL, TextureLib.CROSSWALK_TOP.getTexture()))
+            .placeTile(18, 1, new TileEntity(TileType.WALL, TextureLib.CROSSWALK_MIDDLE.getTexture()))
+            .placeTile(18, 0, new TileEntity(TileType.WALL, TextureLib.CROSSWALK_BOTTOM.getTexture())));
 
     private final Location location;
 

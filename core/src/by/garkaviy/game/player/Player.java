@@ -46,6 +46,7 @@ public class Player extends Rectangle {
                 .getRunnableLocation().getLocation().getWalls());
         CollisionChecker.checkActionCollision(player, GameContext.getInstance()
                 .getRunnableLocation().getLocation().getActions());
+        CollisionChecker.checkCollision(player, GameContext.getInstance().getRunnableLocation().getLocation());
         batch.end();
     }
 
