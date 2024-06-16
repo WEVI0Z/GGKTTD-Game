@@ -21,6 +21,7 @@ public class GameContext {
     private Texture roomTexture = TextureLib.WOOD_FLOOR.getTexture();
     private int lastX = 100;
     private int lastY = 100;
+    private boolean exitHint = false;
 
     public static GameContext getInstance() {
         if (instance == null) {

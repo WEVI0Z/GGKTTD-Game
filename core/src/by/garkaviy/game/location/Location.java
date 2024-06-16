@@ -20,6 +20,12 @@ public class Location {
     private int yStartPos = 0;
     private final ArrayList<ArrayList<TileEntity>> locationMap = new ArrayList<>();
     private boolean isFirst = true;
+    private String title = "Undefined location";
+
+    public Location setTitle(String title) {
+        this.title = title;
+        return this;
+    }
 
     public Location setStartPoint(int xStartPos, int yStartPos) {
         this.xStartPos = xStartPos;

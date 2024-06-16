@@ -1,5 +1,8 @@
 package by.garkaviy.game.ui.elements;
 
+import by.garkaviy.game.location.TileEntity;
+import by.garkaviy.game.location.TileType;
+import by.garkaviy.game.texture.TextureLib;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
@@ -13,6 +16,7 @@ import lombok.Setter;
 import lombok.experimental.Accessors;
 
 import java.awt.*;
+import java.util.Objects;
 
 @Getter
 @Setter
@@ -25,13 +29,9 @@ public class UIAnswer extends UIElement {
     private boolean isFirst = true;
     private boolean isCorrect = false;
 
-    public boolean intersects() {
-        if (buttonRectangle.contains(Gdx.input.getX(), (Gdx.graphics.getHeight() - Gdx.input.getY()))) {
-            Gdx.app.debug("Button", "Button " + title + " has been clicked");
-            return true;
-        }
-
-        return false;
+    public UIAnswer() {
+        this.fontSize = 15;
+        font = getFont();
     }
 
     @Override
@@ -39,19 +39,20 @@ public class UIAnswer extends UIElement {
         if (isFirst) {
             isFirst = false;
             buttonRectangle = new Rectangle(x, y, width, height);
+            TileEntity tileEntity = new TileEntity(TileType.WALL, TextureLib.BLUE_BUTTON.getTexture(), 100, 100, x, y);
+            batch.begin();
+            tileEntity.render(batch);
+            batch.end();
         }
         // Вертикальное центрирование текста
+        int lineCount = (title.length() * fontSize) / width;
         float textHeight = font.getLineHeight();
-        float centerY = y + height / 2 + textHeight / 2;
+        float centerY = y + height / 2 + (((lineCount == 0 ? 1 : lineCount) * textHeight) / 2);
 
         batch.begin();
-        font.draw(batch, title, x, centerY, width, Align.center, true);
+        batch.draw(TextureLib.BLUE_BUTTON.getTexture(), x, y, width, height);
+        font.draw(batch, title, x + 10, centerY, width - 10, Align.center, true);
         batch.end();
-
-        shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
-        shapeRenderer.setColor(Color.BLACK);
-        shapeRenderer.rect(x, y, width, height);
-        shapeRenderer.end();
     }
 
     @Override

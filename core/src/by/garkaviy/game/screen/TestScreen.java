@@ -5,6 +5,7 @@ import by.garkaviy.game.context.GameContext;
 import by.garkaviy.game.test.QuestionEntity;
 import by.garkaviy.game.test.TestEntity;
 import by.garkaviy.game.test.TestLibrary;
+import by.garkaviy.game.texture.TextureLib;
 import by.garkaviy.game.ui.UILayout;
 import by.garkaviy.game.ui.elements.UIAnswer;
 import by.garkaviy.game.ui.elements.UIButton;
@@ -20,6 +21,7 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class TestScreen implements Screen {
     private final SpriteBatch batch;
@@ -54,6 +56,10 @@ public class TestScreen implements Screen {
         camera.update();
         batch.setProjectionMatrix(camera.combined);
 
+        batch.begin();
+        batch.draw(TextureLib.WORKSPACE.getTexture(), 0, 0, 1500, 1000);
+        batch.end();
+
         layout.render(batch);
 //        layout.clickAction();
 
@@ -62,6 +68,7 @@ public class TestScreen implements Screen {
         AtomicBoolean isToMarkIncorrect = new AtomicBoolean(false);
         AtomicInteger x = new AtomicInteger();
         AtomicInteger width = new AtomicInteger();
+        AtomicReference<String> string = new AtomicReference<>("Неправильно");
 
         layout.getElements().forEach(element -> {
             if (element instanceof UIAnswer) {
@@ -83,6 +90,7 @@ public class TestScreen implements Screen {
                             isToMarkIncorrect.set(true);
                             x.set(element.x());
                             width.set(element.width());
+                            string.set(((UIAnswer) element).title());
                         }
                     }
                 }
@@ -94,7 +102,7 @@ public class TestScreen implements Screen {
         }
 
         if (isToMarkIncorrect.get()) {
-            this.layout = markAsIncorrect(x.get(), width.get());
+            this.layout = markAsIncorrect(x.get(), width.get(), string.get());
         }
 
         if (isButtonPressed) {
@@ -111,19 +119,19 @@ public class TestScreen implements Screen {
     }
 
     private UILayout createLayout(QuestionEntity questionEntity) {
-        int screenWidth = 1500;
-        int padding = 50;
-        int width = (screenWidth - (padding * (questionEntity.getAnswers().size() + 1))) / questionEntity.getAnswers().size();
+        int padding = 10;
+        int width = (650 - (padding * (questionEntity.getAnswers().size() + 1))) / questionEntity.getAnswers().size();
         AtomicInteger target = new AtomicInteger();
         final UILayout[] layout = {new UILayout()};
+        int externalPadding = 450;
 
-        layout[0].addElement(new UIButton()
+        layout[0].addElement(new UIButton(26)
                 .borderColor(Color.WHITE)
                 .title(questionEntity.getQuestion())
-                .x(50)
-                .y(300)
-                .width(1400)
-                .height(100));
+                .x(470)
+                .y(450)
+                .width(600)
+                .height(300));
 
         questionEntity.getAnswers().forEach(answer -> {
             target.addAndGet(padding);
@@ -131,8 +139,8 @@ public class TestScreen implements Screen {
                     .borderColor(Color.BLACK)
                     .title(answer.getText())
                     .isCorrect(answer.isRight())
-                    .x(target.get())
-                    .y(150)
+                    .x(externalPadding + target.get())
+                    .y(350)
                     .width(width)
                     .height(50));
 
@@ -142,12 +150,12 @@ public class TestScreen implements Screen {
         return layout[0];
     }
 
-    private UILayout markAsIncorrect(int x, int width) {
-        return this.layout.addElement(new UIButton()
+    private UILayout markAsIncorrect(int x, int width, String title) {
+        return this.layout.addElement(new UIButton(15, TextureLib.RED_BUTTON)
                 .borderColor(Color.WHITE)
-                .title("Неправильно")
+                .title(title)
                 .x(x)
-                .y(75)
+                .y(350)
                 .width(width)
                 .height(50));
     }

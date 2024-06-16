@@ -25,6 +25,7 @@ public class CarController {
     private final int mapWidth;
     private final int mapHeight;
     private boolean isReversed;
+    private int speed = generateRandomNumberInRange(200, 400);
 
     private int currentPos;
 
@@ -41,25 +42,32 @@ public class CarController {
     }
 
     public void render(Batch batch) {
-        float offset = 200 * Gdx.graphics.getDeltaTime();
+        float offset = speed * Gdx.graphics.getDeltaTime();
 
         if (!isReversed) {
             currentPos -= (int) offset;
             if (currentPos < -1 * width) {
                 currentPos = xCord;
                 car = pickRandomElement(cars);
+                speed = generateRandomNumberInRange(200, 400);
             }
         } else {
             currentPos += (int) offset;
             if (currentPos > mapWidth + width) {
                 currentPos = -width;
                 car = pickRandomElement(reversedCars);
+                speed = generateRandomNumberInRange(200, 400);
             }
         }
 
         batch.draw(car, currentPos, yCord, width, height);
         batch.draw(whitespace, mapWidth, 0, 500, 500);
         batch.draw(whitespace, -500, 0, 500, 500);
+    }
+
+    private int generateRandomNumberInRange(int min, int max) {
+        Random random = new Random();
+        return random.nextInt(max - min + 1) + min;
     }
 
     private <T> T pickRandomElement(List<T> list) {

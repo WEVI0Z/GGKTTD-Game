@@ -13,8 +13,10 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.Align;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import org.w3c.dom.Text;
 
 import java.awt.*;
 import java.util.Objects;
@@ -22,6 +24,7 @@ import java.util.Objects;
 @Getter
 @Setter
 @Accessors(fluent = true)
+@NoArgsConstructor
 public class UIButton extends UIElement {
     private Color borderColor;
     private String title = "Button";
@@ -30,32 +33,41 @@ public class UIButton extends UIElement {
     private BitmapFont font = getFont();
     private boolean isFirst = true;
     private TextureLib texture;
+    private TextureLib button = TextureLib.BLUE_BUTTON;
+
+    public UIButton(int fontSize) {
+        this.fontSize = fontSize;
+        font = getFont();
+    }
+
+    public UIButton(int fontSize, TextureLib texture) {
+        this.fontSize = fontSize;
+        font = getFont();
+        this.button = texture;
+    }
 
     @Override
     public void render(Batch batch) {
-        if (Objects.nonNull(texture)) {
-            TileEntity tileEntity = new TileEntity(TileType.WALL, texture.getTexture(), 100, 100, x, y);
-            title = "";
-            batch.begin();
-            tileEntity.render(batch);
-            batch.end();
-        }
         if (isFirst) {
             isFirst = false;
             buttonRectangle = new Rectangle(x, y, width, height);
+            if (Objects.nonNull(texture)) {
+                TileEntity tileEntity = new TileEntity(TileType.WALL, texture.getTexture(), 100, 100, x, y);
+                title = "";
+                batch.begin();
+                tileEntity.render(batch);
+                batch.end();
+            }
         }
         // Вертикальное центрирование текста
+        int lineCount = (title.length() * fontSize) / width;
         float textHeight = font.getLineHeight();
-        float centerY = y + height / 2 + textHeight / 2;
+        float centerY = y + height / 2 + (((lineCount == 0 ? 1 : lineCount) * textHeight) / 2);
 
         batch.begin();
-        font.draw(batch, title, x, centerY, width, Align.center, true);
+        batch.draw(button.getTexture(), x, y, width, height);
+        font.draw(batch, title, x + 10, centerY, width - 10, Align.center, true);
         batch.end();
-
-        shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
-        shapeRenderer.setColor(borderColor);
-        shapeRenderer.rect(x, y, width, height);
-        shapeRenderer.end();
     }
 
     @Override

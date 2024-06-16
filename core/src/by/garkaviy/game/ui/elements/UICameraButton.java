@@ -1,5 +1,6 @@
 package by.garkaviy.game.ui.elements;
 
+import by.garkaviy.game.texture.TextureLib;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
@@ -39,26 +40,18 @@ public class UICameraButton extends UIElement {
     public void render(Batch batch, OrthographicCamera camera) {
         batch.setProjectionMatrix(camera.projection);
         if (isFirst) {
+            x -= 400;
+            y -= 240;
             isFirst = false;
-            buttonRectangle = new Rectangle(x, y, width, height);
+            buttonRectangle = new Rectangle((int) (Gdx.graphics.getWidth() / 2 + (x * 1.9)), (int) (Gdx.graphics.getHeight() / 2 + (y * 2.1)), (int) (width * 1.85), height * 2);
         }
         // Вертикальное центрирование текста
         float textHeight = font.getLineHeight();
         float centerY = y + height / 2 + textHeight / 2;
 
-        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-        shapeRenderer.setColor(Color.WHITE);
-        shapeRenderer.rect(x, y, width, height);
-        shapeRenderer.end();
-
-        shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
-        shapeRenderer.setColor(borderColor);
-        shapeRenderer.rect(x, y, width, height);
-        shapeRenderer.end();
-
-
         batch.begin();
-        font.draw(batch, title, x - 515, centerY - 305, width, Align.center, true);
+        batch.draw(TextureLib.BLUE_BUTTON.getTexture(), x, y, width, height);
+        font.draw(batch, title, x, centerY, width, Align.center, true);
         batch.end();
     }
 

@@ -5,12 +5,15 @@ import by.garkaviy.game.location.TileEntity;
 import by.garkaviy.game.location.TileType;
 import by.garkaviy.game.player.Player;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 
 import java.awt.*;
 import java.util.List;
 import java.util.Objects;
 
 public class CollisionChecker {
+
+    private static int timeout = 0;
 
     public static void checkCollision(Player player, List<TileEntity> walls) {
         walls.forEach(wall -> {
@@ -65,15 +68,24 @@ public class CollisionChecker {
     }
 
     public static void checkActionCollision(Player player, TileEntity actionTile) {
-        Rectangle wallRect = new Rectangle(actionTile.getXCord(), actionTile.getYCord(),
-                actionTile.getWidth(), actionTile.getHeight());
+        Rectangle wallRect = new Rectangle(actionTile.getXCord() - 10, actionTile.getYCord() - 10,
+                actionTile.getWidth() + 20, actionTile.getHeight() + 20);
 
-        if (player.intersects(wallRect)) {
+        if (player.intersects(wallRect) && timeout == 0) {
             Gdx.app.debug("Collision", "Collision detected with action at (" + actionTile.getXCord() + ", " + actionTile.getYCord() + ")");
-            if (Objects.nonNull(actionTile.getScript())) {
-                actionTile.getScript().execute();
-            } else {
-                Gdx.app.error("Collision", "No script found for action at (" + actionTile.getXCord() + ", " + actionTile.getYCord() + ")");
+
+            GameContext.getInstance().setExitHint(true);
+            if (Gdx.input.isKeyPressed(Input.Keys.E)) {
+                if (Objects.nonNull(actionTile.getScript())) {
+                    actionTile.getScript().execute();
+                    timeout = 30;
+                } else {
+                    Gdx.app.error("Collision", "No script found for action at (" + actionTile.getXCord() + ", " + actionTile.getYCord() + ")");
+                }
+            }
+        } else {
+            if (timeout > 0) {
+                timeout--;
             }
         }
     }

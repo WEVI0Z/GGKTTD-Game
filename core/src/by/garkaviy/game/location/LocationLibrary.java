@@ -7,36 +7,44 @@ import lombok.Getter;
 @Getter
 public enum LocationLibrary {
     FIRST_TEST_LOCATION(new Location()
+            .setTitle("First test location")
             .setSize(10, 15)
             .fillWithBackground(TextureLib.HALL_FLOOR.getTexture())
             .generateWalls(TextureLib.STONE_WALL.getTexture())
             .placeTile(5, 6, new TileEntity(TileType.WALL, TextureLib.STONE_WALL.getTexture()))),
     SECOND_TEST_LOCATION(new Location()
+            .setTitle("Second test location")
             .setSize(10, 10)
             .fillWithBackground(TextureLib.HALL_FLOOR.getTexture())
             .generateWalls(TextureLib.STONE_WALL.getTexture())
             .placeTile(5, 6, new TileEntity(TileType.WALL, TextureLib.STONE_WALL.getTexture()))),
     DORM_ROOM((new Location()
+            .setTitle("Моя комната")
             .setSize(6, 5)
             .fillWithBackground(GameContext.getInstance().getRoomTexture())
             .generateWalls(TextureLib.STONE_WALL.getTexture()))),
     DORM_UPSTAIRS((new Location()
+            .setTitle("Общежитие: второй этаж")
             .setSize(10, 5)
             .fillWithBackground(TextureLib.HALL_FLOOR.getTexture())
             .generateWalls(TextureLib.STONE_WALL.getTexture()))),
     DORM_HALL((new Location()
+            .setTitle("Общежитие: первый этаж")
             .setSize(10, 5)
             .fillWithBackground(TextureLib.HALL_FLOOR.getTexture())
             .generateWalls(TextureLib.STONE_WALL.getTexture()))),
     DORM_EXIT((new Location()
+            .setTitle("Общежитие: выход")
             .setSize(7, 7)
             .fillWithBackground(TextureLib.HALL_FLOOR.getTexture())
             .generateWalls(TextureLib.STONE_WALL.getTexture()))),
     COLLEGE_ENTRY((new Location()
+            .setTitle("Колледж: вход")
             .setSize(12, 7)
             .fillWithBackground(TextureLib.HALL_FLOOR.getTexture())
             .generateWalls(TextureLib.STONE_WALL.getTexture()))),
     COLLEGE_HALL(new Location()
+            .setTitle("Колледж: коридор")
             .setSize(13, 13)
             .fillSquare(new TileEntity(TileType.BACKGROUND, TextureLib.HALL_FLOOR.getTexture()), 1, 9, 11, 11)
             .fillSquare(new TileEntity(TileType.BACKGROUND, TextureLib.HALL_FLOOR.getTexture()), 1, 1, 3, 8)
@@ -48,6 +56,7 @@ public enum LocationLibrary {
             .fillSquare(new TileEntity(TileType.WALL, TextureLib.STONE_WALL.getTexture()), 12, 8, 12, 12)
             .placeTile(12, 10, new TileEntity(TileType.WALL, TextureLib.HALL_FLOOR_SHADOWED.getTexture()))),
     CLASSES((new Location()
+            .setTitle("Колледж: аудитории")
             .setSize(14, 6)
             .fillWithBackground(TextureLib.HALL_FLOOR.getTexture())
             .generateWalls(TextureLib.STONE_WALL.getTexture()))
@@ -68,6 +77,7 @@ public enum LocationLibrary {
                         GameContext.getInstance().setChangeToTest(true);
                     })),
     OUTSIDE(new Location()
+            .setTitle("Улица")
             .setSize(22, 12)
             .fillWithBackground(TextureLib.GRASS.getTexture())
             .generateWalls(TextureLib.GRASS.getTexture())

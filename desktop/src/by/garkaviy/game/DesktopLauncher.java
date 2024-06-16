@@ -2,7 +2,6 @@ package by.garkaviy.game;
 
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
-import by.garkaviy.game.GGKTTDGame;
 
 // Please note that on macOS your application needs to be started with the -XstartOnFirstThread JVM argument
 public class DesktopLauncher {
@@ -13,7 +12,9 @@ public class DesktopLauncher {
 		config.setTitle("GGKTTD-Game");
 		config.setWindowIcon("drop.png");
 		// Установка полноэкранного режима
+//		config.setFullscreenMode(Lwjgl3ApplicationConfiguration.getDisplayMode());
 		config.setWindowedMode(1500, 1000);
+		config.setResizable(false); // Разрешить растягивание окна без изменения разрешения
 		new Lwjgl3Application(new GGKTTDGame(), config);
 	}
 }

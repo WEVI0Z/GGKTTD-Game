@@ -5,10 +5,7 @@ import by.garkaviy.game.context.GameContext;
 import by.garkaviy.game.location.*;
 import by.garkaviy.game.player.Player;
 import by.garkaviy.game.ui.UILayout;
-import by.garkaviy.game.ui.elements.UIBalance;
-import by.garkaviy.game.ui.elements.UIButton;
-import by.garkaviy.game.ui.elements.UICameraButton;
-import by.garkaviy.game.ui.elements.UIElement;
+import by.garkaviy.game.ui.elements.*;
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -25,6 +22,7 @@ public class GameScreen implements Screen {
     private final UILayout layout;
     private final CarController carController;
     private final CarController reversedCarController;
+    private final UIElement exitHint;
 
     GameScreen(GGKTTDGame game) {
         this.game = game;
@@ -34,6 +32,16 @@ public class GameScreen implements Screen {
 
         GameContext.getInstance().setPlayer(new Player());
         GameContext.getInstance().getPlayer().setLocation(GameContext.getInstance().getLastX(), GameContext.getInstance().getLastY());
+
+
+        exitHint = new UICameraButton(16)
+                .borderColor(Color.BLACK)
+                .title("\'E\' для использования")
+                .runnable(() -> Gdx.app.exit())
+                .x(490)
+                .y(440)
+                .width(300)
+                .height(30);
 
         layout = createLayout();
         carController = new CarController(1100, 80, 120, 80,
@@ -83,6 +91,11 @@ public class GameScreen implements Screen {
             batch.end();
         }
 
+        if (GameContext.getInstance().isExitHint()) {
+            exitHint.render(batch, camera);
+            GameContext.getInstance().setExitHint(false);
+        }
+
         layout.render(batch, camera);
         layout.clickAction();
     }
@@ -92,10 +105,10 @@ public class GameScreen implements Screen {
                 .borderColor(Color.BLACK)
                 .title("Выход")
                 .runnable(() -> Gdx.app.exit())
-                .x(100)
-                .y(100)
-                .width(300)
-                .height(50);
+                .x(10)
+                .y(10)
+                .width(100)
+                .height(30);
 
         UIElement balance = new UIBalance(16)
                 .borderColor(Color.BLACK)
@@ -106,14 +119,23 @@ public class GameScreen implements Screen {
                     GameContext.getInstance().setLastX(GameContext.getInstance().getPlayer().x);
                     GameContext.getInstance().setLastY(GameContext.getInstance().getPlayer().y);
                 })
-                .x(100)
-                .y(200)
+                .x(120)
+                .y(10)
+                .width(150)
+                .height(30);
+
+        UIElement uiLocation = new UILocation(16)
+                .borderColor(Color.BLACK)
+                .runnable(() -> {})
+                .x(490)
+                .y(10)
                 .width(300)
-                .height(50);
+                .height(30);
 
         UILayout layout = new UILayout();
         layout.addElement(exitButton);
         layout.addElement(balance);
+        layout.addElement(uiLocation);
         return layout;
     }
 
