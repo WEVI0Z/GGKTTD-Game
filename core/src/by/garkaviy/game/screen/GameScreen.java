@@ -23,6 +23,7 @@ public class GameScreen implements Screen {
     private final CarController carController;
     private final CarController reversedCarController;
     private final UIElement exitHint;
+    private final UIElement bonusHint;
 
     GameScreen(GGKTTDGame game) {
         this.game = game;
@@ -33,15 +34,23 @@ public class GameScreen implements Screen {
         GameContext.getInstance().setPlayer(new Player());
         GameContext.getInstance().getPlayer().setLocation(GameContext.getInstance().getLastX(), GameContext.getInstance().getLastY());
 
-
         exitHint = new UICameraButton(16)
                 .borderColor(Color.BLACK)
-                .title("\'E\' для использования")
-                .runnable(() -> Gdx.app.exit())
+                .title("'E' для использования")
+                .runnable(() -> {})
                 .x(490)
                 .y(440)
                 .width(300)
                 .height(30);
+
+        bonusHint = new UICameraButton(16)
+                .borderColor(Color.BLACK)
+                .title("Вы получили 100 бонусных баллов. Вы можете воспользоваться ими при нажатии на кнопку \"Баллы\"")
+                .runnable(() -> GameContext.getInstance().setBonusHint(false))
+                .x(250)
+                .y(150)
+                .width(300)
+                .height(200);
 
         layout = createLayout();
         carController = new CarController(1100, 80, 120, 80,
@@ -94,6 +103,11 @@ public class GameScreen implements Screen {
         if (GameContext.getInstance().isExitHint()) {
             exitHint.render(batch, camera);
             GameContext.getInstance().setExitHint(false);
+        }
+
+        if (GameContext.getInstance().isBonusHint()) {
+            GameContext.getInstance().setBonusHint(!Gdx.input.isKeyPressed(Input.Keys.ANY_KEY));
+            bonusHint.render(batch, camera);
         }
 
         layout.render(batch, camera);

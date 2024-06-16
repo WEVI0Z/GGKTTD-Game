@@ -84,8 +84,9 @@ public class UpgradeScreen implements Screen {
 
         layout.addElement(new UIButton()
                 .borderColor(Color.WHITE)
-                .title("Доступные улучшения своей комнаты:")
+                .title("")
                 .texture(TextureLib.WOOD_FLOOR)
+                .button(TextureLib.GRAY_SQUARE)
                 .runnable(() -> {
                     if (GameContext.getInstance().getRoomTexture().equals(TextureLib.WOOD_FLOOR.getTexture())) {
                         isUsed = true;
@@ -104,7 +105,8 @@ public class UpgradeScreen implements Screen {
                 .height(100));
         layout.addElement(new UIButton()
                 .borderColor(Color.WHITE)
-                .title("Доступные улучшения своей комнаты:")
+                .title("")
+                .button(TextureLib.GRAY_SQUARE)
                 .texture(TextureLib.WOOD_FLOOR2)
                 .runnable(() -> {
                     if (GameContext.getInstance().getRoomTexture().equals(TextureLib.WOOD_FLOOR2.getTexture())) {
@@ -124,8 +126,9 @@ public class UpgradeScreen implements Screen {
                 .height(100));
         layout.addElement(new UIButton()
                 .borderColor(Color.WHITE)
-                .title("Доступные улучшения своей комнаты:")
+                .title("")
                 .texture(TextureLib.WOOD_FLOOR3)
+                .button(TextureLib.GRAY_SQUARE)
                 .runnable(() -> {
                     if (GameContext.getInstance().getRoomTexture().equals(TextureLib.WOOD_FLOOR3.getTexture())) {
                         isUsed = true;
@@ -144,8 +147,9 @@ public class UpgradeScreen implements Screen {
                 .height(100));
         layout.addElement(new UIButton()
                 .borderColor(Color.WHITE)
-                .title("Доступные улучшения дизайна своей комнаты:")
+                .title("")
                 .texture(TextureLib.WOOD_FLOOR4)
+                .button(TextureLib.GRAY_SQUARE)
                 .runnable(() -> {
                     if (GameContext.getInstance().getRoomTexture().equals(TextureLib.WOOD_FLOOR4.getTexture())) {
                         isUsed = true;

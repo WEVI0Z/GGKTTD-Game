@@ -22,6 +22,7 @@ public class GameContext {
     private int lastX = 100;
     private int lastY = 100;
     private boolean exitHint = false;
+    private boolean bonusHint = false;
 
     public static GameContext getInstance() {
         if (instance == null) {

@@ -46,8 +46,9 @@ public class UICameraButton extends UIElement {
             buttonRectangle = new Rectangle((int) (Gdx.graphics.getWidth() / 2 + (x * 1.9)), (int) (Gdx.graphics.getHeight() / 2 + (y * 2.1)), (int) (width * 1.85), height * 2);
         }
         // Вертикальное центрирование текста
+        int lineCount = (title.length() * fontSize) / width;
         float textHeight = font.getLineHeight();
-        float centerY = y + height / 2 + textHeight / 2;
+        float centerY = y + height / 2 + (((lineCount == 0 ? 1 : lineCount) * textHeight) / 2);
 
         batch.begin();
         batch.draw(TextureLib.BLUE_BUTTON.getTexture(), x, y, width, height);

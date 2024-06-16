@@ -51,13 +51,6 @@ public class UIButton extends UIElement {
         if (isFirst) {
             isFirst = false;
             buttonRectangle = new Rectangle(x, y, width, height);
-            if (Objects.nonNull(texture)) {
-                TileEntity tileEntity = new TileEntity(TileType.WALL, texture.getTexture(), 100, 100, x, y);
-                title = "";
-                batch.begin();
-                tileEntity.render(batch);
-                batch.end();
-            }
         }
         // Вертикальное центрирование текста
         int lineCount = (title.length() * fontSize) / width;
@@ -68,6 +61,14 @@ public class UIButton extends UIElement {
         batch.draw(button.getTexture(), x, y, width, height);
         font.draw(batch, title, x + 10, centerY, width - 10, Align.center, true);
         batch.end();
+
+        if (Objects.nonNull(texture)) {
+            TileEntity tileEntity = new TileEntity(TileType.WALL, texture.getTexture(), (int) (width * 0.8), (int) (height * 0.8), (int) (x + width * 0.1), (int) (y + height * 0.1));
+            title = "";
+            batch.begin();
+            tileEntity.render(batch);
+            batch.end();
+        }
     }
 
     @Override

@@ -81,6 +81,7 @@ public class TestScreen implements Screen {
                             if (counter == test.getQuestions().size()) {
                                 GameContext.getInstance().setBalance(GameContext.getInstance().getBalance() + 100);
                                 setMainMenu();
+                                GameContext.getInstance().setBonusHint(true);
                             } else {
                                 isButtonPressed = true;
                                 refreshLayout.set(true);
