@@ -15,7 +15,7 @@ public class GameContext {
     private static GameContext instance;
 
     private Player player;
-    private LocationLibrary runnableLocation = LocationLibrary.CLASSES;
+    private LocationLibrary runnableLocation = LocationLibrary.DORM_ROOM;
     private boolean changeToTest = false;
     private int balance = 0;
     private Texture roomTexture = TextureLib.WOOD_FLOOR.getTexture();
