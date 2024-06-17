@@ -29,7 +29,8 @@ public class TestScreen implements Screen {
     private final GGKTTDGame game;
     private final TestLibrary testLibrary = new TestLibrary();
     private final Random random = new Random();
-    private final TestEntity test = testLibrary.getTests().get(random.nextInt(0, testLibrary.getTests().size()));
+    private TestEntity test = testLibrary.getTests().get(random.nextInt(0, testLibrary.getTests().size()));
+    private boolean isFirst = true;
 
     private boolean isButtonPressed = false;
     private int fpsCounter = 0;
@@ -42,7 +43,8 @@ public class TestScreen implements Screen {
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 1500, 1000);
 
-        layout = createLayout(test.getQuestions().get(counter));
+        layout = createMenu();
+//        layout = createLayout(test.getQuestions().get(counter));
     }
 
     @Override
@@ -62,7 +64,6 @@ public class TestScreen implements Screen {
 
         layout.render(batch);
 //        layout.clickAction();
-
 
         AtomicBoolean refreshLayout = new AtomicBoolean(false);
         AtomicBoolean isToMarkIncorrect = new AtomicBoolean(false);
@@ -93,6 +94,18 @@ public class TestScreen implements Screen {
                             width.set(element.width());
                             string.set(((UIAnswer) element).title());
                         }
+                    }
+                }
+            }
+            if (element instanceof UIButton) {
+                if (Gdx.input.isTouched() && isFirst && !isButtonPressed) {
+                    if (((UIButton) element).buttonRectangle().contains(Gdx.input.getX(), (Gdx.graphics.getHeight() - Gdx.input.getY()))) {
+                        Gdx.app.debug("Button", "Button " + ((UIButton) element).title() + " has been clicked");
+
+                        isButtonPressed = true;
+                        test = testLibrary.getTests().get(random.nextInt(0, testLibrary.getTests().size()));
+                        refreshLayout.set(true);
+                        isFirst = false;
                     }
                 }
             }
@@ -129,6 +142,8 @@ public class TestScreen implements Screen {
         layout[0].addElement(new UIButton(26)
                 .borderColor(Color.WHITE)
                 .title(questionEntity.getQuestion())
+                .runnable(() -> {
+                })
                 .x(470)
                 .y(450)
                 .width(600)
@@ -146,6 +161,40 @@ public class TestScreen implements Screen {
                     .height(50));
 
             target.addAndGet(width);
+        });
+
+        return layout[0];
+    }
+
+    private UILayout createMenu() {
+        int padding = 10;
+        AtomicInteger target = new AtomicInteger();
+        final UILayout[] layout = {new UILayout()};
+        int externalPadding = 450;
+        AtomicInteger increment = new AtomicInteger(1);
+
+        layout[0].addElement(new UIButton(36)
+                .borderColor(Color.WHITE)
+                .title("Тесты:")
+                .runnable(() -> {
+                })
+                .x(635)
+                .y(690)
+                .width(300)
+                .height(80));
+
+        testLibrary.getTests().forEach(test -> {
+            target.addAndGet(padding);
+            layout[0].addElement(new UIButton()
+                    .borderColor(Color.BLACK)
+                    .title("Тест №" + increment.getAndIncrement())
+                    .runnable(() -> {
+
+                    })
+                    .x(680)
+                    .y(700 - (80 * (increment.get() - 1)))
+                    .width(200)
+                    .height(50));
         });
 
         return layout[0];

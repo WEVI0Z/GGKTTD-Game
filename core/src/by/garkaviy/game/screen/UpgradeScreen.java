@@ -84,6 +84,118 @@ public class UpgradeScreen implements Screen {
 
         layout.addElement(new UIButton()
                 .borderColor(Color.WHITE)
+                .title("Стены:")
+                .runnable(() -> {})
+                .x(150)
+                .y(650)
+                .width(200)
+                .height(100));
+        layout.addElement(new UIButton()
+                .borderColor(Color.WHITE)
+                .title("Окна:")
+                .runnable(() -> {})
+                .x(150)
+                .y(500)
+                .width(200)
+                .height(100));
+
+        layout.addElement(new UIButton()
+                .borderColor(Color.WHITE)
+                .title("")
+                .texture(TextureLib.WINDOW_1)
+                .button(TextureLib.GRAY_SQUARE)
+                .runnable(() -> {
+                    if (GameContext.getInstance().getWindowTexture().equals(TextureLib.WINDOW_1.getTexture())) {
+                        isUsed = true;
+                    } else if (GameContext.getInstance().getBalance() < 100 ) {
+                        isEnough = true;
+                    } else {
+                        GameContext.getInstance().setWindowTexture(TextureLib.WINDOW_1.getTexture());
+                        GameContext.getInstance().setBalance(GameContext.getInstance().getBalance() - 100);
+                        dispose();
+                        game.setScreen(new GameScreen(game));
+                    }
+                })
+                .x(400)
+                .y(500)
+                .width(100)
+                .height(100));
+        layout.addElement(new UIButton()
+                .borderColor(Color.WHITE)
+                .title("")
+                .button(TextureLib.GRAY_SQUARE)
+                .texture(TextureLib.WINDOW_2)
+                .runnable(() -> {
+                    if (GameContext.getInstance().getWindowTexture().equals(TextureLib.WINDOW_2.getTexture())) {
+                        isUsed = true;
+                    } else if (GameContext.getInstance().getBalance() < 100 ) {
+                        isEnough = true;
+                    } else {
+                        GameContext.getInstance().setWindowTexture(TextureLib.WINDOW_2.getTexture());
+                        GameContext.getInstance().setBalance(GameContext.getInstance().getBalance() - 100);
+                        dispose();
+                        game.setScreen(new GameScreen(game));
+                    }
+                })
+                .x(600)
+                .y(500)
+                .width(100)
+                .height(100));
+
+        layout.addElement(new UIButton()
+                .borderColor(Color.WHITE)
+                .title("Кровати:")
+                .runnable(() -> {})
+                .x(130)
+                .y(350)
+                .width(220)
+                .height(100));
+
+        layout.addElement(new UIButton()
+                .borderColor(Color.WHITE)
+                .title("")
+                .texture(TextureLib.BED_1)
+                .button(TextureLib.GRAY_SQUARE)
+                .runnable(() -> {
+                    if (GameContext.getInstance().getBedTexture().equals(TextureLib.BED_1.getTexture())) {
+                        isUsed = true;
+                    } else if (GameContext.getInstance().getBalance() < 100 ) {
+                        isEnough = true;
+                    } else {
+                        GameContext.getInstance().setBedTexture(TextureLib.BED_1.getTexture());
+                        GameContext.getInstance().setBalance(GameContext.getInstance().getBalance() - 100);
+                        dispose();
+                        game.setScreen(new GameScreen(game));
+                    }
+                })
+                .x(400)
+                .y(350)
+                .width(100)
+                .height(100));
+        layout.addElement(new UIButton()
+                .borderColor(Color.WHITE)
+                .title("")
+                .button(TextureLib.GRAY_SQUARE)
+                .texture(TextureLib.BED_2)
+                .runnable(() -> {
+                    if (GameContext.getInstance().getBedTexture().equals(TextureLib.BED_2.getTexture())) {
+                        isUsed = true;
+                    } else if (GameContext.getInstance().getBalance() < 100 ) {
+                        isEnough = true;
+                    } else {
+                        GameContext.getInstance().setBedTexture(TextureLib.BED_2.getTexture());
+                        GameContext.getInstance().setBalance(GameContext.getInstance().getBalance() - 100);
+                        dispose();
+                        game.setScreen(new GameScreen(game));
+                    }
+                })
+                .x(600)
+                .y(350)
+                .width(100)
+                .height(100));
+
+        layout.addElement(new UIButton()
+                .borderColor(Color.WHITE)
                 .title("")
                 .texture(TextureLib.WOOD_FLOOR)
                 .button(TextureLib.GRAY_SQUARE)

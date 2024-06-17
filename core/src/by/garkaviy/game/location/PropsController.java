@@ -87,6 +87,9 @@ public class PropsController {
                 batch.draw(TextureLib.WINDOW_2.getTexture(), 490, 260, 30, 30);
                 batch.draw(TextureLib.WINDOW_2.getTexture(), 590, 260, 30, 30);
                 break;
+            case DORM_ROOM:
+                batch.draw(GameContext.getInstance().getWindowTexture(), 125, 200, 50, 50);
+                batch.draw(GameContext.getInstance().getBedTexture(), 50, 100, 50, 100);
         }
 
         batch.end();
