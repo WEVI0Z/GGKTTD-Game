@@ -58,7 +58,7 @@ public class UIButton extends UIElement {
         float centerY = y + height / 2 + (((lineCount == 0 ? 1 : lineCount) * textHeight) / 2);
 
         batch.begin();
-        batch.draw(button.getTexture(), x, y, width, height);
+        if (Objects.nonNull(button)) batch.draw(button.getTexture(), x, y, width, height);
         font.draw(batch, title, x + 10, centerY, width - 10, Align.center, true);
         batch.end();
 

@@ -116,14 +116,12 @@ public class Location {
     public void renderHouse() {
         fillWithBackground(GameContext.getInstance().getRoomTexture());
         generateWalls(TextureLib.STONE_WALL.getTexture());
+        Router.route();
     }
 
     public void renderDormRoom(Batch batch) {
         batch.begin();
-        if (isFirst) {
-            renderHouse();
-            isFirst = false;
-        }
+        renderHouse();
         locationMap.forEach(row -> row.forEach(tile -> tile.render(batch)));
         batch.end();
     }

@@ -8,13 +8,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @NoArgsConstructor
 @Getter
 @Setter
 public class GameContext {
     private static GameContext instance;
 
-    private Player player;
+    private String saveName;
+    private Player player = new Player();
     private LocationLibrary runnableLocation = LocationLibrary.DORM_ROOM;
     private boolean changeToTest = false;
     private int balance = 0;
@@ -26,10 +29,39 @@ public class GameContext {
     private boolean exitHint = false;
     private boolean bonusHint = false;
 
+    public static GameContext getDefaultInstance() {
+        GameContext instance = new GameContext();
+
+        instance.runnableLocation = LocationLibrary.DORM_ROOM;
+        instance.changeToTest = false;
+        instance.balance = 0;
+        instance.roomTexture = TextureLib.WOOD_FLOOR.getTexture();
+        instance.windowTexture = TextureLib.WINDOW_1.getTexture();
+        instance.bedTexture = TextureLib.BED_1.getTexture();
+        instance.lastX = 100;
+        instance.lastY = 100;
+        instance.exitHint = false;
+        instance.bonusHint = false;
+        Player player = new Player();
+        player.setLocation(100, 100);
+        instance.player = player;
+
+        return instance;
+    }
+
     public static GameContext getInstance() {
         if (instance == null) {
             instance = new GameContext();
         }
         return instance;
+    }
+
+    public static GameContext setInstance(GameContext gameContext) {
+        instance = gameContext;
+        return instance;
+    }
+
+    public static boolean checkInstance() {
+        return Objects.nonNull(instance);
     }
 }

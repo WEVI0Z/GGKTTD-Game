@@ -2,6 +2,7 @@ package by.garkaviy.game.screen;
 
 import by.garkaviy.game.GGKTTDGame;
 import by.garkaviy.game.context.GameContext;
+import by.garkaviy.game.context.SaveAndLoader;
 import by.garkaviy.game.location.*;
 import by.garkaviy.game.player.Player;
 import by.garkaviy.game.ui.UILayout;
@@ -118,7 +119,10 @@ public class GameScreen implements Screen {
         UIElement exitButton = new UICameraButton(16)
                 .borderColor(Color.BLACK)
                 .title("Выход")
-                .runnable(() -> Gdx.app.exit())
+                .runnable(() -> {
+                    SaveAndLoader.save();
+                    Gdx.app.exit();
+                })
                 .x(10)
                 .y(10)
                 .width(100)
@@ -155,9 +159,8 @@ public class GameScreen implements Screen {
 
     private void setMainMenu() {
         dispose();
+        SaveAndLoader.save();
         game.setScreen(new MainMenuScreen(game));
-        GameContext.getInstance().setLastX(GameContext.getInstance().getPlayer().x);
-        GameContext.getInstance().setLastY(GameContext.getInstance().getPlayer().y);
     }
 
     @Override
