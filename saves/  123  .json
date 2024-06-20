@@ -1,9 +1,11 @@
 {
 saveName: "  123  "
 player: {
-	y: -50
-	stateTime: 1.6679064
+	x: 398
+	y: 104
+	stateTime: 1.5349748
 }
-lastX: 0
-lastY: -50
+runnableLocation: CLASSES
+lastX: 398
+lastY: 104
 }

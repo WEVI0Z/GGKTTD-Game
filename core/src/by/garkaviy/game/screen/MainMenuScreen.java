@@ -181,61 +181,62 @@ public class MainMenuScreen implements Screen {
     }
 
     private UILayout createLayout() {
-        UIButton exitButton = (UIButton) new UIButton()
-                .borderColor(Color.BLACK)
-                .title("Выход")
-                .runnable(() -> {
-                    SaveAndLoader.save();
-                    Gdx.app.exit();
-                })
-                .x((int) (Gdx.graphics.getWidth() * 0.73 - 150))
-                .y(Gdx.graphics.getHeight() - 800)
-                .width(300)
-                .height(50);
-
-        UIButton loadButton = (UIButton) new UIButton()
-                .borderColor(Color.BLACK)
-                .title("Загрузить")
-                .runnable(() -> {
-                    loadLayout = createLoadLayout();
-                    isLoadOpened = true;
-                })
-                .x((int) (Gdx.graphics.getWidth() * 0.73 - 150))
-                .y(Gdx.graphics.getHeight() - 700)
-                .width(300)
-                .height(50);
-
-        UIButton continueButton = (UIButton) new UIButton()
-                .borderColor(Color.BLACK)
-                .title("Продолжить")
-                .runnable(() -> {
-                    if (!GameContext.checkInstance()) return;
-                    dispose();
-                    SaveAndLoader.load();
-                    game.setScreen(new GameScreen(game));
-                })
-                .x((int) (Gdx.graphics.getWidth() * 0.73 - 150))
-                .y(Gdx.graphics.getHeight() - 500)
-                .width(300)
-                .height(50);
-
-        UIButton playButton = (UIButton) new UIButton()
-                .borderColor(Color.BLACK)
-                .title("Новая игра")
-                .runnable(() -> {
-                    createTextField();
-                    isTextFieldOpened = true;
-                })
-                .x((int) (Gdx.graphics.getWidth() * 0.73 - 150))
-                .y(Gdx.graphics.getHeight() - 600)
-                .width(300)
-                .height(50);
-
         UILayout layout = new UILayout();
-        return layout.addElement(playButton)
-                .addElement(exitButton)
-                .addElement(continueButton)
-                .addElement(loadButton);
+
+        int counter = 0;
+        if (GameContext.checkInstance()) {
+            layout.addElement(new UIButton()
+                    .borderColor(Color.BLACK)
+                    .title("Продолжить")
+                    .runnable(() -> {
+                        if (!GameContext.checkInstance()) return;
+                        dispose();
+                        SaveAndLoader.load();
+                        game.setScreen(new GameScreen(game));
+                    })
+                    .x((int) (Gdx.graphics.getWidth() * 0.73 - 150))
+                    .y(Gdx.graphics.getHeight() - 500)
+                    .width(300)
+                    .height(50));
+
+            counter++;
+        }
+
+        layout.addElement(new UIButton()
+                        .borderColor(Color.BLACK)
+                        .title("Новая игра")
+                        .runnable(() -> {
+                            createTextField();
+                            isTextFieldOpened = true;
+                        })
+                        .x((int) (Gdx.graphics.getWidth() * 0.73 - 150))
+                        .y(Gdx.graphics.getHeight() - 500 - counter++ * 100)
+                        .width(300)
+                        .height(50))
+                .addElement(new UIButton()
+                        .borderColor(Color.BLACK)
+                        .title("Загрузить")
+                        .runnable(() -> {
+                            loadLayout = createLoadLayout();
+                            isLoadOpened = true;
+                        })
+                        .x((int) (Gdx.graphics.getWidth() * 0.73 - 150))
+                        .y(Gdx.graphics.getHeight() - 500 - counter++ * 100)
+                        .width(300)
+                        .height(50))
+                .addElement(new UIButton()
+                        .borderColor(Color.BLACK)
+                        .title("Выход")
+                        .runnable(() -> {
+                            SaveAndLoader.save();
+                            Gdx.app.exit();
+                        })
+                        .x((int) (Gdx.graphics.getWidth() * 0.73 - 150))
+                        .y(Gdx.graphics.getHeight() - 500 - counter * 100)
+                        .width(300)
+                        .height(50));
+
+        return layout;
     }
 
     private UILayout createLoadLayout() {
