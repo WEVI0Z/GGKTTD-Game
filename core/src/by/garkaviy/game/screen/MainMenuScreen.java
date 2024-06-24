@@ -37,6 +37,9 @@ public class MainMenuScreen implements Screen {
     private boolean isLoadOpened = false;
     private boolean isSaveOpened = false;
     private boolean isTextFieldOpened = false;
+    private boolean isPasswordFieldOpened = false;
+    private boolean isPasswordConfirmFieldOpened = false;
+    private String title;
     private TextField textField;
     private UILayout textFieldLayout = new UILayout().addElement(new UIButton()
                     .title("Название:")
@@ -52,12 +55,58 @@ public class MainMenuScreen implements Screen {
                     .title("Ок")
                     .borderColor(Color.BLACK)
                     .runnable(() -> {
-                        saveLayout = createSaveLayout(textField.getText());
-                        isSaveOpened = true;
+                        title = textField.getText();
                         isTextFieldOpened = false;
                         stage.clear();
+                        createTextField();
+                        isPasswordFieldOpened = true;
                     })
                     .x((int) (Gdx.graphics.getWidth() * 0.73 - 400))
+                    .y(Gdx.graphics.getHeight() - 500)
+                    .width(100)
+                    .height(50));
+    private UILayout passwordLayout = new UILayout().addElement(new UIButton()
+                    .title("Пароль:")
+                    .borderColor(Color.BLACK)
+                    .runnable(() -> {
+                    })
+                    .button(null)
+                    .x((int) (Gdx.graphics.getWidth() * 0.73 - 550))
+                    .y(Gdx.graphics.getHeight() - 300)
+                    .width(400)
+                    .height(50))
+            .addElement(new UIButton()
+                    .title("Ок")
+                    .borderColor(Color.BLACK)
+                    .runnable(() -> {
+                        saveLayout = createSaveLayout(title, textField.getText());
+                        isSaveOpened = true;
+                        isPasswordFieldOpened = false;
+                        stage.clear();
+                    })
+                    .x((int) (Gdx.graphics.getWidth() * 0.73 - 250))
+                    .y(Gdx.graphics.getHeight() - 500)
+                    .width(100)
+                    .height(50));
+    private UILayout passwordConfirmLayout = new UILayout().addElement(new UIButton()
+                    .title("Введите пароль:")
+                    .borderColor(Color.BLACK)
+                    .runnable(() -> {
+                    })
+                    .button(null)
+                    .x((int) (Gdx.graphics.getWidth() * 0.73 - 550))
+                    .y(Gdx.graphics.getHeight() - 300)
+                    .width(400)
+                    .height(50))
+            .addElement(new UIButton()
+                    .title("Ок")
+                    .borderColor(Color.BLACK)
+                    .runnable(() -> {
+                        if (textField.getText().equals(GameContext.getInstance().getPassword())) {
+                            setGameScreen();
+                        }
+                    })
+                    .x((int) (Gdx.graphics.getWidth() * 0.73 - 250))
                     .y(Gdx.graphics.getHeight() - 500)
                     .width(100)
                     .height(50));
@@ -70,6 +119,11 @@ public class MainMenuScreen implements Screen {
         camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         header = FontUtils.getFont(50, Color.BLACK);
         layout = createLayout();
+    }
+
+    private void setGameScreen() {
+        game.setScreen(new GameScreen(game));
+        dispose();
     }
 
     @Override
@@ -98,6 +152,8 @@ public class MainMenuScreen implements Screen {
             isLoadOpened = false;
             isSaveOpened = false;
             isTextFieldOpened = false;
+            isPasswordConfirmFieldOpened = false;
+            isPasswordFieldOpened = false;
             stage.clear();
         }
 
@@ -123,6 +179,26 @@ public class MainMenuScreen implements Screen {
             batch.end();
             textFieldLayout.render(batch);
             textFieldLayout.clickAction();
+            stage.act(delta); // Обновление всех актеров на сцене
+            stage.draw();
+        }
+
+        if (isPasswordFieldOpened) {
+            batch.begin();
+            batch.draw(TextureLib.GREY_FLAT_BUTTON.getTexture(), (float) (Gdx.graphics.getWidth() * 0.33), (float) (Gdx.graphics.getHeight() * 0.44), Gdx.graphics.getWidth() / 3, (float) (Gdx.graphics.getHeight() / 3));
+            batch.end();
+            passwordLayout.render(batch);
+            passwordLayout.clickAction();
+            stage.act(delta); // Обновление всех актеров на сцене
+            stage.draw();
+        }
+
+        if (isPasswordConfirmFieldOpened) {
+            batch.begin();
+            batch.draw(TextureLib.GREY_FLAT_BUTTON.getTexture(), (float) (Gdx.graphics.getWidth() * 0.33), (float) (Gdx.graphics.getHeight() * 0.44), Gdx.graphics.getWidth() / 3, (float) (Gdx.graphics.getHeight() / 3));
+            batch.end();
+            passwordConfirmLayout.render(batch);
+            passwordConfirmLayout.clickAction();
             stage.act(delta); // Обновление всех актеров на сцене
             stage.draw();
         }
@@ -259,8 +335,12 @@ public class MainMenuScreen implements Screen {
                         Gdx.app.log("Load", title);
                         if (title.equals("Пусто")) return;
                         SaveAndLoader.load(title);
-                        game.setScreen(new GameScreen(game));
-                        dispose();
+                        isPasswordConfirmFieldOpened = true;
+                        isLoadOpened = false;
+                        stage.clear();
+                        createTextField();
+//                        game.setScreen(new GameScreen(game));
+//                        dispose();
                     })
                     .x((int) (Gdx.graphics.getWidth() * 0.73 - 550))
                     .y((Gdx.graphics.getHeight() - 400) - (100 * i))
@@ -271,7 +351,7 @@ public class MainMenuScreen implements Screen {
         return ui;
     }
 
-    private UILayout createSaveLayout(String newTitle) {
+    private UILayout createSaveLayout(String newTitle, String password) {
         List<String> names = SaveAndLoader.loadSaves();
         UILayout ui = new UILayout();
 
@@ -293,6 +373,7 @@ public class MainMenuScreen implements Screen {
                         if (!title.equals("Пусто")) SaveAndLoader.delete(title);
                         GameContext.setInstance(GameContext.getDefaultInstance());
                         GameContext.getInstance().setSaveName(newTitle);
+                        GameContext.getInstance().setPassword(password);
                         SaveAndLoader.save();
                         dispose();
                         SaveAndLoader.load();

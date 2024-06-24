@@ -17,6 +17,7 @@ public class GameContext {
     private static GameContext instance;
 
     private String saveName;
+    private String password = "123";
     private Player player = new Player();
     private LocationLibrary runnableLocation = LocationLibrary.DORM_ROOM;
     private boolean changeToTest = false;
