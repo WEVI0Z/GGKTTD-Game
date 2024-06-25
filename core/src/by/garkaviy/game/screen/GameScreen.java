@@ -87,7 +87,7 @@ public class GameScreen implements Screen {
         if (GameContext.getInstance().isChangeToTest()) {
             GameContext.getInstance().setChangeToTest(false);
             dispose();
-            game.setScreen(new TestScreen(game));
+            game.setScreen(new TestScreen(game, GameContext.getInstance().getWhatTest()));
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {

@@ -68,7 +68,10 @@ public enum TextureLib {
     COLLEGE_IMAGE(new Texture(Gdx.files.internal("college-image.png"))),
     COLLEGE_IMAGE_2(new Texture(Gdx.files.internal("college-image-2.png"))),
     TEXT_MARKER(new Texture(Gdx.files.internal("text-marker.png"))),
-    WORKSPACE(new Texture(Gdx.files.internal("workspace.png")));
+    WORKSPACE(new Texture(Gdx.files.internal("workspace.png"))),
+    WORKSPACE_2(new Texture(Gdx.files.internal("workspace-2.png"))),
+    WORKSPACE_3(new Texture(Gdx.files.internal("workspace-3.png"))),
+    WORKSPACE_4(new Texture(Gdx.files.internal("workspace-4.png")));
 
     private final Texture texture;
 

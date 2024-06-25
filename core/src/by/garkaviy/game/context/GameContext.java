@@ -2,6 +2,7 @@ package by.garkaviy.game.context;
 
 import by.garkaviy.game.location.LocationLibrary;
 import by.garkaviy.game.player.Player;
+import by.garkaviy.game.test.TestEnum;
 import by.garkaviy.game.texture.TextureLib;
 import com.badlogic.gdx.graphics.Texture;
 import lombok.Getter;
@@ -19,8 +20,9 @@ public class GameContext {
     private String saveName;
     private String password = "123";
     private Player player = new Player();
-    private LocationLibrary runnableLocation = LocationLibrary.DORM_ROOM;
+    private LocationLibrary runnableLocation = LocationLibrary.CLASSES;
     private boolean changeToTest = false;
+    private TestEnum whatTest = TestEnum.FIRST_TESTS;
     private int balance = 0;
     private Texture roomTexture = TextureLib.WOOD_FLOOR.getTexture();
     private Texture windowTexture = TextureLib.WINDOW_1.getTexture();

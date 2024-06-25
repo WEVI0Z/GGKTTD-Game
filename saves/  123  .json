@@ -2,8 +2,12 @@
 saveName: "  123  "
 password: "  123  "
 player: {
-	x: 100
-	y: 100
-	stateTime: 0.46850342
+	x: 193
+	y: 93
+	stateTime: 0.0298611
 }
+whatTest: THIRD_TESTS
+balance: 200
+lastX: 193
+lastY: 93
 }

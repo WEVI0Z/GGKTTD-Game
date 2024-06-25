@@ -7,112 +7,441 @@ import java.util.List;
 
 @Data
 public class TestLibrary {
-    private final List<TestEntity> tests;
 
-    public TestLibrary() {
-        tests = new ArrayList<>();
-        tests.add(new TestEntity(List.of(new QuestionEntity("Что означает аббревиатура CPU?", List.of(
-                        new AnswerEntity("Процессор", true),
-                        new AnswerEntity("Контроллер", false),
-                        new AnswerEntity("Память", false),
-                        new AnswerEntity("Устройство", false)
+    public static List<TestEntity> getTests() {
+        List<TestEntity> tests = new ArrayList<>();
+        tests.add(new TestEntity("Основы баз данных", List.of(new QuestionEntity("Что означает аббревиатура SQL?", List.of(
+                        new AnswerEntity("Структурированный", true),
+                        new AnswerEntity("Статический", false),
+                        new AnswerEntity("Системный", false),
+                        new AnswerEntity("Секвенциальный", false)
                 )),
-                new QuestionEntity("Какой язык является языком программирования?", List.of(
-                        new AnswerEntity("HTML", false),
-                        new AnswerEntity("Python", true),
-                        new AnswerEntity("CSS", false),
-                        new AnswerEntity("XML", false)
-                )),
-                new QuestionEntity("Как называется основное устройство для хранения данных?", List.of(
-                        new AnswerEntity("Дисковод", false),
-                        new AnswerEntity("Процессор", false),
-                        new AnswerEntity("Диск", true),
-                        new AnswerEntity("Модем", false)
-                )),
-                new QuestionEntity("Что такое RAM?", List.of(
-                        new AnswerEntity("Процессор", false),
-                        new AnswerEntity("Устройство", false),
-                        new AnswerEntity("Сеть", false),
-                        new AnswerEntity("Память", true)
-                ))
-        )));
-
-        tests.add(new TestEntity(List.of(new QuestionEntity("Какой язык используется для создания веб-страниц?", List.of(
-                        new AnswerEntity("HTML", true),
-                        new AnswerEntity("Python", false),
-                        new AnswerEntity("Java", false),
-                        new AnswerEntity("C++", false)
-                )),
-                new QuestionEntity("Какая структура данных является линейной?", List.of(
+                new QuestionEntity("Как называется основная структура данных в реляционной базе данных?", List.of(
+                        new AnswerEntity("Массив", false),
+                        new AnswerEntity("Таблица", true),
                         new AnswerEntity("Дерево", false),
-                        new AnswerEntity("Список", true),
-                        new AnswerEntity("Граф", false),
-                        new AnswerEntity("Сеть", false)
+                        new AnswerEntity("Список", false)
                 )),
-                new QuestionEntity("Как называется цикл с предусловием?", List.of(
-                        new AnswerEntity("For", false),
-                        new AnswerEntity("Loop", false),
-                        new AnswerEntity("While", true),
-                        new AnswerEntity("Until", false)
+                new QuestionEntity("Как называется уникальный идентификатор строки в таблице?", List.of(
+                        new AnswerEntity("Колонка", false),
+                        new AnswerEntity("Поле", false),
+                        new AnswerEntity("Ключ", true),
+                        new AnswerEntity("Запрос", false)
                 )),
-                new QuestionEntity("Какой тип данных используется для хранения истинных или ложных значений?", List.of(
-                        new AnswerEntity("String", false),
-                        new AnswerEntity("Integer", false),
-                        new AnswerEntity("Float", false),
-                        new AnswerEntity("Boolean", true)
+                new QuestionEntity("Как называется команда для извлечения данных из базы данных?", List.of(
+                        new AnswerEntity("Update", false),
+                        new AnswerEntity("Delete", false),
+                        new AnswerEntity("Insert", false),
+                        new AnswerEntity("Select", true)
                 ))
         )));
 
-        tests.add(new TestEntity(List.of(new QuestionEntity("Как называется устройство для вывода информации на экран?", List.of(
-                        new AnswerEntity("Монитор", true),
-                        new AnswerEntity("Клавиатура", false),
-                        new AnswerEntity("Мышь", false),
-                        new AnswerEntity("Принтер", false)
+        tests.add(new TestEntity("Продвинутые концепции баз", List.of(new QuestionEntity("Как называется операция удаления данных из таблицы?", List.of(
+                        new AnswerEntity("Delete", true),
+                        new AnswerEntity("Select", false),
+                        new AnswerEntity("Insert", false),
+                        new AnswerEntity("Update", false)
                 )),
-                new QuestionEntity("Какой компонент отвечает за графическую обработку?", List.of(
-                        new AnswerEntity("Процессор", false),
-                        new AnswerEntity("Видеокарта ", true),
-                        new AnswerEntity("Память", false),
-                        new AnswerEntity("Звуковая", false)
+                new QuestionEntity("Как называется комбинация двух таблиц на основе общего столбца?", List.of(
+                        new AnswerEntity("Merge", false),
+                        new AnswerEntity("Join", true),
+                        new AnswerEntity("Split", false),
+                        new AnswerEntity("Divide", false)
                 )),
-                new QuestionEntity("Как называется высокоскоростная внутренняя память?", List.of(
-                        new AnswerEntity("ROM", false),
-                        new AnswerEntity("SSD", false),
-                        new AnswerEntity("Hash", true),
-                        new AnswerEntity("HDD", false)
+                new QuestionEntity("Какой тип связи существует между двумя таблицами, когда одна строка одной таблицы соответствует многим строкам другой таблицы?", List.of(
+                        new AnswerEntity("МногиекОдному", false),
+                        new AnswerEntity("ОдинкоОдному", false),
+                        new AnswerEntity("ОдинкоМногим", true),
+                        new AnswerEntity("МногиекМногим", false)
                 )),
-                new QuestionEntity("Какое устройство используется для ввода данных?", List.of(
-                        new AnswerEntity("Принтер", false),
-                        new AnswerEntity("Монитор", false),
-                        new AnswerEntity("Колонки", false),
-                        new AnswerEntity("Клавиатура", true)
+                new QuestionEntity("Как называется процесс восстановления данных после сбоя?", List.of(
+                        new AnswerEntity("Архивирование", false),
+                        new AnswerEntity("Репликация", false),
+                        new AnswerEntity("Шардинг", false),
+                        new AnswerEntity("Восстановление", true)
                 ))
         )));
 
-        tests.add(new TestEntity(List.of(new QuestionEntity("Как называется уникальный идентификатор компьютера в сети?", List.of(
-                        new AnswerEntity("IP", true),
-                        new AnswerEntity("URL", false),
+        tests.add(new TestEntity("Архитектура баз данных", List.of(new QuestionEntity("Как называется центральная часть базы данных, где хранятся данные?", List.of(
+                        new AnswerEntity("Хранилище", true),
+                        new AnswerEntity("Сервер", false),
+                        new AnswerEntity("Кластер", false),
+                        new AnswerEntity("Таблица", false)
+                )),
+                new QuestionEntity("Как называется процесс разделения базы данных на части для повышения производительности?", List.of(
+                        new AnswerEntity("Репликация", false),
+                        new AnswerEntity("Шардинг ", true),
+                        new AnswerEntity("Кэширование", false),
+                        new AnswerEntity("Индексация", false)
+                )),
+                new QuestionEntity("Как называется временное хранилище данных для ускорения доступа?", List.of(
+                        new AnswerEntity("Лог", false),
+                        new AnswerEntity("Индекс", false),
+                        new AnswerEntity("Кэш", true),
+                        new AnswerEntity("Буфер", false)
+                )),
+                new QuestionEntity("Как называется модель данных, где данные хранятся в виде документов?", List.of(
+                        new AnswerEntity("Сетевая", false),
+                        new AnswerEntity("Реляционная", false),
+                        new AnswerEntity("Графовая", false),
+                        new AnswerEntity("Документная", true)
+                ))
+        )));
+
+        tests.add(new TestEntity("Инструменты и технологии баз", List.of(new QuestionEntity("Как называется популярная система управления базами данных с открытым исходным кодом?", List.of(
+                        new AnswerEntity("MySQL ", true),
+                        new AnswerEntity("Oracle", false),
+                        new AnswerEntity("SQLServer", false),
+                        new AnswerEntity("MongoDB", false)
+                )),
+                new QuestionEntity("Как называется язык запросов для управления и манипуляции данными?", List.of(
+                        new AnswerEntity("XML", false),
+                        new AnswerEntity("SQL", true),
                         new AnswerEntity("HTML", false),
-                        new AnswerEntity("DNS", false)
+                        new AnswerEntity("JSON", false)
                 )),
-                new QuestionEntity("Какое устройство соединяет несколько сетей?", List.of(
-                        new AnswerEntity("Коммутатор", false),
-                        new AnswerEntity("Маршрутизатор", true),
-                        new AnswerEntity("Хаб", false),
-                        new AnswerEntity("Мост", false)
+                new QuestionEntity("Как называется инструмент для визуализации и анализа данных?", List.of(
+                        new AnswerEntity("MySQL", false),
+                        new AnswerEntity("Oracle", false),
+                        new AnswerEntity("Tableau", true),
+                        new AnswerEntity("PostgreSQL", false)
                 )),
-                new QuestionEntity("Какой протокол используется для передачи веб-страниц?", List.of(
-                        new AnswerEntity("FTP", false),
-                        new AnswerEntity("SMTP", false),
-                        new AnswerEntity("HTTP", true),
-                        new AnswerEntity("SNMP", false)
-                )),
-                new QuestionEntity("Какое устройство обеспечивает беспроводное подключение?", List.of(
-                        new AnswerEntity("Провод", false),
-                        new AnswerEntity("Свитч", false),
-                        new AnswerEntity("Модем", false),
-                        new AnswerEntity("Роутер", true)
+                new QuestionEntity("Как называется система управления базами данных, разработанная компанией Oracle??", List.of(
+                        new AnswerEntity("MySQL", false),
+                        new AnswerEntity("PostgreSQL", false),
+                        new AnswerEntity("SQLite", false),
+                        new AnswerEntity("Oracle ", true)
                 ))
         )));
+
+        return tests;
+    }
+
+
+    public static List<TestEntity> getSecondTests() {
+        List<TestEntity> tests = new ArrayList<>();
+        tests.add(new TestEntity("Компьютерные сети", List.of(new QuestionEntity("Что означает аббревиатура SQL?", List.of(
+                        new AnswerEntity("Структурированный", true),
+                        new AnswerEntity("Статический", false),
+                        new AnswerEntity("Системный", false),
+                        new AnswerEntity("Секвенциальный", false)
+                )),
+                new QuestionEntity("Как называется основная структура данных в реляционной базе данных?", List.of(
+                        new AnswerEntity("Массив", false),
+                        new AnswerEntity("Таблица", true),
+                        new AnswerEntity("Дерево", false),
+                        new AnswerEntity("Список", false)
+                )),
+                new QuestionEntity("Как называется уникальный идентификатор строки в таблице?", List.of(
+                        new AnswerEntity("Колонка", false),
+                        new AnswerEntity("Поле", false),
+                        new AnswerEntity("Ключ", true),
+                        new AnswerEntity("Запрос", false)
+                )),
+                new QuestionEntity("Как называется команда для извлечения данных из базы данных?", List.of(
+                        new AnswerEntity("Update", false),
+                        new AnswerEntity("Delete", false),
+                        new AnswerEntity("Insert", false),
+                        new AnswerEntity("Select", true)
+                ))
+        )));
+
+        tests.add(new TestEntity("Продвинутые концепции баз", List.of(new QuestionEntity("Как называется операция удаления данных из таблицы?", List.of(
+                        new AnswerEntity("Delete", true),
+                        new AnswerEntity("Select", false),
+                        new AnswerEntity("Insert", false),
+                        new AnswerEntity("Update", false)
+                )),
+                new QuestionEntity("Как называется комбинация двух таблиц на основе общего столбца?", List.of(
+                        new AnswerEntity("Merge", false),
+                        new AnswerEntity("Join", true),
+                        new AnswerEntity("Split", false),
+                        new AnswerEntity("Divide", false)
+                )),
+                new QuestionEntity("Какой тип связи существует между двумя таблицами, когда одна строка одной таблицы соответствует многим строкам другой таблицы?", List.of(
+                        new AnswerEntity("МногиекОдному", false),
+                        new AnswerEntity("ОдинкоОдному", false),
+                        new AnswerEntity("ОдинкоМногим", true),
+                        new AnswerEntity("МногиекМногим", false)
+                )),
+                new QuestionEntity("Как называется процесс восстановления данных после сбоя?", List.of(
+                        new AnswerEntity("Архивирование", false),
+                        new AnswerEntity("Репликация", false),
+                        new AnswerEntity("Шардинг", false),
+                        new AnswerEntity("Восстановление", true)
+                ))
+        )));
+
+        tests.add(new TestEntity("Архитектура баз данных", List.of(new QuestionEntity("Как называется центральная часть базы данных, где хранятся данные?", List.of(
+                        new AnswerEntity("Хранилище", true),
+                        new AnswerEntity("Сервер", false),
+                        new AnswerEntity("Кластер", false),
+                        new AnswerEntity("Таблица", false)
+                )),
+                new QuestionEntity("Как называется процесс разделения базы данных на части для повышения производительности?", List.of(
+                        new AnswerEntity("Репликация", false),
+                        new AnswerEntity("Шардинг ", true),
+                        new AnswerEntity("Кэширование", false),
+                        new AnswerEntity("Индексация", false)
+                )),
+                new QuestionEntity("Как называется временное хранилище данных для ускорения доступа?", List.of(
+                        new AnswerEntity("Лог", false),
+                        new AnswerEntity("Индекс", false),
+                        new AnswerEntity("Кэш", true),
+                        new AnswerEntity("Буфер", false)
+                )),
+                new QuestionEntity("Как называется модель данных, где данные хранятся в виде документов?", List.of(
+                        new AnswerEntity("Сетевая", false),
+                        new AnswerEntity("Реляционная", false),
+                        new AnswerEntity("Графовая", false),
+                        new AnswerEntity("Документная", true)
+                ))
+        )));
+
+        tests.add(new TestEntity("Инструменты и технологии баз", List.of(new QuestionEntity("Как называется популярная система управления базами данных с открытым исходным кодом?", List.of(
+                        new AnswerEntity("MySQL ", true),
+                        new AnswerEntity("Oracle", false),
+                        new AnswerEntity("SQLServer", false),
+                        new AnswerEntity("MongoDB", false)
+                )),
+                new QuestionEntity("Как называется язык запросов для управления и манипуляции данными?", List.of(
+                        new AnswerEntity("XML", false),
+                        new AnswerEntity("SQL", true),
+                        new AnswerEntity("HTML", false),
+                        new AnswerEntity("JSON", false)
+                )),
+                new QuestionEntity("Как называется инструмент для визуализации и анализа данных?", List.of(
+                        new AnswerEntity("MySQL", false),
+                        new AnswerEntity("Oracle", false),
+                        new AnswerEntity("Tableau", true),
+                        new AnswerEntity("PostgreSQL", false)
+                )),
+                new QuestionEntity("Как называется система управления базами данных, разработанная компанией Oracle??", List.of(
+                        new AnswerEntity("MySQL", false),
+                        new AnswerEntity("PostgreSQL", false),
+                        new AnswerEntity("SQLite", false),
+                        new AnswerEntity("Oracle ", true)
+                ))
+        )));
+
+        return tests;
+    }
+
+    public static List<TestEntity> getThirdTests() {
+        List<TestEntity> tests = new ArrayList<>();
+        tests.add(new TestEntity("Программирование", List.of(new QuestionEntity("Что означает аббревиатура SQL?", List.of(
+                        new AnswerEntity("Структурированный", true),
+                        new AnswerEntity("Статический", false),
+                        new AnswerEntity("Системный", false),
+                        new AnswerEntity("Секвенциальный", false)
+                )),
+                new QuestionEntity("Как называется основная структура данных в реляционной базе данных?", List.of(
+                        new AnswerEntity("Массив", false),
+                        new AnswerEntity("Таблица", true),
+                        new AnswerEntity("Дерево", false),
+                        new AnswerEntity("Список", false)
+                )),
+                new QuestionEntity("Как называется уникальный идентификатор строки в таблице?", List.of(
+                        new AnswerEntity("Колонка", false),
+                        new AnswerEntity("Поле", false),
+                        new AnswerEntity("Ключ", true),
+                        new AnswerEntity("Запрос", false)
+                )),
+                new QuestionEntity("Как называется команда для извлечения данных из базы данных?", List.of(
+                        new AnswerEntity("Update", false),
+                        new AnswerEntity("Delete", false),
+                        new AnswerEntity("Insert", false),
+                        new AnswerEntity("Select", true)
+                ))
+        )));
+
+        tests.add(new TestEntity("Продвинутые концепции баз", List.of(new QuestionEntity("Как называется операция удаления данных из таблицы?", List.of(
+                        new AnswerEntity("Delete", true),
+                        new AnswerEntity("Select", false),
+                        new AnswerEntity("Insert", false),
+                        new AnswerEntity("Update", false)
+                )),
+                new QuestionEntity("Как называется комбинация двух таблиц на основе общего столбца?", List.of(
+                        new AnswerEntity("Merge", false),
+                        new AnswerEntity("Join", true),
+                        new AnswerEntity("Split", false),
+                        new AnswerEntity("Divide", false)
+                )),
+                new QuestionEntity("Какой тип связи существует между двумя таблицами, когда одна строка одной таблицы соответствует многим строкам другой таблицы?", List.of(
+                        new AnswerEntity("МногиекОдному", false),
+                        new AnswerEntity("ОдинкоОдному", false),
+                        new AnswerEntity("ОдинкоМногим", true),
+                        new AnswerEntity("МногиекМногим", false)
+                )),
+                new QuestionEntity("Как называется процесс восстановления данных после сбоя?", List.of(
+                        new AnswerEntity("Архивирование", false),
+                        new AnswerEntity("Репликация", false),
+                        new AnswerEntity("Шардинг", false),
+                        new AnswerEntity("Восстановление", true)
+                ))
+        )));
+
+        tests.add(new TestEntity("Архитектура баз данных", List.of(new QuestionEntity("Как называется центральная часть базы данных, где хранятся данные?", List.of(
+                        new AnswerEntity("Хранилище", true),
+                        new AnswerEntity("Сервер", false),
+                        new AnswerEntity("Кластер", false),
+                        new AnswerEntity("Таблица", false)
+                )),
+                new QuestionEntity("Как называется процесс разделения базы данных на части для повышения производительности?", List.of(
+                        new AnswerEntity("Репликация", false),
+                        new AnswerEntity("Шардинг ", true),
+                        new AnswerEntity("Кэширование", false),
+                        new AnswerEntity("Индексация", false)
+                )),
+                new QuestionEntity("Как называется временное хранилище данных для ускорения доступа?", List.of(
+                        new AnswerEntity("Лог", false),
+                        new AnswerEntity("Индекс", false),
+                        new AnswerEntity("Кэш", true),
+                        new AnswerEntity("Буфер", false)
+                )),
+                new QuestionEntity("Как называется модель данных, где данные хранятся в виде документов?", List.of(
+                        new AnswerEntity("Сетевая", false),
+                        new AnswerEntity("Реляционная", false),
+                        new AnswerEntity("Графовая", false),
+                        new AnswerEntity("Документная", true)
+                ))
+        )));
+
+        tests.add(new TestEntity("Инструменты и технологии баз", List.of(new QuestionEntity("Как называется популярная система управления базами данных с открытым исходным кодом?", List.of(
+                        new AnswerEntity("MySQL ", true),
+                        new AnswerEntity("Oracle", false),
+                        new AnswerEntity("SQLServer", false),
+                        new AnswerEntity("MongoDB", false)
+                )),
+                new QuestionEntity("Как называется язык запросов для управления и манипуляции данными?", List.of(
+                        new AnswerEntity("XML", false),
+                        new AnswerEntity("SQL", true),
+                        new AnswerEntity("HTML", false),
+                        new AnswerEntity("JSON", false)
+                )),
+                new QuestionEntity("Как называется инструмент для визуализации и анализа данных?", List.of(
+                        new AnswerEntity("MySQL", false),
+                        new AnswerEntity("Oracle", false),
+                        new AnswerEntity("Tableau", true),
+                        new AnswerEntity("PostgreSQL", false)
+                )),
+                new QuestionEntity("Как называется система управления базами данных, разработанная компанией Oracle??", List.of(
+                        new AnswerEntity("MySQL", false),
+                        new AnswerEntity("PostgreSQL", false),
+                        new AnswerEntity("SQLite", false),
+                        new AnswerEntity("Oracle ", true)
+                ))
+        )));
+
+        return tests;
+    }
+
+    public static List<TestEntity> getFourthTests() {
+        List<TestEntity> tests = new ArrayList<>();
+        tests.add(new TestEntity("Технологии", List.of(new QuestionEntity("Что означает аббревиатура SQL?", List.of(
+                        new AnswerEntity("Структурированный", true),
+                        new AnswerEntity("Статический", false),
+                        new AnswerEntity("Системный", false),
+                        new AnswerEntity("Секвенциальный", false)
+                )),
+                new QuestionEntity("Как называется основная структура данных в реляционной базе данных?", List.of(
+                        new AnswerEntity("Массив", false),
+                        new AnswerEntity("Таблица", true),
+                        new AnswerEntity("Дерево", false),
+                        new AnswerEntity("Список", false)
+                )),
+                new QuestionEntity("Как называется уникальный идентификатор строки в таблице?", List.of(
+                        new AnswerEntity("Колонка", false),
+                        new AnswerEntity("Поле", false),
+                        new AnswerEntity("Ключ", true),
+                        new AnswerEntity("Запрос", false)
+                )),
+                new QuestionEntity("Как называется команда для извлечения данных из базы данных?", List.of(
+                        new AnswerEntity("Update", false),
+                        new AnswerEntity("Delete", false),
+                        new AnswerEntity("Insert", false),
+                        new AnswerEntity("Select", true)
+                ))
+        )));
+
+        tests.add(new TestEntity("Продвинутые концепции баз", List.of(new QuestionEntity("Как называется операция удаления данных из таблицы?", List.of(
+                        new AnswerEntity("Delete", true),
+                        new AnswerEntity("Select", false),
+                        new AnswerEntity("Insert", false),
+                        new AnswerEntity("Update", false)
+                )),
+                new QuestionEntity("Как называется комбинация двух таблиц на основе общего столбца?", List.of(
+                        new AnswerEntity("Merge", false),
+                        new AnswerEntity("Join", true),
+                        new AnswerEntity("Split", false),
+                        new AnswerEntity("Divide", false)
+                )),
+                new QuestionEntity("Какой тип связи существует между двумя таблицами, когда одна строка одной таблицы соответствует многим строкам другой таблицы?", List.of(
+                        new AnswerEntity("МногиекОдному", false),
+                        new AnswerEntity("ОдинкоОдному", false),
+                        new AnswerEntity("ОдинкоМногим", true),
+                        new AnswerEntity("МногиекМногим", false)
+                )),
+                new QuestionEntity("Как называется процесс восстановления данных после сбоя?", List.of(
+                        new AnswerEntity("Архивирование", false),
+                        new AnswerEntity("Репликация", false),
+                        new AnswerEntity("Шардинг", false),
+                        new AnswerEntity("Восстановление", true)
+                ))
+        )));
+
+        tests.add(new TestEntity("Архитектура баз данных", List.of(new QuestionEntity("Как называется центральная часть базы данных, где хранятся данные?", List.of(
+                        new AnswerEntity("Хранилище", true),
+                        new AnswerEntity("Сервер", false),
+                        new AnswerEntity("Кластер", false),
+                        new AnswerEntity("Таблица", false)
+                )),
+                new QuestionEntity("Как называется процесс разделения базы данных на части для повышения производительности?", List.of(
+                        new AnswerEntity("Репликация", false),
+                        new AnswerEntity("Шардинг ", true),
+                        new AnswerEntity("Кэширование", false),
+                        new AnswerEntity("Индексация", false)
+                )),
+                new QuestionEntity("Как называется временное хранилище данных для ускорения доступа?", List.of(
+                        new AnswerEntity("Лог", false),
+                        new AnswerEntity("Индекс", false),
+                        new AnswerEntity("Кэш", true),
+                        new AnswerEntity("Буфер", false)
+                )),
+                new QuestionEntity("Как называется модель данных, где данные хранятся в виде документов?", List.of(
+                        new AnswerEntity("Сетевая", false),
+                        new AnswerEntity("Реляционная", false),
+                        new AnswerEntity("Графовая", false),
+                        new AnswerEntity("Документная", true)
+                ))
+        )));
+
+        tests.add(new TestEntity("Инструменты и технологии баз", List.of(new QuestionEntity("Как называется популярная система управления базами данных с открытым исходным кодом?", List.of(
+                        new AnswerEntity("MySQL ", true),
+                        new AnswerEntity("Oracle", false),
+                        new AnswerEntity("SQLServer", false),
+                        new AnswerEntity("MongoDB", false)
+                )),
+                new QuestionEntity("Как называется язык запросов для управления и манипуляции данными?", List.of(
+                        new AnswerEntity("XML", false),
+                        new AnswerEntity("SQL", true),
+                        new AnswerEntity("HTML", false),
+                        new AnswerEntity("JSON", false)
+                )),
+                new QuestionEntity("Как называется инструмент для визуализации и анализа данных?", List.of(
+                        new AnswerEntity("MySQL", false),
+                        new AnswerEntity("Oracle", false),
+                        new AnswerEntity("Tableau", true),
+                        new AnswerEntity("PostgreSQL", false)
+                )),
+                new QuestionEntity("Как называется система управления базами данных, разработанная компанией Oracle??", List.of(
+                        new AnswerEntity("MySQL", false),
+                        new AnswerEntity("PostgreSQL", false),
+                        new AnswerEntity("SQLite", false),
+                        new AnswerEntity("Oracle ", true)
+                ))
+        )));
+
+        return tests;
     }
 }

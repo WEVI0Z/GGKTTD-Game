@@ -1,6 +1,7 @@
 package by.garkaviy.game.location;
 
 import by.garkaviy.game.context.GameContext;
+import by.garkaviy.game.test.TestEnum;
 import by.garkaviy.game.texture.TextureLib;
 import lombok.Getter;
 
@@ -63,18 +64,22 @@ public enum LocationLibrary {
             .placeAction(2, 0, new TileEntity(TileType.ACTION, TextureLib.COLLEGE_DOOR_BACK.getTexture()),
                     () -> {
                         GameContext.getInstance().setChangeToTest(true);
+                        GameContext.getInstance().setWhatTest(TestEnum.FIRST_TESTS);
                     })
             .placeAction(5, 0, new TileEntity(TileType.ACTION, TextureLib.COLLEGE_DOOR_BACK.getTexture()),
                     () -> {
                         GameContext.getInstance().setChangeToTest(true);
+                        GameContext.getInstance().setWhatTest(TestEnum.SECOND_TESTS);
                     })
             .placeAction(8, 0, new TileEntity(TileType.ACTION, TextureLib.COLLEGE_DOOR_BACK.getTexture()),
                     () -> {
                         GameContext.getInstance().setChangeToTest(true);
+                        GameContext.getInstance().setWhatTest(TestEnum.THIRD_TESTS);
                     })
             .placeAction(11, 0, new TileEntity(TileType.ACTION, TextureLib.COLLEGE_DOOR_BACK.getTexture()),
                     () -> {
                         GameContext.getInstance().setChangeToTest(true);
+                        GameContext.getInstance().setWhatTest(TestEnum.FOURTH_TESTS);
                     })),
     OUTSIDE(new Location()
             .setTitle("Улица")
