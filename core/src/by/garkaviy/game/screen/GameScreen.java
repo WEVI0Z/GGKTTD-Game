@@ -5,6 +5,7 @@ import by.garkaviy.game.context.GameContext;
 import by.garkaviy.game.context.SaveAndLoader;
 import by.garkaviy.game.location.*;
 import by.garkaviy.game.player.Player;
+import by.garkaviy.game.texture.TextureLib;
 import by.garkaviy.game.ui.UILayout;
 import by.garkaviy.game.ui.elements.*;
 import com.badlogic.gdx.Application;
@@ -25,6 +26,9 @@ public class GameScreen implements Screen {
     private final CarController reversedCarController;
     private final UIElement exitHint;
     private final UIElement bonusHint;
+    private final UICameraButton statButton;
+
+    private int fpsCount = 15;
 
     GameScreen(GGKTTDGame game) {
         this.game = game;
@@ -52,6 +56,16 @@ public class GameScreen implements Screen {
                 .y(150)
                 .width(300)
                 .height(200);
+
+        statButton = (UICameraButton) new UICameraButton(16)
+                .borderColor(Color.BLACK)
+                .title("Статистика")
+                .texture(TextureLib.HUMAN)
+                .runnable(() -> GameContext.getInstance().setStatScreen(true))
+                .x(10)
+                .y(410)
+                .width(60)
+                .height(60);
 
         layout = createLayout();
         carController = new CarController(1100, 80, 120, 80,
@@ -90,9 +104,10 @@ public class GameScreen implements Screen {
             game.setScreen(new TestScreen(game, GameContext.getInstance().getWhatTest()));
         }
 
-        if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
+        if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE) && fpsCount == 0) {
             setMainMenu();
         }
+        fpsCount = fpsCount > 0 ? fpsCount - 1 : 0;
 
         if (GameContext.getInstance().getRunnableLocation().equals(LocationLibrary.OUTSIDE)) {
             batch.begin();
@@ -109,6 +124,15 @@ public class GameScreen implements Screen {
         if (GameContext.getInstance().isBonusHint()) {
             GameContext.getInstance().setBonusHint(!Gdx.input.isKeyPressed(Input.Keys.ANY_KEY));
             bonusHint.render(batch, camera);
+        }
+
+        statButton.render(batch, camera);
+        statButton.clickAction();
+
+        if (GameContext.getInstance().isStatScreen()) {
+            dispose();
+            game.setScreen(new StatScreen(game));
+            GameContext.getInstance().setStatScreen(false);
         }
 
         layout.render(batch, camera);

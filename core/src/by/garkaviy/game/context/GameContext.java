@@ -31,6 +31,7 @@ public class GameContext {
     private int lastY = 100;
     private boolean exitHint = false;
     private boolean bonusHint = false;
+    private boolean isStatScreen = false;
 
     public static GameContext getDefaultInstance() {
         GameContext instance = new GameContext();

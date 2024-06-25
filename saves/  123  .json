@@ -4,9 +4,8 @@ password: "  123  "
 player: {
 	x: 193
 	y: 93
-	stateTime: 0.0298611
+	stateTime: 1.0663886
 }
-whatTest: THIRD_TESTS
 balance: 200
 lastX: 193
 lastY: 93

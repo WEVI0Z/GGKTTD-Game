@@ -1,5 +1,7 @@
 package by.garkaviy.game.ui.elements;
 
+import by.garkaviy.game.location.TileEntity;
+import by.garkaviy.game.location.TileType;
 import by.garkaviy.game.texture.TextureLib;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Camera;
@@ -14,6 +16,7 @@ import lombok.Setter;
 import lombok.experimental.Accessors;
 
 import java.awt.*;
+import java.util.Objects;
 
 
 @Getter
@@ -25,6 +28,7 @@ public class UICameraButton extends UIElement {
     private Rectangle buttonRectangle;
     private Runnable runnable;
     private BitmapFont font;
+    private TextureLib texture;
     private boolean isFirst = true;
 
     public UICameraButton(int fontSize) {
@@ -54,6 +58,14 @@ public class UICameraButton extends UIElement {
         batch.draw(TextureLib.BLUE_BUTTON.getTexture(), x, y, width, height);
         font.draw(batch, title, x, centerY, width, Align.center, true);
         batch.end();
+
+        if (Objects.nonNull(texture)) {
+            TileEntity tileEntity = new TileEntity(TileType.WALL, texture.getTexture(), (int) (width * 0.7), (int) (height * 0.7), (int) (x + width * 0.15), (int) (y + height * 0.17));
+            title = "";
+            batch.begin();
+            tileEntity.render(batch);
+            batch.end();
+        }
     }
 
     public void clickAction() {
