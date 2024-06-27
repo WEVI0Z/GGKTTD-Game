@@ -7,9 +7,8 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class TestEntity {
-    private String title;
-    private List<QuestionEntity> questions;
+@NoArgsConstructor
+public class TestCollection {
+    private List<TestEntity> tests;
 }

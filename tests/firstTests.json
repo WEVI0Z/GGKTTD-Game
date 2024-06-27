@@ -1,0 +1,420 @@
+{
+tests: [
+	{
+		title: Основы баз данных
+		questions: {
+			class: java.util.ImmutableCollections$ListN
+			items: [
+				{
+					question: Что означает аббревиатура SQL?
+					answers: {
+						class: java.util.ImmutableCollections$ListN
+						items: [
+							{
+								text: Структурированный
+								isRight: true
+							}
+							{
+								text: Статический
+								isRight: false
+							}
+							{
+								text: Системный
+								isRight: false
+							}
+							{
+								text: Секвенциальный
+								isRight: false
+							}
+						]
+					}
+				}
+				{
+					question: Как называется основная структура данных в реляционной базе данных?
+					answers: {
+						class: java.util.ImmutableCollections$ListN
+						items: [
+							{
+								text: Массив
+								isRight: false
+							}
+							{
+								text: Таблица
+								isRight: true
+							}
+							{
+								text: Дерево
+								isRight: false
+							}
+							{
+								text: Список
+								isRight: false
+							}
+						]
+					}
+				}
+				{
+					question: Как называется уникальный идентификатор строки в таблице?
+					answers: {
+						class: java.util.ImmutableCollections$ListN
+						items: [
+							{
+								text: Колонка
+								isRight: false
+							}
+							{
+								text: Поле
+								isRight: false
+							}
+							{
+								text: Ключ
+								isRight: true
+							}
+							{
+								text: Запрос
+								isRight: false
+							}
+						]
+					}
+				}
+				{
+					question: Как называется команда для извлечения данных из базы данных?
+					answers: {
+						class: java.util.ImmutableCollections$ListN
+						items: [
+							{
+								text: Update
+								isRight: false
+							}
+							{
+								text: Delete
+								isRight: false
+							}
+							{
+								text: Insert
+								isRight: false
+							}
+							{
+								text: Select
+								isRight: true
+							}
+						]
+					}
+				}
+			]
+		}
+	}
+	{
+		title: Продвинутые концепции баз
+		questions: {
+			class: java.util.ImmutableCollections$ListN
+			items: [
+				{
+					question: Как называется операция удаления данных из таблицы?
+					answers: {
+						class: java.util.ImmutableCollections$ListN
+						items: [
+							{
+								text: Delete
+								isRight: true
+							}
+							{
+								text: Select
+								isRight: false
+							}
+							{
+								text: Insert
+								isRight: false
+							}
+							{
+								text: Update
+								isRight: false
+							}
+						]
+					}
+				}
+				{
+					question: Как называется комбинация двух таблиц на основе общего столбца?
+					answers: {
+						class: java.util.ImmutableCollections$ListN
+						items: [
+							{
+								text: Merge
+								isRight: false
+							}
+							{
+								text: Join
+								isRight: true
+							}
+							{
+								text: Split
+								isRight: false
+							}
+							{
+								text: Divide
+								isRight: false
+							}
+						]
+					}
+				}
+				{
+					question: "Какой тип связи существует между двумя таблицами, когда одна строка одной таблицы соответствует многим строкам другой таблицы?"
+					answers: {
+						class: java.util.ImmutableCollections$ListN
+						items: [
+							{
+								text: МногиекОдному
+								isRight: false
+							}
+							{
+								text: ОдинкоОдному
+								isRight: false
+							}
+							{
+								text: ОдинкоМногим
+								isRight: true
+							}
+							{
+								text: МногиекМногим
+								isRight: false
+							}
+						]
+					}
+				}
+				{
+					question: Как называется процесс восстановления данных после сбоя?
+					answers: {
+						class: java.util.ImmutableCollections$ListN
+						items: [
+							{
+								text: Архивирование
+								isRight: false
+							}
+							{
+								text: Репликация
+								isRight: false
+							}
+							{
+								text: Шардинг
+								isRight: false
+							}
+							{
+								text: Восстановление
+								isRight: true
+							}
+						]
+					}
+				}
+			]
+		}
+	}
+	{
+		title: Архитектура баз данных
+		questions: {
+			class: java.util.ImmutableCollections$ListN
+			items: [
+				{
+					question: "Как называется центральная часть базы данных, где хранятся данные?"
+					answers: {
+						class: java.util.ImmutableCollections$ListN
+						items: [
+							{
+								text: Хранилище
+								isRight: true
+							}
+							{
+								text: Сервер
+								isRight: false
+							}
+							{
+								text: Кластер
+								isRight: false
+							}
+							{
+								text: Таблица
+								isRight: false
+							}
+						]
+					}
+				}
+				{
+					question: Как называется процесс разделения базы данных на части для повышения производительности?
+					answers: {
+						class: java.util.ImmutableCollections$ListN
+						items: [
+							{
+								text: Репликация
+								isRight: false
+							}
+							{
+								text: "Шардинг "
+								isRight: true
+							}
+							{
+								text: Кэширование
+								isRight: false
+							}
+							{
+								text: Индексация
+								isRight: false
+							}
+						]
+					}
+				}
+				{
+					question: Как называется временное хранилище данных для ускорения доступа?
+					answers: {
+						class: java.util.ImmutableCollections$ListN
+						items: [
+							{
+								text: Лог
+								isRight: false
+							}
+							{
+								text: Индекс
+								isRight: false
+							}
+							{
+								text: Кэш
+								isRight: true
+							}
+							{
+								text: Буфер
+								isRight: false
+							}
+						]
+					}
+				}
+				{
+					question: "Как называется модель данных, где данные хранятся в виде документов?"
+					answers: {
+						class: java.util.ImmutableCollections$ListN
+						items: [
+							{
+								text: Сетевая
+								isRight: false
+							}
+							{
+								text: Реляционная
+								isRight: false
+							}
+							{
+								text: Графовая
+								isRight: false
+							}
+							{
+								text: Документная
+								isRight: true
+							}
+						]
+					}
+				}
+			]
+		}
+	}
+	{
+		title: Инструменты и технологии баз
+		questions: {
+			class: java.util.ImmutableCollections$ListN
+			items: [
+				{
+					question: Как называется популярная система управления базами данных с открытым исходным кодом?
+					answers: {
+						class: java.util.ImmutableCollections$ListN
+						items: [
+							{
+								text: "MySQL "
+								isRight: true
+							}
+							{
+								text: Oracle
+								isRight: false
+							}
+							{
+								text: SQLServer
+								isRight: false
+							}
+							{
+								text: MongoDB
+								isRight: false
+							}
+						]
+					}
+				}
+				{
+					question: Как называется язык запросов для управления и манипуляции данными?
+					answers: {
+						class: java.util.ImmutableCollections$ListN
+						items: [
+							{
+								text: XML
+								isRight: false
+							}
+							{
+								text: SQL
+								isRight: true
+							}
+							{
+								text: HTML
+								isRight: false
+							}
+							{
+								text: JSON
+								isRight: false
+							}
+						]
+					}
+				}
+				{
+					question: Как называется инструмент для визуализации и анализа данных?
+					answers: {
+						class: java.util.ImmutableCollections$ListN
+						items: [
+							{
+								text: MySQL
+								isRight: false
+							}
+							{
+								text: Oracle
+								isRight: false
+							}
+							{
+								text: Tableau
+								isRight: true
+							}
+							{
+								text: PostgreSQL
+								isRight: false
+							}
+						]
+					}
+				}
+				{
+					question: "Как называется система управления базами данных, разработанная компанией Oracle??"
+					answers: {
+						class: java.util.ImmutableCollections$ListN
+						items: [
+							{
+								text: MySQL
+								isRight: false
+							}
+							{
+								text: PostgreSQL
+								isRight: false
+							}
+							{
+								text: SQLite
+								isRight: false
+							}
+							{
+								text: "Oracle "
+								isRight: true
+							}
+						]
+					}
+				}
+			]
+		}
+	}
+]
+}
