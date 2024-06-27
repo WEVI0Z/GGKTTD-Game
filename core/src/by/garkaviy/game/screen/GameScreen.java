@@ -61,7 +61,9 @@ public class GameScreen implements Screen {
                 .borderColor(Color.BLACK)
                 .title("Статистика")
                 .texture(TextureLib.HUMAN)
-                .runnable(() -> GameContext.getInstance().setStatScreen(true))
+                .runnable(() -> {
+                    GameContext.getInstance().setStatScreen(true);
+                })
                 .x(10)
                 .y(410)
                 .width(60)
@@ -133,6 +135,8 @@ public class GameScreen implements Screen {
             dispose();
             game.setScreen(new StatScreen(game));
             GameContext.getInstance().setStatScreen(false);
+            GameContext.getInstance().setLastX(GameContext.getInstance().getPlayer().x);
+            GameContext.getInstance().setLastY(GameContext.getInstance().getPlayer().y);
         }
 
         layout.render(batch, camera);

@@ -1,0 +1,24 @@
+{
+saveName: "  fff  "
+password: "  123  "
+player: {
+	x: 362
+	y: 77
+	stateTime: 0.64952713
+}
+whatTest: THIRD_TESTS
+score: 100
+roomTexture: WOOD_FLOOR2
+lastX: 362
+lastY: 77
+tests: {
+	class: java.util.HashMap
+	Архитектура баз данных: true
+	Программирование: false
+	Основы баз данных: false
+	Технологии: false
+	Компьютерные сети: false
+	Инструменты и технологии баз: false
+	Продвинутые концепции баз: false
+}
+}

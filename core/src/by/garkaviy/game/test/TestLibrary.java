@@ -8,6 +8,18 @@ import java.util.List;
 @Data
 public class TestLibrary {
 
+    public static List<String> getAllTtiles() {
+        List<TestEntity> tests = getTests();
+        tests.addAll(getSecondTests());
+        tests.addAll(getThirdTests());
+        tests.addAll(getFourthTests());
+        List<String> titles = new ArrayList<>();
+        for (TestEntity test : tests) {
+            titles.add(test.getTitle());
+        }
+        return titles;
+    }
+
     public static List<TestEntity> getTests() {
         List<TestEntity> tests = new ArrayList<>();
         tests.add(new TestEntity("Основы баз данных", List.of(new QuestionEntity("Что означает аббревиатура SQL?", List.of(
@@ -120,7 +132,7 @@ public class TestLibrary {
 
     public static List<TestEntity> getSecondTests() {
         List<TestEntity> tests = new ArrayList<>();
-        tests.add(new TestEntity("Компьютерные сети", List.of(new QuestionEntity("Что означает аббревиатура SQL?", List.of(
+        tests.add(new TestEntity("Основы компьютерных сетей", List.of(new QuestionEntity("Что означает аббревиатура SQL?", List.of(
                         new AnswerEntity("Структурированный", true),
                         new AnswerEntity("Статический", false),
                         new AnswerEntity("Системный", false),
@@ -146,7 +158,7 @@ public class TestLibrary {
                 ))
         )));
 
-        tests.add(new TestEntity("Продвинутые концепции баз", List.of(new QuestionEntity("Как называется операция удаления данных из таблицы?", List.of(
+        tests.add(new TestEntity("Протоколы и модели сетей", List.of(new QuestionEntity("Как называется операция удаления данных из таблицы?", List.of(
                         new AnswerEntity("Delete", true),
                         new AnswerEntity("Select", false),
                         new AnswerEntity("Insert", false),
@@ -172,7 +184,7 @@ public class TestLibrary {
                 ))
         )));
 
-        tests.add(new TestEntity("Архитектура баз данных", List.of(new QuestionEntity("Как называется центральная часть базы данных, где хранятся данные?", List.of(
+        tests.add(new TestEntity("Технологии беспроводных сетей", List.of(new QuestionEntity("Как называется центральная часть базы данных, где хранятся данные?", List.of(
                         new AnswerEntity("Хранилище", true),
                         new AnswerEntity("Сервер", false),
                         new AnswerEntity("Кластер", false),
@@ -198,7 +210,7 @@ public class TestLibrary {
                 ))
         )));
 
-        tests.add(new TestEntity("Инструменты и технологии баз", List.of(new QuestionEntity("Как называется популярная система управления базами данных с открытым исходным кодом?", List.of(
+        tests.add(new TestEntity("Сетевые устройства и топологии", List.of(new QuestionEntity("Как называется популярная система управления базами данных с открытым исходным кодом?", List.of(
                         new AnswerEntity("MySQL ", true),
                         new AnswerEntity("Oracle", false),
                         new AnswerEntity("SQLServer", false),
@@ -229,7 +241,7 @@ public class TestLibrary {
 
     public static List<TestEntity> getThirdTests() {
         List<TestEntity> tests = new ArrayList<>();
-        tests.add(new TestEntity("Программирование", List.of(new QuestionEntity("Что означает аббревиатура SQL?", List.of(
+        tests.add(new TestEntity("Основы программирования", List.of(new QuestionEntity("Что означает аббревиатура SQL?", List.of(
                         new AnswerEntity("Структурированный", true),
                         new AnswerEntity("Статический", false),
                         new AnswerEntity("Системный", false),
@@ -255,7 +267,7 @@ public class TestLibrary {
                 ))
         )));
 
-        tests.add(new TestEntity("Продвинутые концепции баз", List.of(new QuestionEntity("Как называется операция удаления данных из таблицы?", List.of(
+        tests.add(new TestEntity("Языки программирования", List.of(new QuestionEntity("Как называется операция удаления данных из таблицы?", List.of(
                         new AnswerEntity("Delete", true),
                         new AnswerEntity("Select", false),
                         new AnswerEntity("Insert", false),
@@ -281,7 +293,7 @@ public class TestLibrary {
                 ))
         )));
 
-        tests.add(new TestEntity("Архитектура баз данных", List.of(new QuestionEntity("Как называется центральная часть базы данных, где хранятся данные?", List.of(
+        tests.add(new TestEntity("Структуры данных", List.of(new QuestionEntity("Как называется центральная часть базы данных, где хранятся данные?", List.of(
                         new AnswerEntity("Хранилище", true),
                         new AnswerEntity("Сервер", false),
                         new AnswerEntity("Кластер", false),
@@ -307,7 +319,7 @@ public class TestLibrary {
                 ))
         )));
 
-        tests.add(new TestEntity("Инструменты и технологии баз", List.of(new QuestionEntity("Как называется популярная система управления базами данных с открытым исходным кодом?", List.of(
+        tests.add(new TestEntity("Алгоритмы", List.of(new QuestionEntity("Как называется популярная система управления базами данных с открытым исходным кодом?", List.of(
                         new AnswerEntity("MySQL ", true),
                         new AnswerEntity("Oracle", false),
                         new AnswerEntity("SQLServer", false),
@@ -338,7 +350,7 @@ public class TestLibrary {
 
     public static List<TestEntity> getFourthTests() {
         List<TestEntity> tests = new ArrayList<>();
-        tests.add(new TestEntity("Технологии", List.of(new QuestionEntity("Что означает аббревиатура SQL?", List.of(
+        tests.add(new TestEntity("Основы информационных технологий", List.of(new QuestionEntity("Что означает аббревиатура SQL?", List.of(
                         new AnswerEntity("Структурированный", true),
                         new AnswerEntity("Статический", false),
                         new AnswerEntity("Системный", false),
@@ -364,7 +376,7 @@ public class TestLibrary {
                 ))
         )));
 
-        tests.add(new TestEntity("Продвинутые концепции баз", List.of(new QuestionEntity("Как называется операция удаления данных из таблицы?", List.of(
+        tests.add(new TestEntity("Современные технологии", List.of(new QuestionEntity("Как называется операция удаления данных из таблицы?", List.of(
                         new AnswerEntity("Delete", true),
                         new AnswerEntity("Select", false),
                         new AnswerEntity("Insert", false),
@@ -390,7 +402,7 @@ public class TestLibrary {
                 ))
         )));
 
-        tests.add(new TestEntity("Архитектура баз данных", List.of(new QuestionEntity("Как называется центральная часть базы данных, где хранятся данные?", List.of(
+        tests.add(new TestEntity("Программные технологии", List.of(new QuestionEntity("Как называется центральная часть базы данных, где хранятся данные?", List.of(
                         new AnswerEntity("Хранилище", true),
                         new AnswerEntity("Сервер", false),
                         new AnswerEntity("Кластер", false),
@@ -416,7 +428,7 @@ public class TestLibrary {
                 ))
         )));
 
-        tests.add(new TestEntity("Инструменты и технологии баз", List.of(new QuestionEntity("Как называется популярная система управления базами данных с открытым исходным кодом?", List.of(
+        tests.add(new TestEntity("Сетевые технологии", List.of(new QuestionEntity("Как называется популярная система управления базами данных с открытым исходным кодом?", List.of(
                         new AnswerEntity("MySQL ", true),
                         new AnswerEntity("Oracle", false),
                         new AnswerEntity("SQLServer", false),

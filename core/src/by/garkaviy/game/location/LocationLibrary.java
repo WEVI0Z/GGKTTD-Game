@@ -22,7 +22,7 @@ public enum LocationLibrary {
     DORM_ROOM((new Location()
             .setTitle("Моя комната")
             .setSize(6, 5)
-            .fillWithBackground(GameContext.getInstance().getRoomTexture())
+            .fillWithBackground(GameContext.getInstance().getRoomTexture().getTexture())
             .generateWalls(TextureLib.STONE_WALL.getTexture()))),
     DORM_UPSTAIRS((new Location()
             .setTitle("Общежитие: второй этаж")

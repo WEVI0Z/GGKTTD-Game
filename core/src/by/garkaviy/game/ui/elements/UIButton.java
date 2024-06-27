@@ -34,6 +34,7 @@ public class UIButton extends UIElement {
     private boolean isFirst = true;
     private TextureLib texture;
     private TextureLib button = TextureLib.BLUE_BUTTON;
+    private int align = Align.center;
 
     public UIButton(int fontSize) {
         this.fontSize = fontSize;
@@ -59,7 +60,7 @@ public class UIButton extends UIElement {
 
         batch.begin();
         if (Objects.nonNull(button)) batch.draw(button.getTexture(), x, y, width, height);
-        font.draw(batch, title, x + 10, centerY, width - 10, Align.center, true);
+        font.draw(batch, title, x + 10, centerY, width - 10, align, true);
         batch.end();
 
         if (Objects.nonNull(texture)) {

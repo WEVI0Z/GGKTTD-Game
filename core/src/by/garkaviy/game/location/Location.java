@@ -114,7 +114,7 @@ public class Location {
     }
 
     public void renderHouse() {
-        fillWithBackground(GameContext.getInstance().getRoomTexture());
+        fillWithBackground(GameContext.getInstance().getRoomTexture().getTexture());
         generateWalls(TextureLib.STONE_WALL.getTexture());
         Router.route();
     }
