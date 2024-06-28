@@ -7,6 +7,7 @@ import by.garkaviy.game.test.TestEntity;
 import by.garkaviy.game.test.TestEnum;
 import by.garkaviy.game.test.TestLibrary;
 import by.garkaviy.game.texture.TextureLib;
+import by.garkaviy.game.ui.FontUtils;
 import by.garkaviy.game.ui.UILayout;
 import by.garkaviy.game.ui.elements.UIAnswer;
 import by.garkaviy.game.ui.elements.UIButton;
@@ -17,9 +18,12 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.ScreenUtils;
 
+import java.awt.*;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -43,6 +47,8 @@ public class TestScreen implements Screen {
     private UILayout menuLayout;
     private boolean isMenuLayout = true;
     private int counter = 0;
+    private int number;
+    private BitmapFont font = FontUtils.getFont(70, Color.WHITE);
 
     private final TestEnum testEnum;
 
@@ -70,21 +76,28 @@ public class TestScreen implements Screen {
         camera.update();
         batch.setProjectionMatrix(camera.combined);
 
+        batch.begin();
         Texture workspace = TextureLib.WORKSPACE.getTexture();
         switch (testEnum) {
             case FIRST_TESTS:
                 workspace = TextureLib.WORKSPACE.getTexture();
+                number = 1;
                 break;
             case SECOND_TESTS:
                 workspace = TextureLib.WORKSPACE_2.getTexture();
+                number = 2;
                 break;
             case THIRD_TESTS:
                 workspace = TextureLib.WORKSPACE_3.getTexture();
+                number = 3;
                 break;
             case FOURTH_TESTS:
                 workspace = TextureLib.WORKSPACE_4.getTexture();
+                number = 4;
                 break;
         }
+        batch.end();
+
         batch.begin();
         batch.draw(workspace, 0, 0, 1500, 1000);
         batch.end();
@@ -148,6 +161,9 @@ public class TestScreen implements Screen {
                 isButtonPressed = false;
             }
         }
+        batch.begin();
+        font.draw(batch, String.valueOf(number), 1300, 900, 100, Align.center, true);
+        batch.end();
 
         if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
             setMainMenu();

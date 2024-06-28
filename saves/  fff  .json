@@ -2,23 +2,28 @@
 saveName: "  fff  "
 password: "  123  "
 player: {
-	x: 362
-	y: 77
-	stateTime: 0.64952713
+	x: 148
+	y: 114
+	state: LEFT_WALKING
+	stateTime: 4.420911
 }
-whatTest: THIRD_TESTS
-score: 100
+whatTest: SECOND_TESTS
+score: 300
 roomTexture: WOOD_FLOOR2
-lastX: 362
-lastY: 77
+windowTexture: WINDOW_2
+bedTexture: BED_2
+lastX: 148
+lastY: 114
 tests: {
 	class: java.util.HashMap
 	Архитектура баз данных: true
 	Программирование: false
 	Основы баз данных: false
+	Протоколы и модели сетей: true
 	Технологии: false
 	Компьютерные сети: false
 	Инструменты и технологии баз: false
 	Продвинутые концепции баз: false
+	Структуры данных: true
 }
 }

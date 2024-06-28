@@ -124,7 +124,7 @@ public class UpgradeScreen implements Screen {
                 .borderColor(Color.WHITE)
                 .title("")
                 .texture(TextureLib.WINDOW_1)
-                .button(TextureLib.GRAY_SQUARE)
+                .button(GameContext.getInstance().getWindowTexture().equals(TextureLib.WINDOW_1) ? TextureLib.BLUE_SQUARE : windowTexture.equals(TextureLib.WINDOW_1) ? TextureLib.RED_SQUARE : TextureLib.GRAY_SQUARE)
                 .runnable(() -> {
                     if (GameContext.getInstance().getWindowTexture().equals(TextureLib.WINDOW_1)) {
                         if (!GameContext.getInstance().getWindowTexture().equals(windowTexture)) {
@@ -133,16 +133,20 @@ public class UpgradeScreen implements Screen {
                             isEnough = false;
                         }
                         windowTexture = TextureLib.WINDOW_1;
-                    } else if (GameContext.getInstance().getBalance() + balance < 100 ) {
-                        isEnough = true;
-                        isChosen = false;
                     } else {
                         if (!windowTexture.equals(TextureLib.WINDOW_1)) {
-                            balance -= 100;
+                            if (GameContext.getInstance().getWindowTexture().equals(windowTexture)) {
+                                if (GameContext.getInstance().getBalance() + balance < 100 ) {
+                                    isEnough = true;
+                                    isChosen = false;
+                                } else {
+                                    balance -= 100;
+                                    isChosen = true;
+                                    windowTexture = TextureLib.WINDOW_1;
+                                    isEnough = false;
+                                }
+                            }
                         }
-                        windowTexture = TextureLib.WINDOW_1;
-                        isChosen = true;
-                        isEnough = false;
                     }
                 })
                 .x(400)
@@ -152,7 +156,7 @@ public class UpgradeScreen implements Screen {
         layout.addElement(new UIButton()
                 .borderColor(Color.WHITE)
                 .title("")
-                .button(TextureLib.GRAY_SQUARE)
+                .button(GameContext.getInstance().getWindowTexture().equals(TextureLib.WINDOW_2) ? TextureLib.BLUE_SQUARE : windowTexture.equals(TextureLib.WINDOW_2) ? TextureLib.RED_SQUARE : TextureLib.GRAY_SQUARE)
                 .texture(TextureLib.WINDOW_2)
                 .runnable(() -> {
                     if (GameContext.getInstance().getWindowTexture().equals(TextureLib.WINDOW_2)) {
@@ -162,16 +166,20 @@ public class UpgradeScreen implements Screen {
                             isEnough = false;
                         }
                         windowTexture = TextureLib.WINDOW_2;
-                    } else if (GameContext.getInstance().getBalance() + balance < 100 ) {
-                        isEnough = true;
-                        isChosen = false;
                     } else {
                         if (!windowTexture.equals(TextureLib.WINDOW_2)) {
-                            balance -= 100;
+                            if (GameContext.getInstance().getWindowTexture().equals(windowTexture)) {
+                                if (GameContext.getInstance().getBalance() + balance < 100 ) {
+                                    isEnough = true;
+                                    isChosen = false;
+                                } else {
+                                    balance -= 100;
+                                    windowTexture = TextureLib.WINDOW_2;
+                                    isChosen = true;
+                                    isEnough = false;
+                                }
+                            }
                         }
-                        windowTexture = TextureLib.WINDOW_2;
-                        isChosen = true;
-                        isEnough = false;
                     }
                 })
                 .x(600)
@@ -192,7 +200,7 @@ public class UpgradeScreen implements Screen {
                 .borderColor(Color.WHITE)
                 .title("")
                 .texture(TextureLib.BED_1)
-                .button(TextureLib.GRAY_SQUARE)
+                .button(GameContext.getInstance().getBedTexture().equals(TextureLib.BED_1) ? TextureLib.BLUE_SQUARE : bedTexture.equals(TextureLib.BED_1) ? TextureLib.RED_SQUARE : TextureLib.GRAY_SQUARE)
                 .runnable(() -> {
                     if (GameContext.getInstance().getBedTexture().equals(TextureLib.BED_1)) {
                         if (!GameContext.getInstance().getBedTexture().equals(bedTexture)) {
@@ -201,16 +209,20 @@ public class UpgradeScreen implements Screen {
                             isEnough = false;
                         }
                         bedTexture = TextureLib.BED_1;
-                    } else if (GameContext.getInstance().getBalance() + balance < 100 ) {
-                        isEnough = true;
-                        isChosen = false;
                     } else {
                         if (!bedTexture.equals(TextureLib.BED_1)) {
-                            balance -= 100;
+                            if (GameContext.getInstance().getBedTexture().equals(bedTexture)) {
+                                if (GameContext.getInstance().getBalance() + balance < 100 ) {
+                                    isEnough = true;
+                                    isChosen = false;
+                                } else {
+                                    balance -= 100;
+                                    bedTexture = TextureLib.BED_1;
+                                    isChosen = true;
+                                    isEnough = false;
+                                }
+                            }
                         }
-                        bedTexture = TextureLib.BED_1;
-                        isChosen = true;
-                        isEnough = false;
                     }
                 })
                 .x(400)
@@ -220,7 +232,7 @@ public class UpgradeScreen implements Screen {
         layout.addElement(new UIButton()
                 .borderColor(Color.WHITE)
                 .title("")
-                .button(TextureLib.GRAY_SQUARE)
+                .button(GameContext.getInstance().getBedTexture().equals(TextureLib.BED_2) ? TextureLib.BLUE_SQUARE : bedTexture.equals(TextureLib.BED_2) ? TextureLib.RED_SQUARE : TextureLib.GRAY_SQUARE)
                 .texture(TextureLib.BED_2)
                 .runnable(() -> {
                     if (GameContext.getInstance().getBedTexture().equals(TextureLib.BED_2)) {
@@ -229,17 +241,21 @@ public class UpgradeScreen implements Screen {
                             isChosen = true;
                             isEnough = false;
                         }
-                        bedTexture = TextureLib.BED_1;
-                    } else if (GameContext.getInstance().getBalance() + balance < 100 ) {
-                        isEnough = true;
-                        isChosen = false;
+                        bedTexture = TextureLib.BED_2;
                     } else {
                         if (!bedTexture.equals(TextureLib.BED_2)) {
-                            balance -= 100;
+                            if (GameContext.getInstance().getBedTexture().equals(bedTexture)) {
+                                if (GameContext.getInstance().getBalance() + balance < 100 ) {
+                                    isEnough = true;
+                                    isChosen = false;
+                                } else {
+                                    balance -= 100;
+                                    bedTexture = TextureLib.BED_2;
+                                    isChosen = true;
+                                    isEnough = false;
+                                }
+                            }
                         }
-                        bedTexture = TextureLib.BED_2;
-                        isChosen = true;
-                        isEnough = false;
                     }
                 })
                 .x(600)
@@ -251,7 +267,7 @@ public class UpgradeScreen implements Screen {
                 .borderColor(Color.WHITE)
                 .title("")
                 .texture(TextureLib.WOOD_FLOOR)
-                .button(TextureLib.GRAY_SQUARE)
+                .button(GameContext.getInstance().getRoomTexture().equals(TextureLib.WOOD_FLOOR) ? TextureLib.BLUE_SQUARE : roomTexture.equals(TextureLib.WOOD_FLOOR) ? TextureLib.RED_SQUARE : TextureLib.GRAY_SQUARE)
                 .runnable(() -> {
                     if (GameContext.getInstance().getRoomTexture().equals(TextureLib.WOOD_FLOOR)) {
                         if (!GameContext.getInstance().getRoomTexture().equals(roomTexture)) {
@@ -260,16 +276,20 @@ public class UpgradeScreen implements Screen {
                             isEnough = false;
                         }
                         roomTexture = TextureLib.WOOD_FLOOR;
-                    } else if (GameContext.getInstance().getBalance() + balance < 100 ) {
-                        isEnough = true;
-                        isChosen = false;
                     } else {
                         if (!roomTexture.equals(TextureLib.WOOD_FLOOR)) {
-                            balance -= 100;
+                            if (GameContext.getInstance().getRoomTexture().equals(roomTexture)) {
+                                if (GameContext.getInstance().getBalance() + balance < 100 ) {
+                                    isEnough = true;
+                                    isChosen = false;
+                                } else {
+                                    balance -= 100;
+                                    roomTexture = TextureLib.WOOD_FLOOR;
+                                    isChosen = true;
+                                    isEnough = false;
+                                }
+                            }
                         }
-                        roomTexture = TextureLib.WOOD_FLOOR;
-                        isChosen = true;
-                        isEnough = false;
                     }
                 })
                 .x(400)
@@ -279,7 +299,7 @@ public class UpgradeScreen implements Screen {
         layout.addElement(new UIButton()
                 .borderColor(Color.WHITE)
                 .title("")
-                .button(TextureLib.GRAY_SQUARE)
+                .button(GameContext.getInstance().getRoomTexture().equals(TextureLib.WOOD_FLOOR2) ? TextureLib.BLUE_SQUARE : roomTexture.equals(TextureLib.WOOD_FLOOR2) ? TextureLib.RED_SQUARE : TextureLib.GRAY_SQUARE)
                 .texture(TextureLib.WOOD_FLOOR2)
                 .runnable(() -> {
                     if (GameContext.getInstance().getRoomTexture().equals(TextureLib.WOOD_FLOOR2)) {
@@ -289,16 +309,20 @@ public class UpgradeScreen implements Screen {
                             isEnough = false;
                         }
                         roomTexture = TextureLib.WOOD_FLOOR2;
-                    } else if (GameContext.getInstance().getBalance() + balance < 100 ) {
-                        isEnough = true;
-                        isChosen = false;
                     } else {
                         if (!roomTexture.equals(TextureLib.WOOD_FLOOR2)) {
-                            balance -= 100;
+                            if (GameContext.getInstance().getRoomTexture().equals(roomTexture)) {
+                                if (GameContext.getInstance().getBalance() + balance < 100 ) {
+                                    isEnough = true;
+                                    isChosen = false;
+                                } else {
+                                    balance -= 100;
+                                    roomTexture = TextureLib.WOOD_FLOOR2;
+                                    isChosen = true;
+                                    isEnough = false;
+                                }
+                            }
                         }
-                        roomTexture = TextureLib.WOOD_FLOOR2;
-                        isChosen = true;
-                        isEnough = false;
                     }
                 })
                 .x(600)
@@ -309,7 +333,7 @@ public class UpgradeScreen implements Screen {
                 .borderColor(Color.WHITE)
                 .title("")
                 .texture(TextureLib.WOOD_FLOOR3)
-                .button(TextureLib.GRAY_SQUARE)
+                .button(GameContext.getInstance().getRoomTexture().equals(TextureLib.WOOD_FLOOR3) ? TextureLib.BLUE_SQUARE : roomTexture.equals(TextureLib.WOOD_FLOOR3) ? TextureLib.RED_SQUARE : TextureLib.GRAY_SQUARE)
                 .runnable(() -> {
                     if (GameContext.getInstance().getRoomTexture().equals(TextureLib.WOOD_FLOOR3)) {
                         if (!GameContext.getInstance().getRoomTexture().equals(roomTexture)) {
@@ -318,16 +342,20 @@ public class UpgradeScreen implements Screen {
                             isEnough = false;
                         }
                         roomTexture = TextureLib.WOOD_FLOOR3;
-                    } else if (GameContext.getInstance().getBalance() + balance < 100 ) {
-                        isEnough = true;
-                        isChosen = false;
                     } else {
                         if (!roomTexture.equals(TextureLib.WOOD_FLOOR3)) {
-                            balance -= 100;
+                            if (GameContext.getInstance().getRoomTexture().equals(roomTexture)) {
+                                if (GameContext.getInstance().getBalance() + balance < 100 ) {
+                                    isEnough = true;
+                                    isChosen = false;
+                                } else {
+                                    balance -= 100;
+                                    roomTexture = TextureLib.WOOD_FLOOR3;
+                                    isChosen = true;
+                                    isEnough = false;
+                                }
+                            }
                         }
-                        roomTexture = TextureLib.WOOD_FLOOR3;
-                        isChosen = true;
-                        isEnough = false;
                     }
                 })
                 .x(800)
@@ -338,7 +366,7 @@ public class UpgradeScreen implements Screen {
                 .borderColor(Color.WHITE)
                 .title("")
                 .texture(TextureLib.WOOD_FLOOR4)
-                .button(TextureLib.GRAY_SQUARE)
+                .button(GameContext.getInstance().getRoomTexture().equals(TextureLib.WOOD_FLOOR4) ? TextureLib.BLUE_SQUARE : roomTexture.equals(TextureLib.WOOD_FLOOR4) ? TextureLib.RED_SQUARE : TextureLib.GRAY_SQUARE)
                 .runnable(() -> {
                     if (GameContext.getInstance().getRoomTexture().equals(TextureLib.WOOD_FLOOR4)) {
                         if (!GameContext.getInstance().getRoomTexture().equals(roomTexture)) {
@@ -347,16 +375,20 @@ public class UpgradeScreen implements Screen {
                             isEnough = false;
                         }
                         roomTexture = TextureLib.WOOD_FLOOR4;
-                    } else if (GameContext.getInstance().getBalance() + balance < 100 ) {
-                        isEnough = true;
-                        isChosen = false;
                     } else {
                         if (!roomTexture.equals(TextureLib.WOOD_FLOOR4)) {
-                            balance -= 100;
+                            if (GameContext.getInstance().getRoomTexture().equals(roomTexture)) {
+                                if (GameContext.getInstance().getBalance() + balance < 100 ) {
+                                    isEnough = true;
+                                    isChosen = false;
+                                } else {
+                                    roomTexture = TextureLib.WOOD_FLOOR4;
+                                    isChosen = true;
+                                    isEnough = false;
+                                    balance -= 100;
+                                }
+                            }
                         }
-                        roomTexture = TextureLib.WOOD_FLOOR4;
-                        isChosen = true;
-                        isEnough = false;
                     }
                 })
                 .x(1000)
@@ -365,22 +397,30 @@ public class UpgradeScreen implements Screen {
                 .height(100));
 
         if (isUsed) {
-            layout.addElement(new UIButton()
-                    .borderColor(Color.RED)
-                    .title("Улучшение уже используется")
-                    .runnable(() -> {})
-                    .x(650)
-                    .y(250)
-                    .width(800)
-                    .height(100));
+            isUsed = false;
         } else if (isEnough) {
             layout.addElement(new UIButton()
                     .borderColor(Color.RED)
                     .title("Недостаточно баллов")
                     .runnable(() -> {})
-                    .x(650)
-                    .y(100)
+                    .x(950)
+                    .y(140)
                     .width(500)
+                    .height(100));
+            layout.addElement(new UIButton()
+                    .borderColor(Color.RED)
+                    .title("Сброс")
+                    .runnable(() -> {
+                        isChosen = false;
+                        balance = 0;
+                        roomTexture = GameContext.getInstance().getRoomTexture();
+                        windowTexture = GameContext.getInstance().getWindowTexture();
+                        bedTexture = GameContext.getInstance().getBedTexture();
+                        isUsed = true;
+                    })
+                    .x(1050)
+                    .y(20)
+                    .width(400)
                     .height(100));
         } else if (isChosen && balance < 0) {
             layout.addElement(new UIButton()
@@ -394,9 +434,24 @@ public class UpgradeScreen implements Screen {
                         dispose();
                         game.setScreen(new GameScreen(game));
                     })
-                    .x(650)
-                    .y(100)
+                    .x(750)
+                    .y(140)
                     .width(700)
+                    .height(100));
+            layout.addElement(new UIButton()
+                    .borderColor(Color.RED)
+                    .title("Сброс")
+                    .runnable(() -> {
+                        isChosen = false;
+                        balance = 0;
+                        roomTexture = GameContext.getInstance().getRoomTexture();
+                        windowTexture = GameContext.getInstance().getWindowTexture();
+                        bedTexture = GameContext.getInstance().getBedTexture();
+                        isUsed = true;
+                    })
+                    .x(1050)
+                    .y(20)
+                    .width(400)
                     .height(100));
         }
 

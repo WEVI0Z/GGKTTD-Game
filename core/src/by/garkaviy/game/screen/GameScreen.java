@@ -6,6 +6,7 @@ import by.garkaviy.game.context.SaveAndLoader;
 import by.garkaviy.game.location.*;
 import by.garkaviy.game.player.Player;
 import by.garkaviy.game.texture.TextureLib;
+import by.garkaviy.game.ui.FontUtils;
 import by.garkaviy.game.ui.UILayout;
 import by.garkaviy.game.ui.elements.*;
 import com.badlogic.gdx.Application;
@@ -14,7 +15,9 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 public class GameScreen implements Screen {
@@ -27,6 +30,7 @@ public class GameScreen implements Screen {
     private final UIElement exitHint;
     private final UIElement bonusHint;
     private final UICameraButton statButton;
+    private final BitmapFont font = FontUtils.getFont(30, Color.WHITE);
 
     private int fpsCount = 15;
 
@@ -99,6 +103,15 @@ public class GameScreen implements Screen {
 
         PropsController.render(batch);
         GameContext.getInstance().getPlayer().render(batch, camera);
+
+        if (GameContext.getInstance().getRunnableLocation().equals(LocationLibrary.CLASSES)) {
+            batch.begin();
+            font.draw(batch, "1", 30, 40, 100, Align.center, true);
+            font.draw(batch, "2", 180, 40, 100, Align.center, true);
+            font.draw(batch, "3", 330, 40, 100, Align.center, true);
+            font.draw(batch, "4", 480, 40, 100, Align.center, true);
+            batch.end();
+        }
 
         if (GameContext.getInstance().isChangeToTest()) {
             GameContext.getInstance().setChangeToTest(false);

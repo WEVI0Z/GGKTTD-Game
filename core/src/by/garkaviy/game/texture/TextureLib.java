@@ -61,6 +61,8 @@ public enum TextureLib {
     CAR_3_REVERSED(new Texture(Gdx.files.internal("car-3-reversed.png"))),
     BLUE_BUTTON(new Texture(Gdx.files.internal("button_rectangle_depth_border.png"))),
     GRAY_SQUARE(new Texture(Gdx.files.internal("button_square_border.png"))),
+    BLUE_SQUARE(new Texture(Gdx.files.internal("blue-square.png"))),
+    RED_SQUARE(new Texture(Gdx.files.internal("red-square.png"))),
     RED_BUTTON(new Texture(Gdx.files.internal("red-button_rectangle_depth_border.png"))),
     GREY_FLAT_BUTTON(new Texture(Gdx.files.internal("button_rectangle_flat.png"))),
     MONITOR(new Texture(Gdx.files.internal("monitor.png"))),
