@@ -1,11 +1,13 @@
 package by.garkaviy.game.test;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class AnswerEntity {
-    private final String text;
-    private final boolean isRight;
+    private String text;
+    private boolean isRight;
 
     AnswerEntity(String text) {
         this.text = text;

@@ -5,6 +5,7 @@ import by.garkaviy.game.context.GameContext;
 import by.garkaviy.game.context.SaveAndLoader;
 import by.garkaviy.game.location.*;
 import by.garkaviy.game.player.Player;
+import by.garkaviy.game.test.TestLibrary;
 import by.garkaviy.game.texture.TextureLib;
 import by.garkaviy.game.ui.FontUtils;
 import by.garkaviy.game.ui.UILayout;

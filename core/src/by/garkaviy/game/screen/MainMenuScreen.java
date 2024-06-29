@@ -120,6 +120,7 @@ public class MainMenuScreen implements Screen {
         camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         header = FontUtils.getFont(50, Color.BLACK);
         layout = createLayout();
+//        TestLibrary.saveTests();
     }
 
     private void setGameScreen() {
@@ -307,6 +308,17 @@ public class MainMenuScreen implements Screen {
                         .runnable(() -> {
                             SaveAndLoader.save();
                             Gdx.app.exit();
+                        })
+                        .x((int) (Gdx.graphics.getWidth() * 0.73 - 150))
+                        .y(Gdx.graphics.getHeight() - 500 - counter++ * 100)
+                        .width(300)
+                        .height(50))
+                .addElement(new UIButton()
+                        .borderColor(Color.BLACK)
+                        .title("Редактировать тесты")
+                        .runnable(() -> {
+                            game.setScreen(new CreateScreen(game));
+                            dispose();
                         })
                         .x((int) (Gdx.graphics.getWidth() * 0.73 - 150))
                         .y(Gdx.graphics.getHeight() - 500 - counter * 100)

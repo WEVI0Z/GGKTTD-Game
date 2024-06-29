@@ -10,6 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TestEntity {
+    private String part = "undefined";
     private String title;
     private List<QuestionEntity> questions;
 }

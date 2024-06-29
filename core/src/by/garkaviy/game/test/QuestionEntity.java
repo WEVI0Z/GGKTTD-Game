@@ -1,11 +1,18 @@
 package by.garkaviy.game.test;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Data
+@AllArgsConstructor
 public class QuestionEntity {
-    private final String question;
-    private final List<AnswerEntity> answers;
+    private String question;
+    private List<AnswerEntity> answers;
+
+    public QuestionEntity() {
+        // default constructor
+    }
 }

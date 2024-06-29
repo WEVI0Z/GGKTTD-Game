@@ -29,6 +29,7 @@ import java.util.Random;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.stream.Collectors;
 
 public class TestScreen implements Screen {
     private final SpriteBatch batch;
@@ -49,6 +50,8 @@ public class TestScreen implements Screen {
     private int counter = 0;
     private int number;
     private BitmapFont font = FontUtils.getFont(70, Color.WHITE);
+    private int page = 0;
+    private boolean isReloadMenu = false;
 
     private final TestEnum testEnum;
 
@@ -104,7 +107,11 @@ public class TestScreen implements Screen {
 
         if (isMenuLayout) {
             menuLayout.render(batch);
-            menuLayout.clickAction();
+            if (fpsCounter <= 0) {
+                menuLayout.clickAction();
+            } else {
+                fpsCounter--;
+            }
         }
 
         AtomicBoolean refreshLayout = new AtomicBoolean(false);
@@ -164,6 +171,11 @@ public class TestScreen implements Screen {
         batch.begin();
         font.draw(batch, String.valueOf(number), 1300, 900, 100, Align.center, true);
         batch.end();
+
+        if (isReloadMenu) {
+            menuLayout = createMenu();
+            isReloadMenu = false;
+        }
 
         if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
             setMainMenu();
@@ -252,73 +264,69 @@ public class TestScreen implements Screen {
                 .width(600)
                 .height(80));
 
-        target.addAndGet(padding);
-        layout.addElement(new UIButton(24)
-                .borderColor(Color.BLACK)
-                .title(tests.get(0).getTitle())
-                .runnable(() -> {
-                    isButtonPressed = true;
-                    test = tests.get(0);
-                    this.layout = createLayout(test.getQuestions().get(0));
-                    isLayout = true;
-                    isMenuLayout = false;
-                    isFirst = false;
-                })
-                .x(530)
-                .y(680 - (80 * (increment.getAndIncrement())))
-                .width(500)
-                .height(60));
+        int pages = tests.size() % 4 == 0 ? tests.size() / 4 - 1 : tests.size() / 4;
+        int startIndex = (tests.size() - 1)  * page;
+        int endIndex = (tests.size() - 1) * page + 4;
+        AtomicInteger iterator = new AtomicInteger();
+        tests = tests.stream().filter(test -> {
+            boolean result = iterator.get() >= startIndex && iterator.get() < endIndex;
+            iterator.getAndIncrement();
+            return result;
+        }).collect(Collectors.toList());
+
+        if (page != 0) {
+            layout.addElement(new UIButton()
+                    .borderColor(Color.BLACK)
+                    .title("")
+                    .button(null)
+                    .texture(TextureLib.ARROW_LEFT)
+                    .runnable(() -> {
+                        page--;
+                        isReloadMenu = true;
+                        fpsCounter = 15;
+                    })
+                    .x(450)
+                    .y(Gdx.graphics.getHeight() / 2 - 50)
+                    .width(50)
+                    .height(50));
+        }
+
+        if (page != pages) {
+            layout.addElement(new UIButton()
+                    .borderColor(Color.BLACK)
+                    .title("")
+                    .button(null)
+                    .texture(TextureLib.ARROW_RIGHT)
+                    .runnable(() -> {
+                        page++;
+                        isReloadMenu = true;
+                    })
+                    .x(Gdx.graphics.getWidth() - 450)
+                    .y(Gdx.graphics.getHeight() / 2 - 50)
+                    .width(50)
+                    .height(50));
+        }
 
         target.addAndGet(padding);
-        layout.addElement(new UIButton(24)
-                .borderColor(Color.BLACK)
-                .title(tests.get(1).getTitle())
-                .runnable(() -> {
-                    isButtonPressed = true;
-                    test = tests.get(1);
-                    this.layout = createLayout(test.getQuestions().get(0));
-                    isLayout = true;
-                    isMenuLayout = false;
-                    isFirst = false;
-                })
-                .x(530)
-                .y(680 - (80 * (increment.getAndIncrement())))
-                .width(500)
-                .height(60));
+        for (int i = 0; i < tests.size(); i++) {
+            String testTitle = tests.get(i).getTitle();
+            TestEntity testEntity = tests.get(i);
 
-        target.addAndGet(padding);
-        layout.addElement(new UIButton(24)
-                .borderColor(Color.BLACK)
-                .title(tests.get(2).getTitle())
-                .runnable(() -> {
-                    isButtonPressed = true;
-                    test = tests.get(2);
-                    this.layout = createLayout(test.getQuestions().get(0));
-                    isLayout = true;
-                    isMenuLayout = false;
-                    isFirst = false;
-                })
-                .x(530)
-                .y(680 - (80 * (increment.getAndIncrement())))
-                .width(500)
-                .height(60));
-
-        target.addAndGet(padding);
-        layout.addElement(new UIButton(24)
-                .borderColor(Color.BLACK)
-                .title(tests.get(3).getTitle())
-                .runnable(() -> {
-                    isButtonPressed = true;
-                    test = tests.get(3);
-                    this.layout = createLayout(test.getQuestions().get(0));
-                    isLayout = true;
-                    isMenuLayout = false;
-                    isFirst = false;
-                })
-                .x(530)
-                .y(680 - (80 * (increment.getAndIncrement())))
-                .width(500)
-                .height(60));
+            layout.addElement(new UIButton(24)
+                    .title(testTitle)
+                    .runnable(() -> {
+                        isButtonPressed = true;
+                        test = testEntity;
+                        this.layout = createLayout(test.getQuestions().get(0));
+                        isLayout = true;
+                        isMenuLayout = false;
+                        isFirst = false;
+                    })
+                    .x(530)
+                    .y(680 - (80 * (increment.getAndIncrement())))
+                    .width(500)
+                    .height(60));
+        }
 
         return layout;
     }

@@ -5,7 +5,6 @@ import by.garkaviy.game.player.Player;
 import by.garkaviy.game.test.TestEnum;
 import by.garkaviy.game.test.TestLibrary;
 import by.garkaviy.game.texture.TextureLib;
-import com.badlogic.gdx.graphics.Texture;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -36,13 +35,14 @@ public class GameContext {
     private boolean exitHint = false;
     private boolean bonusHint = false;
     private boolean isStatScreen = false;
+    private boolean isCreate = false;
     private Map<String, Boolean> tests = getDefaultTests();
 
 
     private static Map<String, Boolean> getDefaultTests() {
         Map<String, Boolean> tests = new HashMap<>();
 
-        TestLibrary.getAllTtiles().forEach(title -> {
+        TestLibrary.getAllTitles().forEach(title -> {
             tests.put(title, false);
         });
 
