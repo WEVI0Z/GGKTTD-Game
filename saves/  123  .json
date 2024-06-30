@@ -3,15 +3,13 @@ saveName: "  123  "
 password: ""
 player: {
 	x: 103
-	y: 50
-	stateTime: 2.1851485
+	y: 78
+	stateTime: 0.9811672
 }
 balance: 100
 score: 100
 lastX: 103
-lastY: 50
-exitHint: true
-bonusHint: true
+lastY: 78
 tests: {
 	class: java.util.HashMap
 	Архитектура баз данных: false

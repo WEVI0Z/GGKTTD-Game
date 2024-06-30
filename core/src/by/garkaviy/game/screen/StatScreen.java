@@ -2,6 +2,7 @@ package by.garkaviy.game.screen;
 
 import by.garkaviy.game.GGKTTDGame;
 import by.garkaviy.game.context.GameContext;
+import by.garkaviy.game.texture.TextureLib;
 import by.garkaviy.game.ui.UILayout;
 import by.garkaviy.game.ui.elements.UIButton;
 import com.badlogic.gdx.Application;
@@ -90,14 +91,14 @@ public class StatScreen implements Screen {
             ui.addElement(new UIButton(24)
                     .title(title + " - " + (value ? "пройден" : "не пройден"))
                     .borderColor(Color.BLACK)
-                    .button(null)
+                    .button(value ? TextureLib.GREEN_SHIT : TextureLib.GRAY_SHIT)
                     .align(Align.left)
                     .runnable(() -> {
                     })
                     .fontColor(value ? Color.GREEN : Color.RED)
                     .width(700)
                     .height(50)
-                    .x(50 + j.get() * 700)
+                    .x(40 + j.get() * 710)
                     .y(530 - i.getAndIncrement() * 60));
             if (530 - (i.get() * 60) < 0) {
                 i.set(0);

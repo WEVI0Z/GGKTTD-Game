@@ -315,7 +315,7 @@ public class MainMenuScreen implements Screen {
                         .height(50))
                 .addElement(new UIButton()
                         .borderColor(Color.BLACK)
-                        .title("Редактировать тесты")
+                        .title("Управление тестами")
                         .runnable(() -> {
                             game.setScreen(new CreateScreen(game));
                             dispose();

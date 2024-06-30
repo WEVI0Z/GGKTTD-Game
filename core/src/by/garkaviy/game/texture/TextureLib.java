@@ -67,6 +67,8 @@ public enum TextureLib {
     RED_SQUARE(new Texture(Gdx.files.internal("red-square.png"))),
     RED_BUTTON(new Texture(Gdx.files.internal("red-button_rectangle_depth_border.png"))),
     GREY_FLAT_BUTTON(new Texture(Gdx.files.internal("button_rectangle_flat.png"))),
+    GREEN_SHIT(new Texture(Gdx.files.internal("green-shit.png"))),
+    GRAY_SHIT(new Texture(Gdx.files.internal("gray-shit.png"))),
     MONITOR(new Texture(Gdx.files.internal("monitor.png"))),
     BOOK(new Texture(Gdx.files.internal("book.png"))),
     COLLEGE_IMAGE(new Texture(Gdx.files.internal("college-image.png"))),
