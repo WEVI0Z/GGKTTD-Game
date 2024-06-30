@@ -55,7 +55,10 @@ public class TestLibrary {
             try {
                 return mapper.readValue(file.reader(StandardCharsets.UTF_8.toString()), TestEntity.class);
             } catch (Exception e) {
-                throw new RuntimeException(e);
+                Gdx.app.log("Parsing Exception", e.getMessage());
+                TestEntity test = new TestEntity();
+                test.setPart("undefined");
+                return test;
             }
         }).filter(test -> test.getPart().equals(part)).collect(Collectors.toList());
     }

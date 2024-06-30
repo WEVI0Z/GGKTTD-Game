@@ -320,9 +320,9 @@ public class MainMenuScreen implements Screen {
                             game.setScreen(new CreateScreen(game));
                             dispose();
                         })
-                        .x((int) (Gdx.graphics.getWidth() * 0.73 - 150))
-                        .y(Gdx.graphics.getHeight() - 500 - counter * 100)
-                        .width(300)
+                        .x((int) (Gdx.graphics.getWidth() * 0.73 - 250))
+                        .y(Gdx.graphics.getHeight() - 930)
+                        .width(500)
                         .height(50));
 
         return layout;

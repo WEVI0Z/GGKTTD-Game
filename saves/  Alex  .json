@@ -1,0 +1,34 @@
+{
+saveName: "  Alex  "
+password: "  123  "
+player: {
+	x: 150
+	y: 105
+	stateTime: 0.8628279
+}
+runnableLocation: DORM_ROOM
+score: 200
+roomTexture: WOOD_FLOOR3
+windowTexture: WINDOW_2
+lastX: 150
+lastY: 105
+tests: {
+	class: java.util.HashMap
+	Архитектура баз данных: false
+	Основы компьютерных сетей: false
+	Основы программирования: false
+	Протоколы и модели сетей: false
+	Структуры данных: false
+	Современные технологии: false
+	Основы информационных технологий: false
+	Языки программирования: false
+	Сетевые технологии: false
+	Алгоритмы: true
+	Основы баз данных: false
+	Программные технологии: false
+	Технологии беспроводных сетей: false
+	Сетевые устройства и топологии: false
+	Инструменты и технологии баз: false
+	Продвинутые концепции баз: false
+}
+}

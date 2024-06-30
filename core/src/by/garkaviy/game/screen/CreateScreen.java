@@ -277,7 +277,7 @@ public class CreateScreen implements Screen {
     }
 
     private UILayout createQuestionLayout() {
-        title = "Создайте вопрос (" + (++questionCounter - 1) + ")";
+        title = "Создайте вопрос (" + (++questionCounter) + ")";
         isReloadTitle = true;
 
         UILayout ui = new UILayout();
