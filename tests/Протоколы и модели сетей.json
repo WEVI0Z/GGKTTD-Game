@@ -1,1 +1,216 @@
-{"part":"Компьютерные сети","title":"Протоколы и модели сетей","questions":[{"question":"Как называется операция удаления данных из таблицы?","answers":[{"text":"Delete","right":true},{"text":"Select","right":false},{"text":"Insert","right":false},{"text":"Update","right":false}]},{"question":"Как называется комбинация двух таблиц на основе общего столбца?","answers":[{"text":"Merge","right":false},{"text":"Join","right":true},{"text":"Split","right":false},{"text":"Divide","right":false}]},{"question":"Какой тип связи существует между двумя таблицами, когда одна строка одной таблицы соответствует многим строкам другой таблицы?","answers":[{"text":"МногиекОдному","right":false},{"text":"ОдинкоОдному","right":false},{"text":"ОдинкоМногим","right":true},{"text":"МногиекМногим","right":false}]},{"question":"Как называется процесс восстановления данных после сбоя?","answers":[{"text":"Архивирование","right":false},{"text":"Репликация","right":false},{"text":"Шардинг","right":false},{"text":"Восстановление","right":true}]}]}
+{
+  "part": "Компьютерные сети",
+  "title": "Протоколы и модели сетей",
+  "questions": [
+    {
+      "question": "Как называется протокол для безопасной передачи данных в интернете?",
+      "answers": [
+        {
+          "text": "HTTPS",
+          "right": true
+        },
+        {
+          "text": "HTTP",
+          "right": false
+        },
+        {
+          "text": "FTP",
+          "right": false
+        },
+        {
+          "text": "SSH",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется стандарт беспроводной сети?",
+      "answers": [
+        {
+          "text": "802.11",
+          "right": true
+        },
+        {
+          "text": "802.3",
+          "right": false
+        },
+        {
+          "text": "802.5",
+          "right": false
+        },
+        {
+          "text": "802.15",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется протокол, обеспечивающий динамическое распределение IP-адресов?",
+      "answers": [
+        {
+          "text": "DHCP",
+          "right": true
+        },
+        {
+          "text": "DNS",
+          "right": false
+        },
+        {
+          "text": "ARP",
+          "right": false
+        },
+        {
+          "text": "ICMP",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется протокол, используемый для передачи файлов по сети?",
+      "answers": [
+        {
+          "text": "FTP",
+          "right": true
+        },
+        {
+          "text": "HTTP",
+          "right": false
+        },
+        {
+          "text": "SMTP",
+          "right": false
+        },
+        {
+          "text": "IMAP",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется протокол, предназначенный для мониторинга и управления сетевыми устройствами?",
+      "answers": [
+        {
+          "text": "SNMP",
+          "right": true
+        },
+        {
+          "text": "SMTP",
+          "right": false
+        },
+        {
+          "text": "HTTP",
+          "right": false
+        },
+        {
+          "text": "FTP",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется протокол, используемый для разрешения доменных имен в IP-адреса?",
+      "answers": [
+        {
+          "text": "DNS",
+          "right": true
+        },
+        {
+          "text": "DHCP",
+          "right": false
+        },
+        {
+          "text": "FTP",
+          "right": false
+        },
+        {
+          "text": "SNMP",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется протокол, используемый для синхронизации времени на сетевых устройствах?",
+      "answers": [
+        {
+          "text": "NTP",
+          "right": true
+        },
+        {
+          "text": "SMTP",
+          "right": false
+        },
+        {
+          "text": "HTTP",
+          "right": false
+        },
+        {
+          "text": "FTP",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется протокол, используемый для управления маршрутизаторами и их таблицами маршрутизации?",
+      "answers": [
+        {
+          "text": "BGP",
+          "right": true
+        },
+        {
+          "text": "OSPF",
+          "right": false
+        },
+        {
+          "text": "RIP",
+          "right": false
+        },
+        {
+          "text": "EIGRP",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется протокол, используемый для управления и мониторинга сетевых устройств в режиме реального времени?",
+      "answers": [
+        {
+          "text": "ICMP",
+          "right": true
+        },
+        {
+          "text": "SNMP",
+          "right": false
+        },
+        {
+          "text": "HTTP",
+          "right": false
+        },
+        {
+          "text": "DHCP",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется протокол, используемый для передачи гипертекстовых документов в интернете?",
+      "answers": [
+        {
+          "text": "HTTP",
+          "right": true
+        },
+        {
+          "text": "FTP",
+          "right": false
+        },
+        {
+          "text": "SMTP",
+          "right": false
+        },
+        {
+          "text": "SNMP",
+          "right": false
+        }
+      ]
+    }
+  ]
+}

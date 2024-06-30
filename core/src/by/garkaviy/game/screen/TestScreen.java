@@ -2,10 +2,7 @@ package by.garkaviy.game.screen;
 
 import by.garkaviy.game.GGKTTDGame;
 import by.garkaviy.game.context.GameContext;
-import by.garkaviy.game.test.QuestionEntity;
-import by.garkaviy.game.test.TestEntity;
-import by.garkaviy.game.test.TestEnum;
-import by.garkaviy.game.test.TestLibrary;
+import by.garkaviy.game.test.*;
 import by.garkaviy.game.texture.TextureLib;
 import by.garkaviy.game.ui.FontUtils;
 import by.garkaviy.game.ui.UILayout;
@@ -24,6 +21,7 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 import java.awt.*;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -199,7 +197,7 @@ public class TestScreen implements Screen {
                 .width(600)
                 .height(300));
 
-        questionEntity.getAnswers().forEach(answer -> {
+        questionEntity.getAnswers().stream().sorted(Comparator.comparing(AnswerEntity::getText)).forEach(answer -> {
             target.addAndGet(padding);
             layout[0].addElement(new UIAnswer()
                     .borderColor(Color.BLACK)

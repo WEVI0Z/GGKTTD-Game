@@ -1,1 +1,216 @@
-{"part":"Технологии","title":"Программные технологии","questions":[{"question":"Как называется центральная часть базы данных, где хранятся данные?","answers":[{"text":"Хранилище","right":true},{"text":"Сервер","right":false},{"text":"Кластер","right":false},{"text":"Таблица","right":false}]},{"question":"Как называется процесс разделения базы данных на части для повышения производительности?","answers":[{"text":"Репликация","right":false},{"text":"Шардинг ","right":true},{"text":"Кэширование","right":false},{"text":"Индексация","right":false}]},{"question":"Как называется временное хранилище данных для ускорения доступа?","answers":[{"text":"Лог","right":false},{"text":"Индекс","right":false},{"text":"Кэш","right":true},{"text":"Буфер","right":false}]},{"question":"Как называется модель данных, где данные хранятся в виде документов?","answers":[{"text":"Сетевая","right":false},{"text":"Реляционная","right":false},{"text":"Графовая","right":false},{"text":"Документная","right":true}]}]}
+{
+  "part": "Технологии",
+  "title": "Программные технологии",
+  "questions": [
+    {
+      "question": "Как называется основная программа, управляющая компьютером?",
+      "answers": [
+        {
+          "text": "Операционная",
+          "right": true
+        },
+        {
+          "text": "Антивирус",
+          "right": false
+        },
+        {
+          "text": "Браузер",
+          "right": false
+        },
+        {
+          "text": "Утилита",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Какой язык программирования используется для создания веб-сайтов?",
+      "answers": [
+        {
+          "text": "JavaScript",
+          "right": true
+        },
+        {
+          "text": "C++",
+          "right": false
+        },
+        {
+          "text": "Python",
+          "right": false
+        },
+        {
+          "text": "Swift",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется процесс поиска и исправления ошибок в программе?",
+      "answers": [
+        {
+          "text": "Отладка",
+          "right": true
+        },
+        {
+          "text": "Сборка",
+          "right": false
+        },
+        {
+          "text": "Тестирование",
+          "right": false
+        },
+        {
+          "text": "Компиляция",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Какой язык используется для создания стилей на веб-странице?",
+      "answers": [
+        {
+          "text": "CSS",
+          "right": true
+        },
+        {
+          "text": "HTML",
+          "right": false
+        },
+        {
+          "text": "JavaScript",
+          "right": false
+        },
+        {
+          "text": "PHP",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется система контроля версий для отслеживания изменений в коде?",
+      "answers": [
+        {
+          "text": "Git",
+          "right": true
+        },
+        {
+          "text": "SVN",
+          "right": false
+        },
+        {
+          "text": "Mercurial",
+          "right": false
+        },
+        {
+          "text": "CVS",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Какой язык программирования используется для создания серверных приложений?",
+      "answers": [
+        {
+          "text": "Node.js",
+          "right": true
+        },
+        {
+          "text": "HTML",
+          "right": false
+        },
+        {
+          "text": "CSS",
+          "right": false
+        },
+        {
+          "text": "Bootstrap",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется процесс автоматического выполнения тестов для программного обеспечения?",
+      "answers": [
+        {
+          "text": "Тестирование",
+          "right": true
+        },
+        {
+          "text": "Компиляция",
+          "right": false
+        },
+        {
+          "text": "Отладка",
+          "right": false
+        },
+        {
+          "text": "Сборка",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется процесс преобразования исходного кода в машинный код?",
+      "answers": [
+        {
+          "text": "Компиляция",
+          "right": true
+        },
+        {
+          "text": "Интерпретация",
+          "right": false
+        },
+        {
+          "text": "Трансляция",
+          "right": false
+        },
+        {
+          "text": "Эмуляция",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется язык для написания сценариев автоматизации на Windows?",
+      "answers": [
+        {
+          "text": "PowerShell",
+          "right": true
+        },
+        {
+          "text": "Python",
+          "right": false
+        },
+        {
+          "text": "Bash",
+          "right": false
+        },
+        {
+          "text": "Perl",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется совокупность инструментов для разработки программного обеспечения?",
+      "answers": [
+        {
+          "text": "IDE",
+          "right": true
+        },
+        {
+          "text": "SDK",
+          "right": false
+        },
+        {
+          "text": "API",
+          "right": false
+        },
+        {
+          "text": "CLI",
+          "right": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+{
+  "part": "Компьютерные сети",
+  "title": "Беспроводные сети",
+  "questions": [
+    {
+      "question": "Как называется сеть, которая охватывает небольшую географическую область?",
+      "answers": [
+        {
+          "text": "LAN",
+          "right": true
+        },
+        {
+          "text": "WAN",
+          "right": false
+        },
+        {
+          "text": "MAN",
+          "right": false
+        },
+        {
+          "text": "PAN",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется сеть, охватывающая большую географическую область?",
+      "answers": [
+        {
+          "text": "WAN",
+          "right": true
+        },
+        {
+          "text": "LAN",
+          "right": false
+        },
+        {
+          "text": "MAN",
+          "right": false
+        },
+        {
+          "text": "PAN",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется сеть, охватывающая город или большой район?",
+      "answers": [
+        {
+          "text": "MAN",
+          "right": true
+        },
+        {
+          "text": "WAN",
+          "right": false
+        },
+        {
+          "text": "LAN",
+          "right": false
+        },
+        {
+          "text": "PAN",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется сеть, охватывающая персональную рабочую область?",
+      "answers": [
+        {
+          "text": "PAN",
+          "right": true
+        },
+        {
+          "text": "LAN",
+          "right": false
+        },
+        {
+          "text": "WAN",
+          "right": false
+        },
+        {
+          "text": "MAN",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется сеть, построенная на основе оптоволоконной технологии?",
+      "answers": [
+        {
+          "text": "FTTH",
+          "right": true
+        },
+        {
+          "text": "DSL",
+          "right": false
+        },
+        {
+          "text": "ADSL",
+          "right": false
+        },
+        {
+          "text": "VDSL",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется сеть, используемая для подключения офисных помещений на разных этажах здания?",
+      "answers": [
+        {
+          "text": "LAN",
+          "right": true
+        },
+        {
+          "text": "WAN",
+          "right": false
+        },
+        {
+          "text": "MAN",
+          "right": false
+        },
+        {
+          "text": "PAN",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется сеть, объединяющая устройства в домашней обстановке?",
+      "answers": [
+        {
+          "text": "HAN",
+          "right": true
+        },
+        {
+          "text": "LAN",
+          "right": false
+        },
+        {
+          "text": "WAN",
+          "right": false
+        },
+        {
+          "text": "PAN",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется сеть, объединяющая устройства в пределах одного кампуса?",
+      "answers": [
+        {
+          "text": "CAN",
+          "right": true
+        },
+        {
+          "text": "LAN",
+          "right": false
+        },
+        {
+          "text": "WAN",
+          "right": false
+        },
+        {
+          "text": "PAN",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется сеть, используемая для подключения мобильных устройств?",
+      "answers": [
+        {
+          "text": "WLAN",
+          "right": true
+        },
+        {
+          "text": "LAN",
+          "right": false
+        },
+        {
+          "text": "WAN",
+          "right": false
+        },
+        {
+          "text": "PAN",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется сеть, объединяющая несколько локальных сетей?",
+      "answers": [
+        {
+          "text": "WAN",
+          "right": true
+        },
+        {
+          "text": "LAN",
+          "right": false
+        },
+        {
+          "text": "MAN",
+          "right": false
+        },
+        {
+          "text": "PAN",
+          "right": false
+        }
+      ]
+    }
+  ]
+}

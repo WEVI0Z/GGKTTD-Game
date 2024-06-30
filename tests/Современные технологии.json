@@ -1,1 +1,216 @@
-{"part":"Технологии","title":"Современные технологии","questions":[{"question":"Как называется операция удаления данных из таблицы?","answers":[{"text":"Delete","right":true},{"text":"Select","right":false},{"text":"Insert","right":false},{"text":"Update","right":false}]},{"question":"Как называется комбинация двух таблиц на основе общего столбца?","answers":[{"text":"Merge","right":false},{"text":"Join","right":true},{"text":"Split","right":false},{"text":"Divide","right":false}]},{"question":"Какой тип связи существует между двумя таблицами, когда одна строка одной таблицы соответствует многим строкам другой таблицы?","answers":[{"text":"МногиекОдному","right":false},{"text":"ОдинкоОдному","right":false},{"text":"ОдинкоМногим","right":true},{"text":"МногиекМногим","right":false}]},{"question":"Как называется процесс восстановления данных после сбоя?","answers":[{"text":"Архивирование","right":false},{"text":"Репликация","right":false},{"text":"Шардинг","right":false},{"text":"Восстановление","right":true}]}]}
+{
+  "part": "Технологии",
+  "title": "Современные технологии",
+  "questions": [
+    {
+      "question": "Как называется технология беспроводной связи на короткие расстояния?",
+      "answers": [
+        {
+          "text": "Bluetooth",
+          "right": true
+        },
+        {
+          "text": "Wi-Fi",
+          "right": false
+        },
+        {
+          "text": "NFC",
+          "right": false
+        },
+        {
+          "text": "LTE",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Какой сервис используется для хранения файлов в интернете?",
+      "answers": [
+        {
+          "text": "Облако",
+          "right": true
+        },
+        {
+          "text": "Локальный",
+          "right": false
+        },
+        {
+          "text": "Сервер",
+          "right": false
+        },
+        {
+          "text": "Флешка",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Какой язык используется для написания мобильных приложений на Android?",
+      "answers": [
+        {
+          "text": "Kotlin",
+          "right": true
+        },
+        {
+          "text": "Swift",
+          "right": false
+        },
+        {
+          "text": "HTML",
+          "right": false
+        },
+        {
+          "text": "Python",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется цифровая валюта, основанная на блокчейне?",
+      "answers": [
+        {
+          "text": "Биткоин",
+          "right": true
+        },
+        {
+          "text": "Доллар",
+          "right": false
+        },
+        {
+          "text": "Евро",
+          "right": false
+        },
+        {
+          "text": "Йена",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется технология виртуальной реальности?",
+      "answers": [
+        {
+          "text": "VR",
+          "right": true
+        },
+        {
+          "text": "AR",
+          "right": false
+        },
+        {
+          "text": "AI",
+          "right": false
+        },
+        {
+          "text": "IoT",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется искусственный интеллект, способный обучаться?",
+      "answers": [
+        {
+          "text": "Машинное",
+          "right": true
+        },
+        {
+          "text": "Глубокое",
+          "right": false
+        },
+        {
+          "text": "Сильное",
+          "right": false
+        },
+        {
+          "text": "Слабое",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Какой стандарт беспроводной связи используется для интернета вещей?",
+      "answers": [
+        {
+          "text": "Zigbee",
+          "right": true
+        },
+        {
+          "text": "Bluetooth",
+          "right": false
+        },
+        {
+          "text": "Wi-Fi",
+          "right": false
+        },
+        {
+          "text": "NFC",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется технология дополненной реальности?",
+      "answers": [
+        {
+          "text": "AR",
+          "right": true
+        },
+        {
+          "text": "VR",
+          "right": false
+        },
+        {
+          "text": "AI",
+          "right": false
+        },
+        {
+          "text": "IoT",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Какой язык программирования чаще используется для анализа данных?",
+      "answers": [
+        {
+          "text": "Python",
+          "right": true
+        },
+        {
+          "text": "Java",
+          "right": false
+        },
+        {
+          "text": "PHP",
+          "right": false
+        },
+        {
+          "text": "Swift",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется технология, позволяющая проводить финансовые транзакции без участия банка?",
+      "answers": [
+        {
+          "text": "Блокчейн",
+          "right": true
+        },
+        {
+          "text": "Сервер",
+          "right": false
+        },
+        {
+          "text": "Облако",
+          "right": false
+        },
+        {
+          "text": "Сеть",
+          "right": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,1 +1,216 @@
-{"part":"Программирование","title":"Структуры данных","questions":[{"question":"Как называется центральная часть базы данных, где хранятся данные?","answers":[{"text":"Хранилище","right":true},{"text":"Сервер","right":false},{"text":"Кластер","right":false},{"text":"Таблица","right":false}]},{"question":"Как называется процесс разделения базы данных на части для повышения производительности?","answers":[{"text":"Репликация","right":false},{"text":"Шардинг ","right":true},{"text":"Кэширование","right":false},{"text":"Индексация","right":false}]},{"question":"Как называется временное хранилище данных для ускорения доступа?","answers":[{"text":"Лог","right":false},{"text":"Индекс","right":false},{"text":"Кэш","right":true},{"text":"Буфер","right":false}]},{"question":"Как называется модель данных, где данные хранятся в виде документов?","answers":[{"text":"Сетевая","right":false},{"text":"Реляционная","right":false},{"text":"Графовая","right":false},{"text":"Документная","right":true}]}]}
+{
+  "part": "Программирование",
+  "title": "Структуры данных",
+  "questions": [
+    {
+      "question": "Как называется структура данных, работающая по принципу LIFO?",
+      "answers": [
+        {
+          "text": "стек",
+          "right": true
+        },
+        {
+          "text": "очередь",
+          "right": false
+        },
+        {
+          "text": "массив",
+          "right": false
+        },
+        {
+          "text": "список",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется структура данных, работающая по принципу FIFO?",
+      "answers": [
+        {
+          "text": "очередь",
+          "right": true
+        },
+        {
+          "text": "стек",
+          "right": false
+        },
+        {
+          "text": "массив",
+          "right": false
+        },
+        {
+          "text": "список",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется линейная структура данных, где элементы связаны ссылками?",
+      "answers": [
+        {
+          "text": "список",
+          "right": true
+        },
+        {
+          "text": "массив",
+          "right": false
+        },
+        {
+          "text": "стек",
+          "right": false
+        },
+        {
+          "text": "очередь",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется древовидная структура данных с корнем и узлами?",
+      "answers": [
+        {
+          "text": "дерево",
+          "right": true
+        },
+        {
+          "text": "граф",
+          "right": false
+        },
+        {
+          "text": "массив",
+          "right": false
+        },
+        {
+          "text": "список",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется структура данных, организованная в виде таблицы с ячейками?",
+      "answers": [
+        {
+          "text": "массив",
+          "right": true
+        },
+        {
+          "text": "список",
+          "right": false
+        },
+        {
+          "text": "очередь",
+          "right": false
+        },
+        {
+          "text": "стек",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется алгоритм, который проходит по всем узлам дерева?",
+      "answers": [
+        {
+          "text": "обход",
+          "right": true
+        },
+        {
+          "text": "поиск",
+          "right": false
+        },
+        {
+          "text": "сортировка",
+          "right": false
+        },
+        {
+          "text": "вставка",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется структура данных, в которой узлы могут иметь произвольное количество связей?",
+      "answers": [
+        {
+          "text": "граф",
+          "right": true
+        },
+        {
+          "text": "дерево",
+          "right": false
+        },
+        {
+          "text": "массив",
+          "right": false
+        },
+        {
+          "text": "список",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется алгоритм, используемый для поиска наименьшего пути в графе?",
+      "answers": [
+        {
+          "text": "Дейкстра",
+          "right": true
+        },
+        {
+          "text": "Кнут",
+          "right": false
+        },
+        {
+          "text": "Хоар",
+          "right": false
+        },
+        {
+          "text": "Флойд",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется структура данных, представляющая собой динамическую таблицу?",
+      "answers": [
+        {
+          "text": "хештаблица",
+          "right": true
+        },
+        {
+          "text": "список",
+          "right": false
+        },
+        {
+          "text": "массив",
+          "right": false
+        },
+        {
+          "text": "стек",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется метод добавления элемента в очередь?",
+      "answers": [
+        {
+          "text": "enqueue",
+          "right": true
+        },
+        {
+          "text": "dequeue",
+          "right": false
+        },
+        {
+          "text": "push",
+          "right": false
+        },
+        {
+          "text": "pop",
+          "right": false
+        }
+      ]
+    }
+  ]
+}

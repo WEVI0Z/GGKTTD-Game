@@ -3,86 +3,212 @@
   "title": "Основы программирования",
   "questions": [
     {
-      "question": "Что означает аббревиатура SQL?",
+      "question": "Какой тип данных используется для хранения целых чисел?",
       "answers": [
         {
-          "text": "Структурированный",
+          "text": "int",
           "right": true
         },
         {
-          "text": "Статический",
+          "text": "float",
           "right": false
         },
         {
-          "text": "Системный",
+          "text": "char",
           "right": false
         },
         {
-          "text": "Секвенциальный",
+          "text": "bool",
           "right": false
         }
       ]
     },
     {
-      "question": "Как называется основная структура данных в реляционной базе данных?",
+      "question": "Какой символ используется для обозначения комментария в Python?",
       "answers": [
         {
-          "text": "Массив",
-          "right": false
-        },
-        {
-          "text": "Таблица",
+          "text": "#",
           "right": true
         },
         {
-          "text": "Дерево",
+          "text": "//",
           "right": false
         },
         {
-          "text": "Список",
+          "text": "/*",
+          "right": false
+        },
+        {
+          "text": "--",
           "right": false
         }
       ]
     },
     {
-      "question": "Как называется уникальный идентификатор строки в таблице?",
+      "question": "Какой оператор используется для сравнения значений?",
       "answers": [
         {
-          "text": "Колонка",
-          "right": false
-        },
-        {
-          "text": "Поле",
-          "right": false
-        },
-        {
-          "text": "Ключ",
+          "text": "==",
           "right": true
         },
         {
-          "text": "Запрос",
+          "text": "=",
+          "right": false
+        },
+        {
+          "text": "!=",
+          "right": false
+        },
+        {
+          "text": "<=",
           "right": false
         }
       ]
     },
     {
-      "question": "Как называется команда для извлечения данных из базы данных?",
+      "question": "Какой ключевое слово используется для определения функции в Python?",
       "answers": [
         {
-          "text": "Update",
-          "right": false
-        },
-        {
-          "text": "Delete",
-          "right": false
-        },
-        {
-          "text": "Insert",
-          "right": false
-        },
-        {
-          "text": "Select",
+          "text": "def",
           "right": true
+        },
+        {
+          "text": "function",
+          "right": false
+        },
+        {
+          "text": "fun",
+          "right": false
+        },
+        {
+          "text": "define",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется процесс поиска и исправления ошибок в программе?",
+      "answers": [
+        {
+          "text": "отладка",
+          "right": true
+        },
+        {
+          "text": "тестирование",
+          "right": false
+        },
+        {
+          "text": "компиляция",
+          "right": false
+        },
+        {
+          "text": "сборка",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Какой тип данных используется для хранения текста?",
+      "answers": [
+        {
+          "text": "string",
+          "right": true
+        },
+        {
+          "text": "int",
+          "right": false
+        },
+        {
+          "text": "float",
+          "right": false
+        },
+        {
+          "text": "bool",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется условная конструкция в программировании?",
+      "answers": [
+        {
+          "text": "if",
+          "right": true
+        },
+        {
+          "text": "loop",
+          "right": false
+        },
+        {
+          "text": "for",
+          "right": false
+        },
+        {
+          "text": "while",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Какой символ используется для указания модуля в Python?",
+      "answers": [
+        {
+          "text": "import",
+          "right": true
+        },
+        {
+          "text": "include",
+          "right": false
+        },
+        {
+          "text": "require",
+          "right": false
+        },
+        {
+          "text": "load",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Какой метод используется для добавления элемента в конец списка в Python?",
+      "answers": [
+        {
+          "text": "append",
+          "right": true
+        },
+        {
+          "text": "add",
+          "right": false
+        },
+        {
+          "text": "insert",
+          "right": false
+        },
+        {
+          "text": "push",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Какой оператор используется для деления с остатком?",
+      "answers": [
+        {
+          "text": "%",
+          "right": true
+        },
+        {
+          "text": "/",
+          "right": false
+        },
+        {
+          "text": "//",
+          "right": false
+        },
+        {
+          "text": "*",
+          "right": false
         }
       ]
     }

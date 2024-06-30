@@ -63,21 +63,29 @@ public enum LocationLibrary {
             .generateWalls(TextureLib.STONE_WALL.getTexture()))
             .placeAction(2, 0, new TileEntity(TileType.ACTION, TextureLib.COLLEGE_DOOR_BACK.getTexture()),
                     () -> {
+                        GameContext.getInstance().setLastX(GameContext.getInstance().getPlayer().x);
+                        GameContext.getInstance().setLastY(GameContext.getInstance().getPlayer().y);
                         GameContext.getInstance().setChangeToTest(true);
                         GameContext.getInstance().setWhatTest(TestEnum.FIRST_TESTS);
                     })
             .placeAction(5, 0, new TileEntity(TileType.ACTION, TextureLib.COLLEGE_DOOR_BACK.getTexture()),
                     () -> {
+                        GameContext.getInstance().setLastX(GameContext.getInstance().getPlayer().x);
+                        GameContext.getInstance().setLastY(GameContext.getInstance().getPlayer().y);
                         GameContext.getInstance().setChangeToTest(true);
                         GameContext.getInstance().setWhatTest(TestEnum.SECOND_TESTS);
                     })
             .placeAction(8, 0, new TileEntity(TileType.ACTION, TextureLib.COLLEGE_DOOR_BACK.getTexture()),
                     () -> {
+                        GameContext.getInstance().setLastX(GameContext.getInstance().getPlayer().x);
+                        GameContext.getInstance().setLastY(GameContext.getInstance().getPlayer().y);
                         GameContext.getInstance().setChangeToTest(true);
                         GameContext.getInstance().setWhatTest(TestEnum.THIRD_TESTS);
                     })
             .placeAction(11, 0, new TileEntity(TileType.ACTION, TextureLib.COLLEGE_DOOR_BACK.getTexture()),
                     () -> {
+                        GameContext.getInstance().setLastX(GameContext.getInstance().getPlayer().x);
+                        GameContext.getInstance().setLastY(GameContext.getInstance().getPlayer().y);
                         GameContext.getInstance().setChangeToTest(true);
                         GameContext.getInstance().setWhatTest(TestEnum.FOURTH_TESTS);
                     })),

@@ -1,1 +1,216 @@
-{"part":"Базы данных","title":"Алгоритмы","questions":[{"question":"Как называется популярная система управления базами данных с открытым исходным кодом?","answers":[{"text":"MySQL ","right":true},{"text":"Oracle","right":false},{"text":"SQLServer","right":false},{"text":"MongoDB","right":false}]},{"question":"Как называется язык запросов для управления и манипуляции данными?","answers":[{"text":"XML","right":false},{"text":"SQL","right":true},{"text":"HTML","right":false},{"text":"JSON","right":false}]},{"question":"Как называется инструмент для визуализации и анализа данных?","answers":[{"text":"MySQL","right":false},{"text":"Oracle","right":false},{"text":"Tableau","right":true},{"text":"PostgreSQL","right":false}]},{"question":"Как называется система управления базами данных, разработанная компанией Oracle??","answers":[{"text":"MySQL","right":false},{"text":"PostgreSQL","right":false},{"text":"SQLite","right":false},{"text":"Oracle ","right":true}]}]}
+{
+  "part": "Программирование",
+  "title": "Алгоритмы",
+  "questions": [
+    {
+      "question": "Как называется алгоритм, который делит массив на две части?",
+      "answers": [
+        {
+          "text": "быстрая",
+          "right": true
+        },
+        {
+          "text": "пузырьковая",
+          "right": false
+        },
+        {
+          "text": "вставками",
+          "right": false
+        },
+        {
+          "text": "выбором",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Какой алгоритм используется для поиска элемента в отсортированном массиве?",
+      "answers": [
+        {
+          "text": "бинарный",
+          "right": true
+        },
+        {
+          "text": "линейный",
+          "right": false
+        },
+        {
+          "text": "глубокий",
+          "right": false
+        },
+        {
+          "text": "широкий",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется алгоритм, использующий стэк для выполнения задач?",
+      "answers": [
+        {
+          "text": "рекурсия",
+          "right": true
+        },
+        {
+          "text": "итерация",
+          "right": false
+        },
+        {
+          "text": "сортировка",
+          "right": false
+        },
+        {
+          "text": "поиск",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Какой алгоритм используется для обхода всех узлов дерева?",
+      "answers": [
+        {
+          "text": "DFS",
+          "right": true
+        },
+        {
+          "text": "BFS",
+          "right": false
+        },
+        {
+          "text": "поиск",
+          "right": false
+        },
+        {
+          "text": "сортировка",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется алгоритм, который выбирает минимальный элемент для сортировки?",
+      "answers": [
+        {
+          "text": "выбор",
+          "right": true
+        },
+        {
+          "text": "пузырьковая",
+          "right": false
+        },
+        {
+          "text": "быстрая",
+          "right": false
+        },
+        {
+          "text": "вставками",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется метод поиска подстроки в строке?",
+      "answers": [
+        {
+          "text": "КМП",
+          "right": true
+        },
+        {
+          "text": "БМ",
+          "right": false
+        },
+        {
+          "text": "Хаффман",
+          "right": false
+        },
+        {
+          "text": "DFS",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Какой алгоритм используется для компрессии данных?",
+      "answers": [
+        {
+          "text": "Хаффман",
+          "right": true
+        },
+        {
+          "text": "Бурроуз",
+          "right": false
+        },
+        {
+          "text": "Кнут",
+          "right": false
+        },
+        {
+          "text": "Моррис",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется алгоритм, который использует метод 'разделяй и властвуй'?",
+      "answers": [
+        {
+          "text": "быстрая",
+          "right": true
+        },
+        {
+          "text": "пузырьковая",
+          "right": false
+        },
+        {
+          "text": "выбором",
+          "right": false
+        },
+        {
+          "text": "вставками",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Какой алгоритм находит кратчайший путь в графе?",
+      "answers": [
+        {
+          "text": "Дейкстра",
+          "right": true
+        },
+        {
+          "text": "Флойд",
+          "right": false
+        },
+        {
+          "text": "Кнут",
+          "right": false
+        },
+        {
+          "text": "Хоар",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется алгоритм, сортирующий элементы путем обмена соседними элементами?",
+      "answers": [
+        {
+          "text": "пузырьковая",
+          "right": true
+        },
+        {
+          "text": "выбор",
+          "right": false
+        },
+        {
+          "text": "быстрая",
+          "right": false
+        },
+        {
+          "text": "вставками",
+          "right": false
+        }
+      ]
+    }
+  ]
+}

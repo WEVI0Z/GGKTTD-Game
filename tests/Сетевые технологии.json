@@ -1,1 +1,216 @@
-{"part":"Технологии","title":"Сетевые технологии","questions":[{"question":"Как называется популярная система управления базами данных с открытым исходным кодом?","answers":[{"text":"MySQL ","right":true},{"text":"Oracle","right":false},{"text":"SQLServer","right":false},{"text":"MongoDB","right":false}]},{"question":"Как называется язык запросов для управления и манипуляции данными?","answers":[{"text":"XML","right":false},{"text":"SQL","right":true},{"text":"HTML","right":false},{"text":"JSON","right":false}]},{"question":"Как называется инструмент для визуализации и анализа данных?","answers":[{"text":"MySQL","right":false},{"text":"Oracle","right":false},{"text":"Tableau","right":true},{"text":"PostgreSQL","right":false}]},{"question":"Как называется система управления базами данных, разработанная компанией Oracle??","answers":[{"text":"MySQL","right":false},{"text":"PostgreSQL","right":false},{"text":"SQLite","right":false},{"text":"Oracle ","right":true}]}]}
+{
+  "part": "Технологии",
+  "title": "Сетевые технологии",
+  "questions": [
+    {
+      "question": "Как называется уникальный адрес устройства в сети?",
+      "answers": [
+        {
+          "text": "DNS",
+          "right": false
+        },
+        {
+          "text": "MAC",
+          "right": false
+        },
+        {
+          "text": "IP",
+          "right": true
+        },
+        {
+          "text": "URL",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется устройство, соединяющее разные сети?",
+      "answers": [
+        {
+          "text": "Коммутатор",
+          "right": false
+        },
+        {
+          "text": "Хаб",
+          "right": false
+        },
+        {
+          "text": "Роутер",
+          "right": true
+        },
+        {
+          "text": "Модем",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Какой протокол используется для преобразования доменных имен в IP-адреса?",
+      "answers": [
+        {
+          "text": "DHCP",
+          "right": false
+        },
+        {
+          "text": "FTP",
+          "right": false
+        },
+        {
+          "text": "HTTP",
+          "right": false
+        },
+        {
+          "text": "DNS",
+          "right": true
+        }
+      ]
+    },
+    {
+      "question": "Как называется стандарт беспроводной связи?",
+      "answers": [
+        {
+          "text": "Ethernet",
+          "right": false
+        },
+        {
+          "text": "Wi-Fi",
+          "right": true
+        },
+        {
+          "text": "Bluetooth",
+          "right": false
+        },
+        {
+          "text": "Zigbee",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется протокол для безопасной передачи данных?",
+      "answers": [
+        {
+          "text": "HTTPS",
+          "right": true
+        },
+        {
+          "text": "FTP",
+          "right": false
+        },
+        {
+          "text": "HTTP",
+          "right": false
+        },
+        {
+          "text": "SMTP",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется архитектура, в которой каждый узел сети выполняет роль сервера и клиента?",
+      "answers": [
+        {
+          "text": "P2P",
+          "right": true
+        },
+        {
+          "text": "Клиент",
+          "right": false
+        },
+        {
+          "text": "Сервер",
+          "right": false
+        },
+        {
+          "text": "Локальная",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется протокол для передачи электронной почты?",
+      "answers": [
+        {
+          "text": "SMTP",
+          "right": true
+        },
+        {
+          "text": "FTP",
+          "right": false
+        },
+        {
+          "text": "HTTP",
+          "right": false
+        },
+        {
+          "text": "DNS",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется тип сетевого оборудования, используемого для фильтрации и управления сетевым трафиком?",
+      "answers": [
+        {
+          "text": "Коммутатор",
+          "right": true
+        },
+        {
+          "text": "Роутер",
+          "right": false
+        },
+        {
+          "text": "Хаб",
+          "right": false
+        },
+        {
+          "text": "Модем",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Какой тип адресации используется в IPv6?",
+      "answers": [
+        {
+          "text": "Шестнадцатеричная",
+          "right": true
+        },
+        {
+          "text": "Десятичная",
+          "right": false
+        },
+        {
+          "text": "Восьмеричная",
+          "right": false
+        },
+        {
+          "text": "Двоичная",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется устройство, которое позволяет подключать несколько компьютеров к одной сети?",
+      "answers": [
+        {
+          "text": "Коммутатор",
+          "right": true
+        },
+        {
+          "text": "Роутер",
+          "right": false
+        },
+        {
+          "text": "Хаб",
+          "right": false
+        },
+        {
+          "text": "Модем",
+          "right": false
+        }
+      ]
+    }
+  ]
+}

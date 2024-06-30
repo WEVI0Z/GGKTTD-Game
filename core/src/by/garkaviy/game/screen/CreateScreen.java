@@ -24,6 +24,7 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
@@ -243,6 +244,7 @@ public class CreateScreen implements Screen {
                 .borderColor(Color.BLACK)
                 .title(title)
                 .runnable(() -> {
+                    if (textField.getText().isEmpty()) return;
                     AnswerEntity answerEntity = new AnswerEntity();
                     answerEntity.setText(textField.getText().trim());
                     answerEntity.setRight(isRight);
@@ -292,6 +294,7 @@ public class CreateScreen implements Screen {
                 .borderColor(Color.BLACK)
                 .title(title)
                 .runnable(() -> {
+                    if (textField.getText().isEmpty()) return;
                     currentQuestion = new QuestionEntity();
                     currentQuestion.setQuestion(textField.getText().trim());
                     currentQuestion.setAnswers(new ArrayList<>());
@@ -323,6 +326,7 @@ public class CreateScreen implements Screen {
                 .borderColor(Color.BLACK)
                 .title(title)
                 .runnable(() -> {
+                    if (textField.getText().isEmpty()) return;
                     newTestEntity = new TestEntity();
                     newTestEntity.setPart(chosenPart.getTitle());
                     newTestEntity.setTitle(textField.getText().trim());
@@ -349,19 +353,14 @@ public class CreateScreen implements Screen {
         TextureRegion cursor = new TextureRegion(TextureLib.TEXT_MARKER.getTexture());
         textFieldStyle.cursor = new TextureRegionDrawable(cursor);
 
+
         textFieldStyle.background = new TextureRegionDrawable(new TextureRegion(TextureLib.GREY_FLAT_BUTTON.getTexture()));
-        textFieldStyle.focusedBackground = new TextureRegionDrawable(new TextureRegion(TextureLib.GREY_FLAT_BUTTON.getTexture()));
+        textFieldStyle.background.setLeftWidth(textFieldStyle.background.getLeftWidth() + 30);
 
         TextField textField = new TextField("", textFieldStyle);
 
         textField.setSize(1200, 100);
         textField.setPosition(Gdx.graphics.getWidth() / 2 - 600, Gdx.graphics.getHeight() - 600);
-        textField.setTextFieldListener((field, c) -> {
-            // Добавление внутренних отступов (например, добавление пробелов)
-            textField.setText("  " + textField.getText().strip() + "  ");
-            textField.setCursorPosition(textField.getText().length() - 2);
-        });
-// Добавление TextField на сцену (Stage)
 
         this.textField = textField;
         stage.addActor(textField);
@@ -376,7 +375,8 @@ public class CreateScreen implements Screen {
         ui.addElement(new UIButton(fontSize)
                 .borderColor(Color.BLACK)
                 .title(title)
-                .runnable(() -> {})
+                .runnable(() -> {
+                })
                 .x(x)
                 .y(850)
                 .width(width)
@@ -425,7 +425,7 @@ public class CreateScreen implements Screen {
         int width = UiUtils.calcWidth(fontSize, UiUtils.getBiggestString(tests.stream().map(TestEntity::getTitle).collect(Collectors.toList())));
         int x = UiUtils.calcCenter(width);
         int pages = tests.size() % 4 == 0 ? tests.size() / 4 - 1 : tests.size() / 4;
-        int startIndex = (tests.size() - 1)  * page;
+        int startIndex = (tests.size() - 1) * page;
         int endIndex = (tests.size() - 1) * page + 4;
         AtomicInteger iterator = new AtomicInteger();
         tests = tests.stream().filter(test -> {
@@ -498,6 +498,25 @@ public class CreateScreen implements Screen {
                 .x(200)
                 .y(50)
                 .width(width)
+                .height(100));
+
+        ui.addElement(new UIButton(fontSize)
+                .borderColor(Color.BLACK)
+                .title("Редактировать")
+                .runnable(() -> {
+                    if (Objects.nonNull(chosenTest) && !chosenTest.equals("undefined")) {
+                        dispose();
+                        game.setScreen(new EditScreen(game, TestLibrary.load(chosenPart.getTitle())
+                                .stream()
+                                .filter(test -> test.getTitle().equals(chosenTest))
+                                .collect(Collectors.toList())
+                                .get(0)));
+
+                    }
+                })
+                .x(Gdx.graphics.getWidth() - width - 660)
+                .y(50)
+                .width(width + 120)
                 .height(100));
 
         ui.addElement(new UIButton(fontSize)

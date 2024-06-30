@@ -1,1 +1,216 @@
-{"part":"Компьютерные сети","title":"Основы компьютерных сетей","questions":[{"question":"Что означает аббревиатура SQL?","answers":[{"text":"Структурированный","right":true},{"text":"Статический","right":false},{"text":"Системный","right":false},{"text":"Секвенциальный","right":false}]},{"question":"Как называется основная структура данных в реляционной базе данных?","answers":[{"text":"Массив","right":false},{"text":"Таблица","right":true},{"text":"Дерево","right":false},{"text":"Список","right":false}]},{"question":"Как называется уникальный идентификатор строки в таблице?","answers":[{"text":"Колонка","right":false},{"text":"Поле","right":false},{"text":"Ключ","right":true},{"text":"Запрос","right":false}]},{"question":"Как называется команда для извлечения данных из базы данных?","answers":[{"text":"Update","right":false},{"text":"Delete","right":false},{"text":"Insert","right":false},{"text":"Select","right":true}]}]}
+{
+  "part": "Компьютерные сети",
+  "title": "Основы компьютерных сетей",
+  "questions": [
+    {
+      "question": "Как называется уникальный идентификатор устройства в сети?",
+      "answers": [
+        {
+          "text": "MAC",
+          "right": true
+        },
+        {
+          "text": "IP",
+          "right": false
+        },
+        {
+          "text": "DNS",
+          "right": false
+        },
+        {
+          "text": "URL",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется протокол, используемый для передачи данных в интернете?",
+      "answers": [
+        {
+          "text": "TCP",
+          "right": true
+        },
+        {
+          "text": "FTP",
+          "right": false
+        },
+        {
+          "text": "SMTP",
+          "right": false
+        },
+        {
+          "text": "POP3",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется устройство, которое направляет пакеты данных между сетями?",
+      "answers": [
+        {
+          "text": "Маршрутизатор",
+          "right": true
+        },
+        {
+          "text": "Коммутатор",
+          "right": false
+        },
+        {
+          "text": "Модем",
+          "right": false
+        },
+        {
+          "text": "Концентратор",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется процесс преобразования доменных имен в IP-адреса?",
+      "answers": [
+        {
+          "text": "Резолвинг",
+          "right": true
+        },
+        {
+          "text": "Роутинг",
+          "right": false
+        },
+        {
+          "text": "Туннелинг",
+          "right": false
+        },
+        {
+          "text": "Форвардинг",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется сетевой протокол, используемый для удаленного управления устройствами?",
+      "answers": [
+        {
+          "text": "SSH",
+          "right": true
+        },
+        {
+          "text": "HTTP",
+          "right": false
+        },
+        {
+          "text": "SMTP",
+          "right": false
+        },
+        {
+          "text": "DNS",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется адрес, используемый для уникальной идентификации хоста в сети?",
+      "answers": [
+        {
+          "text": "IP",
+          "right": true
+        },
+        {
+          "text": "MAC",
+          "right": false
+        },
+        {
+          "text": "URL",
+          "right": false
+        },
+        {
+          "text": "DNS",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется протокол, обеспечивающий передачу электронных писем?",
+      "answers": [
+        {
+          "text": "SMTP",
+          "right": true
+        },
+        {
+          "text": "FTP",
+          "right": false
+        },
+        {
+          "text": "HTTP",
+          "right": false
+        },
+        {
+          "text": "IMAP",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется процесс объединения нескольких сетей в одну?",
+      "answers": [
+        {
+          "text": "Сегментация",
+          "right": false
+        },
+        {
+          "text": "Агрегация",
+          "right": true
+        },
+        {
+          "text": "Резолвинг",
+          "right": false
+        },
+        {
+          "text": "Форвардинг",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется метод передачи данных, при котором используется установление соединения?",
+      "answers": [
+        {
+          "text": "TCP",
+          "right": true
+        },
+        {
+          "text": "UDP",
+          "right": false
+        },
+        {
+          "text": "ICMP",
+          "right": false
+        },
+        {
+          "text": "ARP",
+          "right": false
+        }
+      ]
+    },
+    {
+      "question": "Как называется технология беспроводной связи на короткие расстояния?",
+      "answers": [
+        {
+          "text": "Bluetooth",
+          "right": true
+        },
+        {
+          "text": "Wi-Fi",
+          "right": false
+        },
+        {
+          "text": "NFC",
+          "right": false
+        },
+        {
+          "text": "Zigbee",
+          "right": false
+        }
+      ]
+    }
+  ]
+}

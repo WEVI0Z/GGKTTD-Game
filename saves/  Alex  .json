@@ -2,16 +2,15 @@
 saveName: "  Alex  "
 password: "  123  "
 player: {
-	x: 150
-	y: 105
-	stateTime: 0.8628279
+	x: 312
+	y: 100
+	stateTime: 0.3490169
 }
-runnableLocation: DORM_ROOM
+runnableLocation: DORM_UPSTAIRS
 score: 200
 roomTexture: WOOD_FLOOR3
 windowTexture: WINDOW_2
-lastX: 150
-lastY: 105
+lastX: 312
 tests: {
 	class: java.util.HashMap
 	Архитектура баз данных: false

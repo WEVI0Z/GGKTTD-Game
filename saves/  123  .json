@@ -1,0 +1,34 @@
+{
+saveName: "  123  "
+password: ""
+player: {
+	x: 103
+	y: 50
+	stateTime: 2.1851485
+}
+balance: 100
+score: 100
+lastX: 103
+lastY: 50
+exitHint: true
+bonusHint: true
+tests: {
+	class: java.util.HashMap
+	Архитектура баз данных: false
+	Основы компьютерных сетей: false
+	Основы программирования: false
+	Протоколы и модели сетей: false
+	Основы технологий: false
+	Структуры данных: false
+	ООП: false
+	Современные технологии: false
+	Сетевые устройства: false
+	Сетевые технологии: false
+	Основы баз данных: false
+	Алгоритмы: false
+	Беспроводные сети: false
+	Программные технологии: false
+	Инструменты и технологии баз: true
+	Продвинутые концепции баз: false
+}
+}
